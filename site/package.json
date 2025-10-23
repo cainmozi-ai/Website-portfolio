@@ -1,0 +1,9 @@
+{
+  "name": "cain-portfolio-site",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "start": "npx http-server -c-1 -p 8080"
+  },
+  "devDependencies": {}
+}
