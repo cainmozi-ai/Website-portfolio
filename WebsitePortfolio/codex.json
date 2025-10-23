@@ -1,0 +1,41 @@
+{
+  "name": "The Codex Ingenium",
+  "version": "2.0",
+  "date": "2025-10",
+  "identity": {
+    "name": "Cain Moriarty",
+    "profession": "3D Artist & Designer",
+    "motto": "Ex Labore Venustas"
+  },
+  "aesthetic": {
+    "style": ["Gothic","Ethereal","Ceremonial","Clean","Pristine"],
+    "palette": {
+      "black": "#000000",
+      "white": "#FFFFFF",
+      "blood_red_dark": "#8B0000",
+      "blood_red_light": "#DC143C",
+      "accent_cool_silver": "#BFCFE6",
+      "accent_moonlight_blue": "#9FBEDD"
+    },
+    "no_tones": ["warm_gold","bronze","soft_pastels"],
+    "typography": {
+      "title": "Gotham Black",
+      "body": "Helvetica Neue"
+    }
+  },
+  "design_principles": {
+    "layout": "full-screen immersive, grid-based",
+    "motion": "parallax depth, soft transitions",
+    "visual_hierarchy": "clarity, restraint, symmetry"
+  },
+  "communication": {
+    "style": "clarity, precision, calm authority",
+    "activation_prompt": "Use The Codex Ingenium. Respond, write, and design in my tone, mindset, and aesthetic — combining technical ambition, mythic minimalism, and disciplined craftsmanship. Always respond with forward-thinking clarity, empathy, and respect for tradition. Be innovative, direct, and honest — tell it like it is without losing professionalism."
+  },
+  "decisions": {
+    "allow": ["white_backgrounds","stark_black_text","blood_red_accents","minimal_layouts","cinematic_flow","cool_silver_tones","ethereal_lighting"],
+    "disallow": ["warm_golds","gritty_textures","clutter","playful_fonts","flashy_design"]
+  },
+  "project_categories": ["Celestial Forms","Gravitational Phenomena","Planetary Studies","Commercial Work","Atmospheric Studies","Experimental"],
+  "notes": "This file is the machine-readable source for design decisions. Reference from build scripts, stylelinters, or automated reviewers."
+}

@@ -1,0 +1,15 @@
+{
+  "source":"copied from root codex.json",
+  "palette":{
+    "black":"#000000",
+    "white":"#FFFFFF",
+    "blood_dark":"#8B0000",
+    "blood_light":"#DC143C",
+    "silver":"#BFCFE6",
+    "moon":"#9FBEDD"
+  },
+  "typography":{
+    "title":"Gotham Black",
+    "body":"Helvetica Neue"
+  }
+}
