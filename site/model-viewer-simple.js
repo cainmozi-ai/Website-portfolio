@@ -1,5 +1,6 @@
 // Simplified Three.js Model Viewer - No external dependencies needed
 // Just works with the model file
+// GitHub Desktop auto-deploy test
 
 const MODEL_PATH = 'assets/le rene glb.glb';
 
