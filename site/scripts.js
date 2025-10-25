@@ -148,7 +148,6 @@ function renderProjects(filter = 'all') {
   
   // Re-apply scroll effects after rendering
   setTimeout(() => updateProjectParallax(), 100);
-} });
 }
 
 // Parallax calculation for project cards
@@ -253,6 +252,19 @@ function updateActiveSection() {
         link.classList.add('active');
       } else {
         link.classList.remove('active');
+      }
+    });
+  }
+}
+
+// Smooth scroll to section
+function scrollToSection(id) {
+  const element = document.getElementById(id);
+  if (element) {
+    element.scrollIntoView({ behavior: 'smooth' });
+  }
+}
+
 // Initialize
 document.addEventListener('DOMContentLoaded', () => {
   renderProjects();
@@ -295,19 +307,6 @@ document.addEventListener('DOMContentLoaded', () => {
       document.body.classList.add(`filter-${filter}`);
     });
   });
-  
-  // Initial scroll handling
-  handleScroll();
-}); });
-  });
-  
-  // Attach hero scroll button handler
-  const heroScrollBtn = document.querySelector('.hero-scroll');
-  if (heroScrollBtn) {
-    heroScrollBtn.addEventListener('click', () => {
-      scrollToSection('work');
-    });
-  }
   
   // Initial scroll handling
   handleScroll();
