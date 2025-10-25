@@ -1,13 +1,28 @@
 :root {
   --black: #000000;
   --white: #ffffff;
-  --blood-dark: #6B7F5F;
-  --blood-light: #8FA78C;
+  --accent-3d: #DC143C; /* Blood red for 3D work */
+  --accent-design: #FF1493; /* Hot pink for graphic design */
+  --accent-current: var(--accent-3d); /* Dynamic accent */
   --silver: #BFCFE6;
   --moon: #9FBEDD;
   --gray-50: #fafafa;
   --gray-100: #f5f5f5;
   --gray-200: #e5e5e5;
+  --gray-900: #0a0a0a;
+}
+
+/* Dynamic color switching based on filter */
+body.filter-all {
+  --accent-current: var(--black);
+}
+
+body.filter-3d {
+  --accent-current: var(--accent-3d);
+}
+
+body.filter-design {
+  --accent-current: var(--accent-design);
 }
 
 @import url('https://fonts.cdnfonts.com/css/gotham');
@@ -28,6 +43,20 @@ body {
   color: var(--black);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  transition: background 0.5s ease, color 0.5s ease;
+}
+
+/* Smooth transition when filtering */
+body.filter-all {
+  background: var(--white);
+}
+
+body.filter-3d {
+  background: var(--gray-900);
+}
+
+body.filter-design {
+  background: var(--white);
 }
 
 /* Navigation */
@@ -72,7 +101,7 @@ body {
 
 .nav-link:hover,
 .nav-link.active {
-  color: var(--blood-light);
+  color: var(--accent-current);
 }
 
 /* Hero Section */
@@ -123,7 +152,8 @@ body {
 }
 
 .accent {
-  color: var(--blood-light);
+  color: var(--accent-current);
+  transition: color 0.5s ease;
 }
 
 .hero-desc {
@@ -158,7 +188,7 @@ body {
 }
 
 .hero-scroll:hover {
-  color: var(--blood-light);
+  color: var(--accent-current);
 }
 
 @keyframes bounce {
@@ -203,6 +233,66 @@ body {
   background: var(--gray-50);
   position: relative;
   z-index: 10;
+  transition: background 0.5s ease;
+}
+
+/* Dark background for 3D filter */
+body.filter-3d .work {
+  background: var(--gray-900);
+  color: var(--white);
+}
+
+body.filter-3d .section-label {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* Category Filter */
+.category-filter {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 6rem;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  font-family: 'Gotham Black', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 900;
+  letter-spacing: 0.2em;
+  padding: 1rem 2rem;
+  background: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  color: rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+body.filter-3d .filter-btn {
+  border-color: rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.filter-btn:hover {
+  border-color: var(--accent-current);
+  color: var(--accent-current);
+  transform: translateY(-2px);
+}
+
+.filter-btn.active {
+  background: var(--accent-current);
+  border-color: var(--accent-current);
+  color: var(--white);
+}
+
+body.filter-3d .filter-btn.active {
+  background: var(--accent-3d);
+  border-color: var(--accent-3d);
+}
+
+body.filter-design .filter-btn.active {
+  background: var(--accent-design);
+  border-color: var(--accent-design);
 }
 
 .projects {
@@ -217,6 +307,36 @@ body {
   grid-template-columns: 1fr;
   gap: 3rem;
   align-items: center;
+  opacity: 0;
+  animation: fadeIn 0.6s ease forwards;
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+/* Stagger animation for projects */
+.project:nth-child(1) { animation-delay: 0.1s; }
+.project:nth-child(2) { animation-delay: 0.2s; }
+.project:nth-child(3) { animation-delay: 0.3s; }
+.project:nth-child(4) { animation-delay: 0.4s; }
+.project:nth-child(5) { animation-delay: 0.5s; }
+.project:nth-child(6) { animation-delay: 0.6s; }
+
+body.filter-3d .project-year,
+body.filter-3d .project-subtitle,
+body.filter-3d .project-desc,
+body.filter-3d .project-tag {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+body.filter-3d .project-title {
+  color: var(--white);
+}
+
+body.filter-design .project-tech {
+  color: var(--accent-design);
+  font-weight: 600;
 }
 
 @media (min-width: 768px) {
@@ -278,9 +398,17 @@ body {
   position: absolute;
   top: 1rem;
   right: 1rem;
-  color: var(--blood-light);
+  color: var(--accent-current);
   opacity: 0;
   transition: opacity 0.3s ease;
+}
+
+body.filter-3d .project-icon {
+  color: var(--accent-3d);
+}
+
+body.filter-design .project-icon {
+  color: var(--accent-design);
 }
 
 .project-content {
@@ -300,24 +428,39 @@ body {
   font-weight: 300;
   letter-spacing: -0.02em;
   margin-bottom: 0.5rem;
+.project-tech {
+  font-size: 0.75rem;
+  color: var(--accent-current);
+  line-height: 1.8;
+  letter-spacing: 0.02em;
+  font-weight: 300;
+  transition: color 0.3s ease;
 }
 
-.project-subtitle {
-  font-size: 0.875rem;
-  color: rgba(0, 0, 0, 0.6);
-  letter-spacing: 0.02em;
+body.filter-3d .project-tech {
+  color: var(--accent-3d);
+}
+
+body.filter-design .project-tech {
+  color: var(--accent-design);
 }
 
 .project-tech {
   font-size: 0.75rem;
   color: var(--blood-light);
-  line-height: 1.8;
+.project-tag {
+  font-size: 0.75rem;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  color: rgba(0, 0, 0, 0.6);
   letter-spacing: 0.02em;
-  font-weight: 300;
+  transition: all 0.3s ease;
 }
 
-.project-desc {
-  font-size: 0.875rem;
+body.filter-3d .project-tag {
+  border-color: rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.6);
+} font-size: 0.875rem;
   color: rgba(0, 0, 0, 0.7);
   line-height: 1.8;
 }
@@ -332,8 +475,20 @@ body {
   font-size: 0.75rem;
   padding: 0.5rem 0.75rem;
   border: 1px solid rgba(0, 0, 0, 0.2);
-  color: rgba(0, 0, 0, 0.6);
-  letter-spacing: 0.02em;
+.project-link:hover {
+  color: var(--accent-current);
+}
+
+body.filter-3d .project-link {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+body.filter-3d .project-link:hover {
+  color: var(--accent-3d);
+}
+
+body.filter-design .project-link:hover {
+  color: var(--accent-design);
 }
 
 .project-link {
@@ -359,17 +514,36 @@ body {
   transform: translateX(4px);
 }
 
-.work-cta {
-  text-align: center;
+.btn-outline:hover {
+  border-color: var(--accent-current);
+  color: var(--accent-current);
 }
 
-/* Buttons */
-.btn-outline {
+.btn-primary {
   display: inline-flex;
   align-items: center;
   gap: 0.75rem;
   padding: 1rem 2rem;
-  border: 1px solid rgba(0, 0, 0, 0.2);
+  background: var(--accent-current);
+  color: var(--white);
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+body.filter-3d .btn-primary {
+  background: var(--accent-3d);
+}
+
+body.filter-design .btn-primary {
+  background: var(--accent-design);
+} border: 1px solid rgba(0, 0, 0, 0.2);
   font-size: 0.75rem;
   letter-spacing: 0.2em;
   color: var(--black);
@@ -406,6 +580,23 @@ body {
   background: var(--white);
   position: relative;
   z-index: 10;
+  transition: background 0.5s ease, color 0.5s ease;
+}
+
+body.filter-3d .about {
+  background: #0f0f0f;
+  color: var(--white);
+}
+
+body.filter-3d .about-title,
+body.filter-3d .about-text,
+body.filter-3d .about-list li {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+body.filter-3d .about-subtitle,
+body.filter-3d .about-label {
+  color: rgba(255, 255, 255, 0.5);
 }
 
 .about-intro {
@@ -459,16 +650,31 @@ body {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
+/* Contact Section */
+.contact {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8rem 1.5rem;
+  background: var(--gray-50);
+  position: relative;
+  z-index: 10;
+  transition: background 0.5s ease, color 0.5s ease;
 }
 
-.about-list li {
-  font-size: 0.875rem;
-  color: rgba(0, 0, 0, 0.7);
+body.filter-3d .contact {
+  background: var(--gray-900);
+  color: var(--white);
 }
 
-.about-aesthetic {
-  padding-top: 3rem;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
+body.filter-3d .contact-title {
+  color: var(--white);
+}
+
+body.filter-3d .contact-text,
+body.filter-3d .contact-social a {
+  color: rgba(255, 255, 255, 0.6);
 }
 
 .about-highlight {
@@ -493,23 +699,42 @@ body {
   text-align: center;
 }
 
-.contact-title {
-  font-size: clamp(2.5rem, 6vw, 3rem);
-  font-weight: 300;
+.contact-social a:hover {
+  color: var(--accent-current);
+}
+
+body.filter-3d .contact-social a:hover {
+  color: var(--accent-3d);
+}
+
+body.filter-design .contact-social a:hover {
+  color: var(--accent-design);
+} font-weight: 300;
   letter-spacing: -0.02em;
   line-height: 1.3;
   margin-bottom: 2rem;
 }
 
 .contact-text {
-  font-size: 1rem;
-  color: rgba(0, 0, 0, 0.6);
-  line-height: 1.8;
-  margin-bottom: 3rem;
+/* Footer */
+.footer {
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 2rem 1.5rem;
+  background: var(--white);
+  position: relative;
+  z-index: 10;
+  transition: background 0.5s ease, color 0.5s ease, border-color 0.5s ease;
 }
 
-.contact-actions {
-  display: flex;
+body.filter-3d .footer {
+  background: #0a0a0a;
+  border-top-color: rgba(255, 255, 255, 0.1);
+}
+
+body.filter-3d .footer-copy,
+body.filter-3d .footer-motto {
+  color: rgba(255, 255, 255, 0.4);
+} display: flex;
   flex-direction: column;
   gap: 1.5rem;
   align-items: center;

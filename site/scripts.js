@@ -1,7 +1,9 @@
-// Project data (from React version)
+// Project data - categorized by discipline
 const projects = [
+  // 3D PROJECTS
   {
     id: 1,
+    category: "3d",
     title: "SERAPHIM",
     subtitle: "Celestial Form Study",
     year: "2024",
@@ -13,6 +15,7 @@ const projects = [
   },
   {
     id: 2,
+    category: "3d",
     title: "EVENT HORIZON",
     subtitle: "Gravitational Phenomenon",
     year: "2024",
@@ -24,6 +27,7 @@ const projects = [
   },
   {
     id: 3,
+    category: "3d",
     title: "MIDNIGHT DRIVE",
     subtitle: "Automotive & Environmental Lighting",
     year: "2024",
@@ -32,6 +36,44 @@ const projects = [
     tags: ["Automotive Rendering", "Night Lighting", "PBR Materials"],
     image: "assets/car render.jpg",
     link: "https://artstation.com/..."
+  },
+  
+  // GRAPHIC DESIGN PROJECTS
+  {
+    id: 4,
+    category: "design",
+    title: "GIFFGAFF",
+    subtitle: "Guerrilla Marketing Campaign",
+    year: "2024",
+    tech: "Multi-platform campaign with street takeovers and social activation",
+    description: "Guerrilla marketing campaign for GiffGaff's responsible platform. Bus stop stage takeovers, last-minute gig posters, and bold street presence. The campaign playfully subverts expectations with the tagline 'we're up to good' while maintaining GiffGaff's cheeky personality.",
+    tags: ["Campaign Design", "Street Marketing", "Bold Typography"],
+    image: "assets/giffgaff.jpg",
+    link: "#"
+  },
+  {
+    id: 5,
+    category: "design",
+    title: "BUPA HEALTHCARE",
+    subtitle: "Perspective Change Campaign",
+    year: "2024",
+    tech: "Billboard series and digital campaign for weight loss services",
+    description: "Marketing campaign designed to change perception on weight loss injections. Bold messaging 'Tried all you can?' challenges preconceptions while maintaining empathy. Clean, confident typography on blue backgrounds creates trust and approachability.",
+    tags: ["Healthcare Marketing", "Billboard Design", "Messaging"],
+    image: "assets/bupa.jpg",
+    link: "#"
+  },
+  {
+    id: 6,
+    category: "design",
+    title: "COSTA COFFEE",
+    subtitle: "Heritage Brand Redesign",
+    year: "2024",
+    tech: "Complete brand refresh balancing tradition with modern appeal",
+    description: "Redesigned Costa Coffee to return to its artisan Italian roots while appealing to modern customers. Kept heritage red and cream color palette, refined with contemporary execution. Warm coffee bean photography and simplified logo create an inviting, premium coffee shop atmosphere.",
+    tags: ["Brand Identity", "Packaging", "Retail Design"],
+    image: "assets/costa.jpg",
+    link: "#"
   }
 ];
 
@@ -39,16 +81,26 @@ const projects = [
 let scrollY = 0;
 let scrollProgress = 0;
 let activeSection = 'hero';
+let activeFilter = 'all'; // Track active category filter
 let ticking = false;
-
 // Render projects
-function renderProjects() {
+function renderProjects(filter = 'all') {
   const container = document.getElementById('projects');
+  container.innerHTML = ''; // Clear existing projects
   
-  projects.forEach((project, index) => {
+  // Filter projects based on category
+  const filteredProjects = filter === 'all' 
+    ? projects 
+    : projects.filter(p => p.category === filter);
+  
+  filteredProjects.forEach((project, index) => {
     const article = document.createElement('article');
     article.className = 'project';
     article.dataset.index = index;
+    article.dataset.category = project.category;
+    
+    // Add category-specific class for styling
+    article.classList.add(`project--${project.category}`);
     
     article.innerHTML = `
       <div class="project-image-wrap">
@@ -93,6 +145,10 @@ function renderProjects() {
     
     container.appendChild(article);
   });
+  
+  // Re-apply scroll effects after rendering
+  setTimeout(() => updateProjectParallax(), 100);
+} });
 }
 
 // Parallax calculation for project cards
@@ -197,19 +253,6 @@ function updateActiveSection() {
         link.classList.add('active');
       } else {
         link.classList.remove('active');
-      }
-    });
-  }
-}
-
-// Smooth scroll to section
-function scrollToSection(id) {
-  const element = document.getElementById(id);
-  if (element) {
-    element.scrollIntoView({ behavior: 'smooth' });
-  }
-}
-
 // Initialize
 document.addEventListener('DOMContentLoaded', () => {
   renderProjects();
@@ -224,6 +267,38 @@ document.addEventListener('DOMContentLoaded', () => {
       const section = link.getAttribute('href').substring(1);
       scrollToSection(section);
     });
+  });
+  
+  // Attach hero scroll button handler
+  const heroScrollBtn = document.querySelector('.hero-scroll');
+  if (heroScrollBtn) {
+    heroScrollBtn.addEventListener('click', () => {
+      scrollToSection('work');
+    });
+  }
+  
+  // Attach category filter handlers
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      const filter = btn.dataset.filter;
+      
+      // Update active button
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      
+      // Update active filter and re-render
+      activeFilter = filter;
+      renderProjects(filter);
+      
+      // Update body class for category-specific styling
+      document.body.classList.remove('filter-3d', 'filter-design', 'filter-all');
+      document.body.classList.add(`filter-${filter}`);
+    });
+  });
+  
+  // Initial scroll handling
+  handleScroll();
+}); });
   });
   
   // Attach hero scroll button handler
