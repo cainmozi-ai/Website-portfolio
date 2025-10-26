@@ -7,9 +7,16 @@ const projects = [
     title: "SERAPHIM",
     subtitle: "Celestial Form Study",
     year: "2024",
-    tech: "Six-layer SSS wing material with volumetric god rays — 4K stable at 512 samples",
-    description: "Hardware-pushing render exploring divine aesthetics through engineering precision. Subsurface scattering through multi-layer wing material system, celestial lighting rig with volumetric god rays.",
+    tech: "6-Layer SSS Wing Material · Volumetric God Rays · 4K @ 512 Samples",
+    description: "Hardware-pushing render exploring divine aesthetics through engineering precision. Six-layer subsurface scattering wing material system with volumetric god rays, optimized for 4K output at 512 samples. Technical achievement in balancing beauty with computational efficiency.",
     tags: ["Organic Modeling", "SSS Mastery", "Celestial Lighting"],
+    specs: {
+      renderer: "Cycles",
+      samples: "512",
+      resolution: "4K (3840×2160)",
+      renderTime: "~8hrs",
+      techniques: ["Multi-layer SSS", "Volumetrics", "HDRI Lighting"]
+    },
     image: "assets/seraphim.jpg",
     link: "https://artstation.com/..."
   },
@@ -19,9 +26,16 @@ const projects = [
     title: "EVENT HORIZON",
     subtitle: "Gravitational Phenomenon",
     year: "2024",
-    tech: "Physics-accurate gravitational lensing via 47-node procedural setup",
-    description: "Cosmic-scale rendering exploring gravitational distortion through procedural node workflows. Event Horizon Telescope data-informed light ray bending, temperature-gradient accretion disk.",
+    tech: "Physics-Accurate Lensing · 47-Node Procedural Setup · Real-Time Preview",
+    description: "Cosmic-scale rendering exploring gravitational distortion through procedural node workflows. Event Horizon Telescope data-informed light ray bending with temperature-gradient accretion disk. Pure procedural approach allowing real-time artistic iteration.",
     tags: ["Procedural Workflows", "Physics Simulation", "Node Mastery"],
+    specs: {
+      renderer: "Cycles",
+      nodes: "47",
+      resolution: "8K (7680×4320)",
+      renderTime: "~12hrs",
+      techniques: ["Procedural Shading", "Gravitational Lensing", "Particle Systems"]
+    },
     image: "assets/event horizon.png",
     link: "https://artstation.com/..."
   },
@@ -31,9 +45,16 @@ const projects = [
     title: "MIDNIGHT DRIVE",
     subtitle: "Automotive & Environmental Lighting",
     year: "2024",
-    tech: "Physically-based materials with real-time ray-traced reflections and volumetric fog",
-    description: "Photorealistic automotive rendering in urban night environment. Accurate car paint shader with metallic flake, emission-mapped tail lights, wet asphalt reflections, and atmospheric depth of field with bokeh.",
+    tech: "PBR Materials · Ray-Traced Reflections · Volumetric Fog · Bokeh DoF",
+    description: "Photorealistic automotive rendering in urban night environment. Accurate car paint shader with metallic flake layers, emission-mapped tail lights, wet asphalt reflections with puddle caustics, and atmospheric depth of field with cinematic bokeh. Study in mood through lighting.",
     tags: ["Automotive Rendering", "Night Lighting", "PBR Materials"],
+    specs: {
+      renderer: "Cycles",
+      samples: "1024",
+      resolution: "4K (3840×2160)",
+      renderTime: "~6hrs",
+      techniques: ["PBR Shading", "Volumetric Lighting", "Depth of Field"]
+    },
     image: "assets/car render.jpg",
     link: "https://artstation.com/..."
   },

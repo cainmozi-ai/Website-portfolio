@@ -39,24 +39,27 @@ html {
 
 body {
   font-family: "Helvetica Neue", Arial, sans-serif;
-  background: var(--white);
-  color: var(--black);
+  background: var(--black);
+  color: var(--white);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   transition: background 0.5s ease, color 0.5s ease;
 }
 
-/* Smooth transition when filtering */
+/* Dark-first design for 3D portfolios */
 body.filter-all {
-  background: var(--white);
+  background: var(--black);
+  color: var(--white);
 }
 
 body.filter-3d {
   background: var(--gray-900);
+  color: var(--white);
 }
 
 body.filter-design {
   background: var(--white);
+  color: var(--black);
 }
 
 /* Navigation */
@@ -66,18 +69,30 @@ body.filter-design {
   left: 0;
   right: 0;
   z-index: 50;
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(10, 10, 10, 0.9);
   backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+body.filter-design .nav {
+  background: rgba(255, 255, 255, 0.9);
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .nav-inner {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 1rem 1.5rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.nav-brand {
+  font-size: 0.875rem;
+  letter-spacing: 0.3em;
+  font-weight: 300;
+  color: var(--white);
+  transition: color 0.3s ease;
+}
+
+body.filter-design .nav-brand {
+  color: var(--black);
 }
 
 .nav-brand {
@@ -85,18 +100,16 @@ body.filter-design {
   letter-spacing: 0.3em;
   font-weight: 300;
 }
-
-.nav-links {
-  display: flex;
-  gap: 2rem;
-}
-
 .nav-link {
   font-size: 0.75rem;
   letter-spacing: 0.2em;
   text-decoration: none;
-  color: rgba(0, 0, 0, 0.6);
+  color: rgba(255, 255, 255, 0.6);
   transition: color 0.3s ease;
+}
+
+body.filter-design .nav-link {
+  color: rgba(0, 0, 0, 0.6);
 }
 
 .nav-link:hover,
@@ -113,7 +126,11 @@ body.filter-design {
   position: relative;
   padding: 1.5rem;
   overflow: hidden;
-  background: linear-gradient(180deg, var(--white) 0%, var(--gray-50) 100%);
+  background: var(--gradient-dark);
+}
+
+body.filter-design .hero {
+  background: linear-gradient(180deg, var(--white) 0%, #fafafa 100%);
 }
 
 .hero-canvas {
@@ -136,19 +153,29 @@ body.filter-design {
 .hero-subtitle {
   font-size: 0.75rem;
   letter-spacing: 0.3em;
-  color: rgba(0, 0, 0, 0.4);
+  color: rgba(255, 255, 255, 0.5);
   margin-bottom: 2rem;
   transition: transform 0.1s ease-out, opacity 0.1s ease-out;
+  text-transform: uppercase;
+}
+
+body.filter-design .hero-subtitle {
+  color: rgba(0, 0, 0, 0.4);
 }
 
 .hero-title {
   font-family: 'Gotham Black', sans-serif;
-  font-size: clamp(2.5rem, 8vw, 4.5rem);
+  font-size: clamp(2.5rem, 8vw, 5.5rem);
   font-weight: 900;
   letter-spacing: -0.02em;
-  line-height: 1.1;
+  line-height: 1;
   margin-bottom: 3rem;
   transition: transform 0.1s ease-out, opacity 0.1s ease-out;
+  color: var(--white);
+}
+
+body.filter-design .hero-title {
+  color: var(--black);
 }
 
 .accent {
@@ -158,7 +185,11 @@ body.filter-design {
 
 .hero-desc {
   font-size: clamp(1rem, 2vw, 1.125rem);
-  color: rgba(0, 0, 0, 0.6);
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.8;
+.hero-desc {
+  font-size: clamp(1rem, 2vw, 1.125rem);
+  color: rgba(255, 255, 255, 0.7);
   line-height: 1.8;
   max-width: 42rem;
   margin: 0 auto 3rem;
@@ -166,12 +197,20 @@ body.filter-design {
   transition: transform 0.1s ease-out, opacity 0.1s ease-out;
 }
 
+body.filter-design .hero-desc {
+  color: rgba(0, 0, 0, 0.6);
+}
+
 .hero-motto {
   font-size: 0.75rem;
   letter-spacing: 0.3em;
-  color: rgba(0, 0, 0, 0.4);
+  color: rgba(255, 255, 255, 0.4);
   font-style: italic;
   transition: transform 0.1s ease-out, opacity 0.1s ease-out;
+}
+
+body.filter-design .hero-motto {
+  color: rgba(0, 0, 0, 0.4);
 }
 
 .hero-scroll {
@@ -181,10 +220,14 @@ body.filter-design {
   transform: translateX(-50%);
   background: none;
   border: none;
-  color: rgba(0, 0, 0, 0.4);
+  color: rgba(255, 255, 255, 0.4);
   cursor: pointer;
   animation: bounce 2s infinite;
   transition: color 0.3s ease, opacity 0.3s ease;
+}
+
+body.filter-design .hero-scroll {
+  color: rgba(0, 0, 0, 0.4);
 }
 
 .hero-scroll:hover {
@@ -199,7 +242,11 @@ body.filter-design {
 /* Spacer */
 .spacer {
   height: 100vh;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, var(--gray-50) 100%);
+  background: linear-gradient(180deg, rgba(10, 10, 10, 0) 0%, #0f0f0f 100%);
+}
+
+body.filter-design .spacer {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #fafafa 100%);
 }
 
 /* Container */
@@ -221,25 +268,34 @@ body.filter-design {
   font-size: 0.75rem;
   font-weight: 900;
   letter-spacing: 0.3em;
-  color: rgba(0, 0, 0, 0.4);
+  color: rgba(255, 255, 255, 0.4);
   margin-bottom: 4rem;
   text-align: left;
+  text-transform: uppercase;
 }
-
 /* Work Section */
 .work {
   min-height: 100vh;
   padding: 8rem 0;
-  background: var(--gray-50);
+  background: #0f0f0f;
   position: relative;
   z-index: 10;
   transition: background 0.5s ease;
+}
+
+body.filter-design .work {
+  background: #fafafa;
 }
 
 /* Dark background for 3D filter */
 body.filter-3d .work {
   background: var(--gray-900);
   color: var(--white);
+}
+
+body.filter-3d .section-label {
+  color: rgba(255, 255, 255, 0.5);
+} color: var(--white);
 }
 
 body.filter-3d .section-label {
@@ -262,27 +318,30 @@ body.filter-3d .section-label {
   letter-spacing: 0.2em;
   padding: 1rem 2rem;
   background: transparent;
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  color: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.6);
   cursor: pointer;
   transition: all 0.3s ease;
+  text-transform: uppercase;
 }
 
-body.filter-3d .filter-btn {
-  border-color: rgba(255, 255, 255, 0.2);
-  color: rgba(255, 255, 255, 0.6);
+body.filter-design .filter-btn {
+  border-color: rgba(0, 0, 0, 0.2);
+  color: rgba(0, 0, 0, 0.6);
 }
 
 .filter-btn:hover {
   border-color: var(--accent-current);
   color: var(--accent-current);
   transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(220, 20, 60, 0.2);
 }
 
 .filter-btn.active {
   background: var(--accent-current);
   border-color: var(--accent-current);
   color: var(--white);
+  box-shadow: 0 4px 20px rgba(220, 20, 60, 0.4);
 }
 
 body.filter-3d .filter-btn.active {
@@ -360,21 +419,35 @@ body.filter-design .project-tech {
 
 .project-image {
   aspect-ratio: 4/3;
-  background: linear-gradient(135deg, var(--gray-200) 0%, var(--gray-100) 100%);
+  background: linear-gradient(135deg, #1a1a1a 0%, #0f0f0f 100%);
   border-radius: 2px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  color: rgba(0, 0, 0, 0.2);
+  color: rgba(255, 255, 255, 0.2);
   font-size: 0.875rem;
   position: relative;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+}
+
+body.filter-design .project-image {
+  background: linear-gradient(135deg, #e5e5e5 0%, #f5f5f5 100%);
+  color: rgba(0, 0, 0, 0.2);
 }
 
 .project-image-wrap:hover .project-image {
   transform: translateY(-6px);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.project-image-wrap:hover .project-overlay {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+body.filter-design .project-image-wrap:hover .project-overlay {
+  border-color: rgba(0, 0, 0, 0.2);
 }
 
 .project-image-wrap:hover .project-overlay {
@@ -413,11 +486,16 @@ body.filter-design .project-icon {
 
 .project-content {
   display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
+.project-year {
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
+  color: rgba(255, 255, 255, 0.4);
+  text-transform: uppercase;
 }
 
-.project-year {
+body.filter-design .project-year {
+  color: rgba(0, 0, 0, 0.4);
+}project-year {
   font-size: 0.75rem;
   letter-spacing: 0.3em;
   color: rgba(0, 0, 0, 0.4);
@@ -497,9 +575,14 @@ body.filter-design .project-link:hover {
   gap: 0.5rem;
   font-size: 0.75rem;
   letter-spacing: 0.2em;
-  color: rgba(0, 0, 0, 0.6);
+  color: rgba(255, 255, 255, 0.6);
   text-decoration: none;
   transition: color 0.3s ease;
+  text-transform: uppercase;
+}
+
+body.filter-design .project-link {
+  color: rgba(0, 0, 0, 0.6);
 }
 
 .project-link:hover {
@@ -577,10 +660,16 @@ body.filter-design .btn-primary {
 .about {
   min-height: 100vh;
   padding: 8rem 0;
-  background: var(--white);
+  background: #0a0a0a;
   position: relative;
   z-index: 10;
   transition: background 0.5s ease, color 0.5s ease;
+  color: var(--white);
+}
+
+body.filter-design .about {
+  background: var(--white);
+  color: var(--black);
 }
 
 body.filter-3d .about {
@@ -588,15 +677,26 @@ body.filter-3d .about {
   color: var(--white);
 }
 
-body.filter-3d .about-title,
-body.filter-3d .about-text,
-body.filter-3d .about-list li {
+.about-title,
+.about-text,
+.about-list li {
   color: rgba(255, 255, 255, 0.9);
 }
 
-body.filter-3d .about-subtitle,
-body.filter-3d .about-label {
+body.filter-design .about-title,
+body.filter-design .about-text,
+body.filter-design .about-list li {
+  color: rgba(0, 0, 0, 0.9);
+}
+
+.about-subtitle,
+.about-label {
   color: rgba(255, 255, 255, 0.5);
+}
+
+body.filter-design .about-subtitle,
+body.filter-design .about-label {
+  color: rgba(0, 0, 0, 0.5);
 }
 
 .about-intro {
@@ -628,8 +728,12 @@ body.filter-3d .about-label {
   grid-template-columns: 1fr;
   gap: 3rem;
   padding-top: 3rem;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
   margin-bottom: 3rem;
+}
+
+body.filter-design .about-grid {
+  border-top-color: rgba(0, 0, 0, 0.1);
 }
 
 @media (min-width: 768px) {
@@ -657,10 +761,16 @@ body.filter-3d .about-label {
   align-items: center;
   justify-content: center;
   padding: 8rem 1.5rem;
-  background: var(--gray-50);
+  background: #0f0f0f;
   position: relative;
   z-index: 10;
   transition: background 0.5s ease, color 0.5s ease;
+  color: var(--white);
+}
+
+body.filter-design .contact {
+  background: #fafafa;
+  color: var(--black);
 }
 
 body.filter-3d .contact {
@@ -668,13 +778,22 @@ body.filter-3d .contact {
   color: var(--white);
 }
 
-body.filter-3d .contact-title {
+.contact-title {
   color: var(--white);
 }
 
-body.filter-3d .contact-text,
-body.filter-3d .contact-social a {
+body.filter-design .contact-title {
+  color: var(--black);
+}
+
+.contact-text,
+.contact-social a {
   color: rgba(255, 255, 255, 0.6);
+}
+
+body.filter-design .contact-text,
+body.filter-design .contact-social a {
+  color: rgba(0, 0, 0, 0.6);
 }
 
 .about-highlight {
@@ -718,12 +837,17 @@ body.filter-design .contact-social a:hover {
 .contact-text {
 /* Footer */
 .footer {
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
   padding: 2rem 1.5rem;
-  background: var(--white);
+  background: #0a0a0a;
   position: relative;
   z-index: 10;
   transition: background 0.5s ease, color 0.5s ease, border-color 0.5s ease;
+}
+
+body.filter-design .footer {
+  background: var(--white);
+  border-top-color: rgba(0, 0, 0, 0.1);
 }
 
 body.filter-3d .footer {
@@ -731,9 +855,14 @@ body.filter-3d .footer {
   border-top-color: rgba(255, 255, 255, 0.1);
 }
 
-body.filter-3d .footer-copy,
-body.filter-3d .footer-motto {
+.footer-copy,
+.footer-motto {
   color: rgba(255, 255, 255, 0.4);
+}
+
+body.filter-design .footer-copy,
+body.filter-design .footer-motto {
+  color: rgba(0, 0, 0, 0.4);
 } display: flex;
   flex-direction: column;
   gap: 1.5rem;
