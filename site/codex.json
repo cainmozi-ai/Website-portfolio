@@ -3,8 +3,8 @@
   "palette":{
     "black":"#000000",
     "white":"#FFFFFF",
-    "blood_dark":"#8B0000",
-    "blood_light":"#DC143C",
+    "blood_dark":"#9CAF88",
+    "blood_light":"#B2C9AB",
     "silver":"#BFCFE6",
     "moon":"#9FBEDD"
   },

@@ -12,8 +12,8 @@
     "palette": {
       "black": "#000000",
       "white": "#FFFFFF",
-      "blood_red_dark": "#8B0000",
-      "blood_red_light": "#DC143C",
+      "blood_red_dark": "#9CAF88",
+      "blood_red_light": "#B2C9AB",
       "accent_cool_silver": "#BFCFE6",
       "accent_moonlight_blue": "#9FBEDD"
     },

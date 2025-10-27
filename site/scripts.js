@@ -1,100 +1,37 @@
-// Project data - categorized by discipline
+// Project data (from React version)
 const projects = [
-  // 3D PROJECTS
   {
     id: 1,
-    category: "3d",
     title: "SERAPHIM",
     subtitle: "Celestial Form Study",
     year: "2024",
-    tech: "6-Layer SSS Wing Material · Volumetric God Rays · 4K @ 512 Samples",
-    description: "Hardware-pushing render exploring divine aesthetics through engineering precision. Six-layer subsurface scattering wing material system with volumetric god rays, optimized for 4K output at 512 samples. Technical achievement in balancing beauty with computational efficiency.",
+    tech: "Six-layer SSS wing material with volumetric god rays — 4K stable at 512 samples",
+    description: "Hardware-pushing render exploring divine aesthetics through engineering precision. Subsurface scattering through multi-layer wing material system, celestial lighting rig with volumetric god rays.",
     tags: ["Organic Modeling", "SSS Mastery", "Celestial Lighting"],
-    specs: {
-      renderer: "Cycles",
-      samples: "512",
-      resolution: "4K (3840×2160)",
-      renderTime: "~8hrs",
-      techniques: ["Multi-layer SSS", "Volumetrics", "HDRI Lighting"]
-    },
     image: "assets/seraphim.jpg",
     link: "https://artstation.com/..."
   },
   {
     id: 2,
-    category: "3d",
     title: "EVENT HORIZON",
     subtitle: "Gravitational Phenomenon",
     year: "2024",
-    tech: "Physics-Accurate Lensing · 47-Node Procedural Setup · Real-Time Preview",
-    description: "Cosmic-scale rendering exploring gravitational distortion through procedural node workflows. Event Horizon Telescope data-informed light ray bending with temperature-gradient accretion disk. Pure procedural approach allowing real-time artistic iteration.",
+    tech: "Physics-accurate gravitational lensing via 47-node procedural setup",
+    description: "Cosmic-scale rendering exploring gravitational distortion through procedural node workflows. Event Horizon Telescope data-informed light ray bending, temperature-gradient accretion disk.",
     tags: ["Procedural Workflows", "Physics Simulation", "Node Mastery"],
-    specs: {
-      renderer: "Cycles",
-      nodes: "47",
-      resolution: "8K (7680×4320)",
-      renderTime: "~12hrs",
-      techniques: ["Procedural Shading", "Gravitational Lensing", "Particle Systems"]
-    },
     image: "assets/event horizon.png",
     link: "https://artstation.com/..."
   },
   {
     id: 3,
-    category: "3d",
     title: "MIDNIGHT DRIVE",
     subtitle: "Automotive & Environmental Lighting",
     year: "2024",
-    tech: "PBR Materials · Ray-Traced Reflections · Volumetric Fog · Bokeh DoF",
-    description: "Photorealistic automotive rendering in urban night environment. Accurate car paint shader with metallic flake layers, emission-mapped tail lights, wet asphalt reflections with puddle caustics, and atmospheric depth of field with cinematic bokeh. Study in mood through lighting.",
+    tech: "Physically-based materials with real-time ray-traced reflections and volumetric fog",
+    description: "Photorealistic automotive rendering in urban night environment. Accurate car paint shader with metallic flake, emission-mapped tail lights, wet asphalt reflections, and atmospheric depth of field with bokeh.",
     tags: ["Automotive Rendering", "Night Lighting", "PBR Materials"],
-    specs: {
-      renderer: "Cycles",
-      samples: "1024",
-      resolution: "4K (3840×2160)",
-      renderTime: "~6hrs",
-      techniques: ["PBR Shading", "Volumetric Lighting", "Depth of Field"]
-    },
     image: "assets/car render.jpg",
     link: "https://artstation.com/..."
-  },
-  
-  // GRAPHIC DESIGN PROJECTS
-  {
-    id: 4,
-    category: "design",
-    title: "GIFFGAFF",
-    subtitle: "Guerrilla Marketing Campaign",
-    year: "2024",
-    tech: "Multi-platform campaign with street takeovers and social activation",
-    description: "Guerrilla marketing campaign for GiffGaff's responsible platform. Bus stop stage takeovers, last-minute gig posters, and bold street presence. The campaign playfully subverts expectations with the tagline 'we're up to good' while maintaining GiffGaff's cheeky personality.",
-    tags: ["Campaign Design", "Street Marketing", "Bold Typography"],
-    image: "assets/giffgaff.jpg",
-    link: "#"
-  },
-  {
-    id: 5,
-    category: "design",
-    title: "BUPA HEALTHCARE",
-    subtitle: "Perspective Change Campaign",
-    year: "2024",
-    tech: "Billboard series and digital campaign for weight loss services",
-    description: "Marketing campaign designed to change perception on weight loss injections. Bold messaging 'Tried all you can?' challenges preconceptions while maintaining empathy. Clean, confident typography on blue backgrounds creates trust and approachability.",
-    tags: ["Healthcare Marketing", "Billboard Design", "Messaging"],
-    image: "assets/bupa.jpg",
-    link: "#"
-  },
-  {
-    id: 6,
-    category: "design",
-    title: "COSTA COFFEE",
-    subtitle: "Heritage Brand Redesign",
-    year: "2024",
-    tech: "Complete brand refresh balancing tradition with modern appeal",
-    description: "Redesigned Costa Coffee to return to its artisan Italian roots while appealing to modern customers. Kept heritage red and cream color palette, refined with contemporary execution. Warm coffee bean photography and simplified logo create an inviting, premium coffee shop atmosphere.",
-    tags: ["Brand Identity", "Packaging", "Retail Design"],
-    image: "assets/costa.jpg",
-    link: "#"
   }
 ];
 
@@ -102,26 +39,16 @@ const projects = [
 let scrollY = 0;
 let scrollProgress = 0;
 let activeSection = 'hero';
-let activeFilter = 'all'; // Track active category filter
 let ticking = false;
+
 // Render projects
-function renderProjects(filter = 'all') {
+function renderProjects() {
   const container = document.getElementById('projects');
-  container.innerHTML = ''; // Clear existing projects
   
-  // Filter projects based on category
-  const filteredProjects = filter === 'all' 
-    ? projects 
-    : projects.filter(p => p.category === filter);
-  
-  filteredProjects.forEach((project, index) => {
+  projects.forEach((project, index) => {
     const article = document.createElement('article');
     article.className = 'project';
     article.dataset.index = index;
-    article.dataset.category = project.category;
-    
-    // Add category-specific class for styling
-    article.classList.add(`project--${project.category}`);
     
     article.innerHTML = `
       <div class="project-image-wrap">
@@ -166,9 +93,6 @@ function renderProjects(filter = 'all') {
     
     container.appendChild(article);
   });
-  
-  // Re-apply scroll effects after rendering
-  setTimeout(() => updateProjectParallax(), 100);
 }
 
 // Parallax calculation for project cards
@@ -309,25 +233,6 @@ document.addEventListener('DOMContentLoaded', () => {
       scrollToSection('work');
     });
   }
-  
-  // Attach category filter handlers
-  document.querySelectorAll('.filter-btn').forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      const filter = btn.dataset.filter;
-      
-      // Update active button
-      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      
-      // Update active filter and re-render
-      activeFilter = filter;
-      renderProjects(filter);
-      
-      // Update body class for category-specific styling
-      document.body.classList.remove('filter-3d', 'filter-design', 'filter-all');
-      document.body.classList.add(`filter-${filter}`);
-    });
-  });
   
   // Initial scroll handling
   handleScroll();
