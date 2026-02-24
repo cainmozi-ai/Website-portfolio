@@ -1,13 +1,10 @@
 :root {
   --black: #000000;
   --white: #ffffff;
-  --blood-dark: #8B0000;
-  --blood-light: #DC143C;
-  --silver: #BFCFE6;
-  --moon: #9FBEDD;
-  --gray-50: #0a0a0a;
-  --gray-100: #111111;
-  --gray-200: #1a1a1a;
+  --blood: #880808;
+  --gray-50: #fafafa;
+  --gray-100: #f0f0f0;
+  --gray-200: #e5e5e5;
 }
 
 @import url('https://fonts.cdnfonts.com/css/gotham');
@@ -23,9 +20,10 @@ html {
 }
 
 body {
-  font-family: "Helvetica Neue", Arial, sans-serif;
-  background: var(--black);
-  color: var(--white);
+  font-family: "Helvetica Neue", "Helvetica Neue Light", Arial, sans-serif;
+  font-weight: 300;
+  background: var(--white);
+  color: var(--black);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
 }
@@ -37,9 +35,9 @@ body {
   left: 0;
   right: 0;
   z-index: 50;
-  background: rgba(0, 0, 0, 0.9);
+  background: rgba(255, 255, 255, 0.92);
   backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 .nav-inner {
@@ -55,7 +53,7 @@ body {
   font-size: 0.875rem;
   letter-spacing: 0.3em;
   font-weight: 300;
-  color: var(--white);
+  color: var(--black);
 }
 
 .nav-links {
@@ -67,13 +65,13 @@ body {
   font-size: 0.75rem;
   letter-spacing: 0.2em;
   text-decoration: none;
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(0, 0, 0, 0.5);
   transition: color 0.3s ease;
 }
 
 .nav-link:hover,
 .nav-link.active {
-  color: var(--blood-dark);
+  color: var(--blood);
 }
 
 /* Hero Section */
@@ -85,7 +83,7 @@ body {
   position: relative;
   padding: 1.5rem;
   overflow: hidden;
-  background: var(--black);
+  background: var(--white);
 }
 
 .hero-canvas {
@@ -108,7 +106,7 @@ body {
 .hero-subtitle {
   font-size: 0.75rem;
   letter-spacing: 0.3em;
-  color: rgba(255, 255, 255, 0.4);
+  color: rgba(0, 0, 0, 0.4);
   margin-bottom: 2rem;
   transition: transform 0.1s ease-out, opacity 0.1s ease-out;
 }
@@ -120,17 +118,17 @@ body {
   letter-spacing: -0.02em;
   line-height: 1.1;
   margin-bottom: 2rem;
-  color: var(--white);
+  color: var(--black);
   transition: transform 0.1s ease-out, opacity 0.1s ease-out;
 }
 
 .accent {
-  color: var(--blood-dark);
+  color: var(--blood);
 }
 
 .hero-desc {
   font-size: clamp(0.9rem, 2vw, 1rem);
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(0, 0, 0, 0.5);
   line-height: 1.8;
   max-width: 42rem;
   margin: 0 auto;
@@ -151,8 +149,8 @@ body {
 .scroll-chevron {
   width: 12px;
   height: 12px;
-  border-right: 1px solid rgba(255, 255, 255, 0.6);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+  border-right: 1px solid rgba(0, 0, 0, 0.5);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
   transform: rotate(45deg);
 }
 
@@ -186,7 +184,7 @@ body {
   font-size: 0.75rem;
   font-weight: 900;
   letter-spacing: 0.3em;
-  color: rgba(255, 255, 255, 0.35);
+  color: rgba(0, 0, 0, 0.35);
   margin-bottom: 4rem;
   text-align: left;
 }
@@ -194,7 +192,7 @@ body {
 /* Work Section */
 .work {
   padding: 4rem 0 8rem;
-  background: var(--black);
+  background: var(--gray-50);
   position: relative;
   z-index: 10;
 }
@@ -207,22 +205,32 @@ body {
 
 /* Case Study Card */
 .case-study-card {
-  background: #0a0a0a;
-  border: 1px solid #1a1a1a;
+  background: var(--white);
+  border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 0;
   transition: border-color 0.3s ease;
 }
 
 .case-study-card:hover {
-  border-color: #333;
+  border-color: rgba(0, 0, 0, 0.2);
 }
 
 .case-study-hero-image {
   width: 100%;
   padding-bottom: 56.25%;
-  background: #111;
-  border-bottom: 1px solid #222;
+  background: var(--gray-100);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
   position: relative;
+  overflow: hidden;
+}
+
+.case-study-hero-image img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .case-study-hero-image span {
@@ -230,7 +238,7 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: #444;
+  color: rgba(0, 0, 0, 0.2);
   font-size: 0.75rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -246,7 +254,7 @@ body {
   font-weight: 700;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--white);
+  color: var(--black);
   margin-bottom: 0.75rem;
 }
 
@@ -254,12 +262,12 @@ body {
   font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.2em;
-  color: #666;
+  color: rgba(0, 0, 0, 0.4);
   margin-bottom: 1.5rem;
 }
 
 .case-study-desc {
-  color: #ccc;
+  color: rgba(0, 0, 0, 0.6);
   line-height: 1.7;
   max-width: 720px;
   margin-bottom: 1.5rem;
@@ -282,8 +290,8 @@ body {
 .process-thumb-img {
   width: 80px;
   height: 80px;
-  background: #111;
-  border: 1px solid #222;
+  background: var(--gray-100);
+  border: 1px solid rgba(0, 0, 0, 0.06);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -291,7 +299,7 @@ body {
 }
 
 .process-thumb-img span {
-  color: #444;
+  color: rgba(0, 0, 0, 0.2);
   font-size: 0.55rem;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -301,7 +309,7 @@ body {
   font-size: 0.6rem;
   text-transform: uppercase;
   letter-spacing: 0.15em;
-  color: #555;
+  color: rgba(0, 0, 0, 0.35);
 }
 
 /* Case Study Link */
@@ -310,14 +318,14 @@ body {
   font-size: 0.8rem;
   text-transform: uppercase;
   letter-spacing: 0.15em;
-  color: var(--blood-dark);
+  color: var(--blood);
   text-decoration: none;
   transition: color 0.2s ease;
 }
 
 .case-study-link:hover {
   text-decoration: underline;
-  color: var(--blood-light);
+  color: var(--blood);
 }
 
 /* Buttons */
@@ -326,17 +334,17 @@ body {
   align-items: center;
   gap: 0.75rem;
   padding: 1rem 2rem;
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(0, 0, 0, 0.15);
   font-size: 0.75rem;
   letter-spacing: 0.2em;
-  color: var(--white);
+  color: var(--black);
   text-decoration: none;
   transition: border-color 0.3s ease, color 0.3s ease;
 }
 
 .btn-outline:hover {
-  border-color: var(--blood-dark);
-  color: var(--blood-dark);
+  border-color: var(--blood);
+  color: var(--blood);
 }
 
 .btn-primary {
@@ -344,7 +352,7 @@ body {
   align-items: center;
   gap: 0.75rem;
   padding: 1rem 2rem;
-  background: var(--blood-dark);
+  background: var(--blood);
   color: var(--white);
   font-size: 0.75rem;
   letter-spacing: 0.2em;
@@ -353,13 +361,14 @@ body {
 }
 
 .btn-primary:hover {
-  background: var(--blood-light);
+  background: var(--blood);
+  opacity: 0.85;
 }
 
 /* About Section */
 .about {
   padding: 8rem 0;
-  background: var(--black);
+  background: var(--white);
   position: relative;
   z-index: 10;
 }
@@ -374,11 +383,11 @@ body {
   letter-spacing: -0.02em;
   line-height: 1.3;
   margin-bottom: 0.5rem;
-  color: var(--white);
+  color: var(--black);
 }
 
 .about-subtitle {
-  color: #888;
+  color: rgba(0, 0, 0, 0.45);
   font-size: 1rem;
   font-weight: 300;
   margin-bottom: 2rem;
@@ -386,7 +395,7 @@ body {
 
 .about-text {
   font-size: 1rem;
-  color: #ccc;
+  color: rgba(0, 0, 0, 0.6);
   line-height: 1.7;
   margin-bottom: 2rem;
   max-width: 640px;
@@ -394,7 +403,7 @@ body {
 
 .about-currently {
   font-size: 0.85rem;
-  color: #666;
+  color: rgba(0, 0, 0, 0.4);
   text-transform: uppercase;
   letter-spacing: 0.1em;
   line-height: 1.7;
@@ -406,8 +415,8 @@ body {
   align-items: center;
   justify-content: center;
   padding: 8rem 1.5rem;
-  background: #050505;
-  border-top: 1px solid #111;
+  background: var(--gray-50);
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
   position: relative;
   z-index: 10;
 }
@@ -423,7 +432,7 @@ body {
   letter-spacing: 0.1em;
   line-height: 1.3;
   margin-bottom: 2.5rem;
-  color: var(--white);
+  color: var(--black);
 }
 
 .contact-actions {
@@ -443,20 +452,20 @@ body {
 .contact-social a {
   font-size: 0.75rem;
   letter-spacing: 0.2em;
-  color: rgba(255, 255, 255, 0.35);
+  color: rgba(0, 0, 0, 0.35);
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 .contact-social a:hover {
-  color: var(--blood-dark);
+  color: var(--blood);
 }
 
 /* Footer */
 .footer {
-  border-top: 1px solid #111;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
   padding: 2rem 1.5rem;
-  background: var(--black);
+  background: var(--white);
   position: relative;
   z-index: 10;
 }
@@ -469,7 +478,7 @@ body {
   align-items: center;
   gap: 1rem;
   font-size: 0.75rem;
-  color: rgba(255, 255, 255, 0.3);
+  color: rgba(0, 0, 0, 0.3);
 }
 
 @media (min-width: 768px) {
