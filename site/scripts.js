@@ -1,99 +1,8 @@
-// Project data (from React version)
-const projects = [
-  {
-    id: 1,
-    title: "SERAPHIM",
-    subtitle: "Celestial Form Study",
-    year: "2024",
-    tech: "Six-layer SSS wing material with volumetric god rays — 4K stable at 512 samples",
-    description: "Hardware-pushing render exploring divine aesthetics through engineering precision. Subsurface scattering through multi-layer wing material system, celestial lighting rig with volumetric god rays.",
-    tags: ["Organic Modeling", "SSS Mastery", "Celestial Lighting"],
-    image: "assets/seraphim.jpg",
-    link: "https://artstation.com/..."
-  },
-  {
-    id: 2,
-    title: "EVENT HORIZON",
-    subtitle: "Gravitational Phenomenon",
-    year: "2024",
-    tech: "Physics-accurate gravitational lensing via 47-node procedural setup",
-    description: "Cosmic-scale rendering exploring gravitational distortion through procedural node workflows. Event Horizon Telescope data-informed light ray bending, temperature-gradient accretion disk.",
-    tags: ["Procedural Workflows", "Physics Simulation", "Node Mastery"],
-    image: "assets/event horizon.png",
-    link: "https://artstation.com/..."
-  },
-  {
-    id: 3,
-    title: "MIDNIGHT DRIVE",
-    subtitle: "Automotive & Environmental Lighting",
-    year: "2024",
-    tech: "Physically-based materials with real-time ray-traced reflections and volumetric fog",
-    description: "Photorealistic automotive rendering in urban night environment. Accurate car paint shader with metallic flake, emission-mapped tail lights, wet asphalt reflections, and atmospheric depth of field with bokeh.",
-    tags: ["Automotive Rendering", "Night Lighting", "PBR Materials"],
-    image: "assets/car render.jpg",
-    link: "https://artstation.com/..."
-  }
-];
-
 // State
 let scrollY = 0;
 let scrollProgress = 0;
 let activeSection = 'hero';
 let ticking = false;
-
-// Render projects
-function renderProjects() {
-  const container = document.getElementById('projects');
-  
-  projects.forEach((project, index) => {
-    const article = document.createElement('article');
-    article.className = 'project';
-    article.dataset.index = index;
-    
-    article.innerHTML = `
-      <div class="project-image-wrap">
-        <div class="project-image">
-          <img src="${project.image}" alt="${project.title}" style="width:100%; height:100%; object-fit:cover;">
-        </div>
-        <div class="project-overlay"></div>
-        <div class="project-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-            <polyline points="15 3 21 3 21 9"></polyline>
-            <line x1="10" y1="14" x2="21" y2="3"></line>
-          </svg>
-        </div>
-      </div>
-      
-      <div class="project-content">
-        <div>
-          <div class="project-year">${project.year}</div>
-          <h3 class="project-title">${project.title}</h3>
-          <div class="project-subtitle">${project.subtitle}</div>
-        </div>
-        
-        <div class="project-tech">${project.tech}</div>
-        
-        <p class="project-desc">${project.description}</p>
-        
-        <div class="project-tags">
-          ${project.tags.map(tag => `<span class="project-tag">${tag}</span>`).join('')}
-        </div>
-        
-        <a href="${project.link}" target="_blank" rel="noopener noreferrer" class="project-link">
-          VIEW FULL CASE STUDY
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-            <polyline points="15 3 21 3 21 9"></polyline>
-            <line x1="10" y1="14" x2="21" y2="3"></line>
-          </svg>
-        </a>
-      </div>
-    `;
-    
-    container.appendChild(article);
-  });
-}
 
 // Parallax calculation for project cards
 function getParallaxTransform(element, index) {
@@ -134,11 +43,7 @@ function handleScroll() {
       // Update active section
       updateActiveSection();
       
-      // Update hero scroll button visibility
-      const heroScrollBtn = document.querySelector('.hero-scroll');
-      if (heroScrollBtn) {
-        heroScrollBtn.style.opacity = Math.max(0, 1 - scrollY / 300);
-      }
+      // Scroll indicator fade handled by separate listener
       
       ticking = false;
     });
@@ -162,15 +67,16 @@ function updateHeroParallax() {
 
 // Update project card parallax
 function updateProjectParallax() {
-  const projectElements = document.querySelectorAll('.project');
+  const cardElements = document.querySelectorAll('.case-study-card');
   
-  projectElements.forEach((project, index) => {
-    const imageWrap = project.querySelector('.project-image-wrap');
-    if (imageWrap) {
-      const { translateY, scale } = getParallaxTransform(project, index);
-      imageWrap.style.transform = `translateY(${translateY}px) scale(${scale})`;
-      imageWrap.style.transition = 'transform 0.1s ease-out';
-    }
+  cardElements.forEach((card, index) => {
+    const rect = card.getBoundingClientRect();
+    const windowHeight = window.innerHeight;
+    const progress = (windowHeight - rect.top) / (windowHeight + rect.height);
+    const clamped = Math.max(0, Math.min(1, progress));
+    const translateY = (clamped - 0.5) * -20;
+    card.style.transform = `translateY(${translateY}px)`;
+    card.style.transition = 'transform 0.1s ease-out';
   });
 }
 
@@ -212,8 +118,6 @@ function scrollToSection(id) {
 
 // Initialize
 document.addEventListener('DOMContentLoaded', () => {
-  renderProjects();
-  
   // Attach scroll listener
   window.addEventListener('scroll', handleScroll, { passive: true });
   
@@ -226,13 +130,23 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
   
-  // Attach hero scroll button handler
-  const heroScrollBtn = document.querySelector('.hero-scroll');
-  if (heroScrollBtn) {
-    heroScrollBtn.addEventListener('click', () => {
+  // Attach hero scroll indicator click handler
+  const scrollIndicator = document.querySelector('.scroll-indicator');
+  if (scrollIndicator) {
+    scrollIndicator.style.cursor = 'pointer';
+    scrollIndicator.addEventListener('click', () => {
       scrollToSection('work');
     });
   }
+
+  // Update hero scroll indicator visibility on scroll
+  const heroScrollUpdate = () => {
+    const indicator = document.querySelector('.scroll-indicator');
+    if (indicator) {
+      indicator.style.opacity = Math.max(0, 1 - window.scrollY / 300);
+    }
+  };
+  window.addEventListener('scroll', heroScrollUpdate, { passive: true });
   
   // Initial scroll handling
   handleScroll();
