@@ -1,0 +1,6 @@
+[build]
+  publish = "site/"
+  command = "echo 'Static site — no build step required'"
+
+[build.environment]
+  NODE_VERSION = "22"
