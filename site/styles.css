@@ -33,6 +33,7 @@
   /* Layout */
   --content-max-width: 1200px;
   --content-narrow: 720px;
+  --content-padding-inline: var(--space-md);
   --nav-height: 64px;
 
   /* Transitions */
@@ -56,6 +57,7 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: var(--nav-height);
+  scroll-snap-type: y proximity;
 }
 
 body {
@@ -292,6 +294,8 @@ button:focus-visible {
   position: relative;
   background: var(--color-white);
   padding: var(--space-md);
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
 }
 
 .hero-content {
@@ -389,13 +393,13 @@ button:focus-visible {
 .container {
   max-width: var(--content-max-width);
   margin: 0 auto;
-  padding: 0 var(--space-md);
+  padding: 0 var(--content-padding-inline);
 }
 
 .container-narrow {
   max-width: var(--content-narrow);
   margin: 0 auto;
-  padding: 0 var(--space-md);
+  padding: 0 var(--content-padding-inline);
 }
 
 
@@ -430,6 +434,7 @@ button:focus-visible {
   background: var(--color-white);
   position: relative;
   min-height: 100vh;
+  scroll-snap-align: start;
 }
 
 
@@ -490,8 +495,18 @@ button:focus-visible {
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: var(--color-muted);
-  margin-bottom: var(--space-sm);
+  margin-bottom: var(--space-xs);
   line-height: 1.4;
+}
+
+/* Project context — the brief/intent line */
+.project-context {
+  font-size: 0.85rem;
+  color: var(--color-muted);
+  line-height: 1.55;
+  margin-bottom: var(--space-sm);
+  max-width: 65ch;
+  font-style: italic;
 }
 
 .project-desc {
@@ -517,6 +532,42 @@ button:focus-visible {
   letter-spacing: 0.08em;
   color: var(--color-muted);
   line-height: 1.4;
+}
+
+/* Process step tooltips — narrative device on hover */
+.process-step[title] {
+  cursor: help;
+  position: relative;
+}
+
+.process-step[title]::before {
+  content: attr(title);
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--color-black);
+  color: var(--color-white);
+  font-size: 0.7rem;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  font-style: normal;
+  padding: 6px 10px;
+  border-radius: 2px;
+  width: max-content;
+  max-width: 260px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease-out, visibility 0.2s;
+  pointer-events: none;
+  z-index: 10;
+}
+
+@media (min-width: 769px) {
+  .process-step[title]:hover::before {
+    opacity: 1;
+    visibility: visible;
+  }
 }
 
 .process-num {
@@ -549,6 +600,18 @@ button:focus-visible {
   color: var(--color-blood-red);
 }
 
+/* Pending CTA — case study not yet available */
+.project-cta--pending {
+  color: var(--color-muted);
+  cursor: default;
+  font-style: italic;
+  font-size: 0.75rem;
+}
+
+.project-cta--pending:hover {
+  color: var(--color-muted);
+}
+
 
 /* ─── Project Grid (5 remaining projects) ─── */
 .project-grid {
@@ -579,11 +642,28 @@ button:focus-visible {
 }
 
 
+/* ─── Closing Project (N.O.R.A.) — bookend with distinct visual treatment ─── */
+.project-closing {
+  margin-top: var(--space-2xl);
+  padding-top: var(--space-2xl);
+  border-top: var(--border-subtle);
+}
+
+.project-closing .project-image-wrap {
+  margin-bottom: var(--space-md);
+}
+
+.project-closing .project-title {
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+}
+
+
 /* ─── About Section ─── */
 .about {
   padding: var(--space-3xl) 0;
   background: var(--color-white);
   min-height: 100vh;
+  border-top: var(--border-subtle);
 }
 
 /* Philosophy */
@@ -736,6 +816,24 @@ button:focus-visible {
   color: var(--color-black);
 }
 
+/* Social links pending state */
+.contact-social--pending {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-divider);
+  cursor: default;
+}
+
+.contact-social-note {
+  font-size: 0.75rem;
+  color: var(--color-divider);
+  margin-top: var(--space-sm);
+  font-style: italic;
+}
+
 
 /* ─── Footer ─── */
 .footer {
@@ -793,6 +891,10 @@ button:focus-visible {
 
 /* ─── Responsive: Tablet ─── */
 @media (max-width: 768px) {
+  :root {
+    --content-padding-inline: var(--space-md);
+  }
+
   .work {
     padding: var(--space-2xl) 0;
   }
@@ -884,5 +986,93 @@ button:focus-visible {
   .reveal-on-scroll {
     opacity: 1;
     transform: none;
+  }
+}
+
+
+/* ─── Responsive: Desktop content padding ─── */
+@media (min-width: 769px) {
+  :root {
+    --content-padding-inline: 48px;
+  }
+}
+
+@media (min-width: 1200px) {
+  :root {
+    --content-padding-inline: 64px;
+  }
+}
+
+
+/* ─── Print Stylesheet — PDF leave-behind capability ─── */
+@media print {
+  body {
+    background: #fff;
+    color: #000;
+  }
+
+  .nav,
+  .scroll-indicator,
+  .scroll-progress,
+  .mobile-menu,
+  .nav-hamburger {
+    display: none !important;
+  }
+
+  .hero {
+    min-height: auto;
+    padding: var(--space-lg) 0;
+  }
+
+  .work,
+  .about,
+  .contact {
+    min-height: auto;
+    padding: var(--space-lg) 0;
+  }
+
+  .contact {
+    background: #fff;
+  }
+
+  .project-image-wrap {
+    break-inside: avoid;
+  }
+
+  .project-card,
+  .project-featured,
+  .project-closing {
+    page-break-inside: avoid;
+  }
+
+  .project-card {
+    display: block !important;
+  }
+
+  .reveal-on-scroll {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .hero-reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+  }
+
+  /* Show link URLs in print */
+  a[href]:not(.nav-brand):not(.project-cta--pending)::after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+    color: #666;
+  }
+
+  .project-cta--pending::after {
+    content: none;
+  }
+
+  /* Print header info */
+  .footer-brandmark {
+    filter: grayscale(1);
   }
 }
