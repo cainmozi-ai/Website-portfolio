@@ -1,207 +1,339 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Cain Moriarty — 3D Artist & Visual Storyteller</title>
-  <meta name="description" content="Portfolio of Cain Moriarty — cinematic minimalism with provable technique. Celestial forms, gravitational phenomena, and atmospheric studies.">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cain Moriarty — 3D Artist &amp; Visual Storyteller | The Moriarty Experience</title>
+  <meta name="description" content="Portfolio of Cain Moriarty — 3D artist specialising in atmospheric rendering, environment art, and cinematic storytelling. Blender, Unreal Engine 5, and tactile craft.">
+  <meta name="author" content="Cain Moriarty">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Cain Moriarty — 3D Artist &amp; Visual Storyteller">
+  <meta property="og:description" content="Cinematic minimalism with provable technique. 3D environments, motion, and brand design.">
+  <meta property="og:image" content="https://themoriartyexperience.com/assets/og-image.jpg">
+  <meta property="og:url" content="https://themoriartyexperience.com">
+  <meta property="og:type" content="website">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Cain Moriarty — 3D Artist &amp; Visual Storyteller">
+  <meta name="twitter:description" content="Cinematic minimalism with provable technique.">
+  <meta name="twitter:image" content="https://themoriartyexperience.com/assets/og-image.jpg">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+  <!-- Fonts: Montserrat 900 (Gotham Black substitute) + Inter 300/400 (Helvetica Neue substitute) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=Montserrat:wght@900&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <!-- Navigation -->
-  <nav class="nav">
-    <div class="nav-inner">
-      <div class="nav-brand">CAIN MORIARTY</div>
+
+  <!-- Scroll Progress Bar -->
+  <div class="scroll-progress" aria-hidden="true"></div>
+
+  <!-- Navigation — hidden on hero, appears on scroll -->
+  <header class="nav" role="banner">
+    <nav class="nav-inner" aria-label="Main navigation">
+      <a href="#hero" class="nav-brand" aria-label="The Moriarty Experience — return to top">
+        <!-- Compact brandmark -->
+        <img class="nav-brandmark" src="assets/logo.jpg" alt="The Moriarty Experience">
+      </a>
       <div class="nav-links">
         <a href="#work" class="nav-link" data-section="work">WORK</a>
         <a href="#about" class="nav-link" data-section="about">ABOUT</a>
         <a href="#contact" class="nav-link" data-section="contact">CONTACT</a>
       </div>
-    </div>
-  </nav>
+      <!-- Mobile hamburger -->
+      <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+    </nav>
+  </header>
 
-  <!-- Hero Section -->
-  <section id="hero" class="hero">
-    <!-- 3D Model Canvas Background -->
-    <canvas id="hero-canvas" class="hero-canvas"></canvas>
-    <div id="model-status" style="position:fixed;top:80px;left:20px;background:rgba(0,0,0,0.8);color:#fff;padding:10px;font-size:12px;z-index:999;max-width:300px;">Loading 3D model...</div>
+  <!-- Mobile Menu Overlay -->
+  <div class="mobile-menu" aria-hidden="true">
+    <button class="mobile-menu-close" aria-label="Close menu">&times;</button>
+    <nav class="mobile-menu-nav" aria-label="Mobile navigation">
+      <a href="#work" class="mobile-menu-link">WORK</a>
+      <a href="#about" class="mobile-menu-link">ABOUT</a>
+      <a href="#contact" class="mobile-menu-link">CONTACT</a>
+    </nav>
+  </div>
 
-    <div class="hero-content">
-      <div class="hero-subtitle" data-parallax="0.1">3D ARTIST · VISUAL STORYTELLER</div>
-      <h1 class="hero-title" data-parallax="0.2">CAIN MORIARTY</h1>
-      <p class="hero-desc" data-parallax="0.15">Cinematic minimalism with provable technique.</p>
-    </div>
-    <div class="scroll-indicator" aria-hidden="true">
-      <div class="scroll-chevron"></div>
-    </div>
-  </section>
+  <main>
 
-  <!-- Work Section -->
-  <section id="work" class="work">
-    <div class="container">
-      <h2 class="section-label">SELECTED WORK</h2>
-      <div class="case-studies">
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- HERO / LANDING -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <section id="hero" class="hero">
+      <div class="hero-content">
+        <!-- Brandmark -->
+        <div class="hero-brandmark hero-reveal" style="--reveal-delay: 0.3s">
+          <img src="assets/logo red.jpg" alt="The Moriarty Experience brandmark">
+        </div>
 
-        <!-- Card 1: Balance Brewing -->
-        <article class="case-study-card">
-          <div class="case-study-hero-image"><img src="assets/Balance.jpg" alt="Balance Brewing & Blending"></div>
-          <div class="case-study-content">
-            <h3 class="case-study-title">BALANCE BREWING &amp; BLENDING</h3>
-            <div class="case-study-tags">Brand Identity · Lino Print · Campaign Design · Zine</div>
-            <p class="case-study-desc">A full brand campaign for a craft brewery, built on hand-carved lino prints inspired by British folklore. Three label designs — Headless Horseman, Old Crockern, Mermaid — each rooted in regional storytelling and carved by hand. Supported by environmental photography across Greater Manchester, Instagram content, stories, and a 10-page A5 printed zine.</p>
-            <div class="process-strip">
-              <div class="process-thumb"><div class="process-thumb-img"><span>PROCESS 01</span></div><div class="process-thumb-label">RESEARCH</div></div>
-              <div class="process-thumb"><div class="process-thumb-img"><span>PROCESS 02</span></div><div class="process-thumb-label">CARVING</div></div>
-              <div class="process-thumb"><div class="process-thumb-img"><span>PROCESS 03</span></div><div class="process-thumb-label">PHOTOGRAPHY</div></div>
-              <div class="process-thumb"><div class="process-thumb-img"><span>PROCESS 04</span></div><div class="process-thumb-label">CAMPAIGN</div></div>
+        <!-- Name -->
+        <h1 class="hero-title hero-reveal" style="--reveal-delay: 0.6s">CAIN MORIARTY</h1>
+
+        <!-- Subtitle -->
+        <p class="hero-subtitle hero-reveal" style="--reveal-delay: 0.9s">3D ARTIST &middot; VISUAL STORYTELLER</p>
+
+        <!-- Positioning statement -->
+        <p class="hero-statement hero-reveal" style="--reveal-delay: 1.2s">Cinematic minimalism with provable technique.</p>
+      </div>
+
+      <!-- Scroll indicator -->
+      <div class="scroll-indicator" aria-hidden="true">
+        <div class="scroll-line"></div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- SELECTED WORK -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <section id="work" class="work">
+      <div class="container">
+        <div class="section-heading">
+          <h2 class="section-label">SELECTED WORK</h2>
+          <div class="section-rule" aria-hidden="true"></div>
+        </div>
+
+        <!-- Featured Project (Balance Brewing) -->
+        <article class="project-featured reveal-on-scroll">
+          <div class="project-image-wrap">
+            <img src="assets/Balance.jpg"
+                 alt="Hand-carved lino print label design for Balance Brewing featuring the Headless Horseman of British folklore"
+                 loading="eager"
+                 width="1600" height="900">
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">BALANCE BREWING &amp; BLENDING</h3>
+            <div class="project-tags">Brand Identity &middot; Lino Print &middot; Campaign Design &middot; Zine</div>
+            <p class="project-desc">A full brand campaign for a craft brewery, built on hand-carved lino prints inspired by British folklore. Three label designs — Headless Horseman, Old Crockern, Mermaid — each rooted in regional storytelling and carved by hand. Supported by environmental photography across Greater Manchester, Instagram content, stories, and a 10-page A5 printed zine.</p>
+            <div class="process-flow">
+              <span class="process-step"><span class="process-num">01</span> RESEARCH</span>
+              <span class="process-arrow" aria-hidden="true">&rarr;</span>
+              <span class="process-step"><span class="process-num">02</span> CARVING</span>
+              <span class="process-arrow" aria-hidden="true">&rarr;</span>
+              <span class="process-step"><span class="process-num">03</span> PHOTOGRAPHY</span>
+              <span class="process-arrow" aria-hidden="true">&rarr;</span>
+              <span class="process-step"><span class="process-num">04</span> CAMPAIGN</span>
             </div>
-            <a href="#" class="case-study-link">VIEW CASE STUDY →</a>
+            <a href="#" class="project-cta">VIEW CASE STUDY &rarr;</a>
           </div>
         </article>
 
-        <!-- Card 2: Midnight Run -->
-        <article class="case-study-card">
-          <div class="case-study-hero-image"><img src="assets/car render.jpg" alt="Midnight Run — Corvette C7 Cinematic"></div>
-          <div class="case-study-content">
-            <h3 class="case-study-title">MIDNIGHT RUN — CORVETTE C7 CINEMATIC</h3>
-            <div class="case-study-tags">3D Animation · Blender Cycles · Post-Production · After Effects</div>
-            <p class="case-study-desc">A cinematic night drive through a rain-slicked city, built from kitbashed assets in Blender. This personal project focused on post-processing craft — colour grading, motion blur, light bloom, and wet-surface reflections — as well as camera animation and atmospheric rendering. Composited and graded in After Effects.</p>
-            <div class="process-strip">
-              <div class="process-thumb"><div class="process-thumb-img"><span>PROCESS 01</span></div><div class="process-thumb-label">BLOCKOUT</div></div>
-              <div class="process-thumb"><div class="process-thumb-img"><span>PROCESS 02</span></div><div class="process-thumb-label">LIGHTING</div></div>
-              <div class="process-thumb"><div class="process-thumb-img"><span>PROCESS 03</span></div><div class="process-thumb-label">COMPOSITING</div></div>
-            </div>
-            <a href="#" class="case-study-link">VIEW CASE STUDY →</a>
-          </div>
-        </article>
+        <!-- Project Grid -->
+        <div class="project-grid">
 
-        <!-- Card 3: Byōdō-in Phoenix Hall -->
-        <article class="case-study-card">
-          <div class="case-study-hero-image"><img src="assets/buddha.png" alt="Byōdō-in Phoenix Hall — Japanese VR Environment"></div>
-          <div class="case-study-content">
-            <h3 class="case-study-title">BYŌDŌ-IN PHOENIX HALL — JAPANESE VR ENVIRONMENT</h3>
-            <div class="case-study-tags">Environment Art · Blender · Unreal Engine 5 · VR 360°</div>
-            <p class="case-study-desc">A faithful reconstruction of the Byōdō-in Phoenix Hall as a static VR environment, part of the 'Echoes of the Past' university project exploring historical spaces as interactive museum exhibits. Modelled in Blender, textured in Substance Painter, and rendered as 8K 360° panoramas in Unreal Engine 5. Informed by Machiya architectural reference and Heian-period design language.</p>
-            <div class="process-strip">
-              <div class="process-thumb"><div class="process-thumb-img"><span>PROCESS 01</span></div><div class="process-thumb-label">REFERENCE</div></div>
-              <div class="process-thumb"><div class="process-thumb-img"><span>PROCESS 02</span></div><div class="process-thumb-label">BLOCKOUT</div></div>
-              <div class="process-thumb"><div class="process-thumb-img"><span>PROCESS 03</span></div><div class="process-thumb-label">TEXTURING</div></div>
-              <div class="process-thumb"><div class="process-thumb-img"><span>PROCESS 04</span></div><div class="process-thumb-label">VR RENDER</div></div>
+          <!-- Midnight Run -->
+          <article class="project-card reveal-on-scroll">
+            <div class="project-image-wrap">
+              <img src="assets/car render.jpg"
+                   alt="Cinematic night render of a Corvette C7 on rain-slicked city streets with volumetric lighting"
+                   loading="lazy"
+                   width="1600" height="900">
             </div>
-            <a href="#" class="case-study-link">VIEW CASE STUDY →</a>
-          </div>
-        </article>
+            <div class="project-content">
+              <h3 class="project-title">MIDNIGHT RUN — CORVETTE C7 CINEMATIC</h3>
+              <div class="project-tags">3D Animation &middot; Blender Cycles &middot; Post-Production &middot; After Effects</div>
+              <p class="project-desc">A cinematic night drive through a rain-slicked city, built from kitbashed assets in Blender. This personal project focused on post-processing craft — colour grading, motion blur, light bloom, and wet-surface reflections — as well as camera animation and atmospheric rendering. Composited and graded in After Effects.</p>
+              <div class="process-flow">
+                <span class="process-step"><span class="process-num">01</span> BLOCKOUT</span>
+                <span class="process-arrow" aria-hidden="true">&rarr;</span>
+                <span class="process-step"><span class="process-num">02</span> LIGHTING</span>
+                <span class="process-arrow" aria-hidden="true">&rarr;</span>
+                <span class="process-step"><span class="process-num">03</span> COMPOSITING</span>
+              </div>
+              <a href="#" class="project-cta">VIEW CASE STUDY &rarr;</a>
+            </div>
+          </article>
 
-        <!-- Card 4: Battle of Britain -->
-        <article class="case-study-card">
-          <div class="case-study-hero-image"><img src="assets/spitfire.png" alt="Battle of Britain — RAF Scramble Sequence"></div>
-          <div class="case-study-content">
-            <h3 class="case-study-title">BATTLE OF BRITAIN — RAF SCRAMBLE SEQUENCE</h3>
-            <div class="case-study-tags">Cinematic Animation · Blender · Unreal Engine 5 · Historical Research</div>
-            <p class="case-study-desc">A cinematic short recreating an RAF scramble during the 1940 Battle of Britain, centred on a Spitfire Mk IX at RAF Kenley. Part of the 'Echoes of the Past' project — hard-surface modelling from mechanical blueprints, atmospheric volumetrics, and UE5 Sequencer animation. Inspired by Julien Herbey's approach to history-driven 3D narrative.</p>
-            <div class="process-strip">
-              <div class="process-thumb"><div class="process-thumb-img"><span>PROCESS 01</span></div><div class="process-thumb-label">BLUEPRINTS</div></div>
-              <div class="process-thumb"><div class="process-thumb-img"><span>PROCESS 02</span></div><div class="process-thumb-label">MODELLING</div></div>
-              <div class="process-thumb"><div class="process-thumb-img"><span>PROCESS 03</span></div><div class="process-thumb-label">ATMOSPHERE</div></div>
-              <div class="process-thumb"><div class="process-thumb-img"><span>PROCESS 04</span></div><div class="process-thumb-label">SEQUENCE</div></div>
+          <!-- Byōdō-in Phoenix Hall -->
+          <article class="project-card reveal-on-scroll">
+            <div class="project-image-wrap">
+              <img src="assets/buddha.png"
+                   alt="3D reconstruction of Byōdō-in Phoenix Hall interior with Amida Buddha statue, rendered in Unreal Engine 5"
+                   loading="lazy"
+                   width="1600" height="900">
             </div>
-            <a href="#" class="case-study-link">VIEW CASE STUDY →</a>
-          </div>
-        </article>
+            <div class="project-content">
+              <h3 class="project-title">BYŌDŌ-IN PHOENIX HALL</h3>
+              <div class="project-tags">Environment Art &middot; Blender &middot; Unreal Engine 5 &middot; VR 360&deg;</div>
+              <p class="project-desc">A faithful reconstruction of the Byōdō-in Phoenix Hall as a static VR environment, part of the 'Echoes of the Past' university project exploring historical spaces as interactive museum exhibits. Modelled in Blender, textured in Substance Painter, and rendered as 8K 360° panoramas in Unreal Engine 5.</p>
+              <div class="process-flow">
+                <span class="process-step"><span class="process-num">01</span> REFERENCE</span>
+                <span class="process-arrow" aria-hidden="true">&rarr;</span>
+                <span class="process-step"><span class="process-num">02</span> BLOCKOUT</span>
+                <span class="process-arrow" aria-hidden="true">&rarr;</span>
+                <span class="process-step"><span class="process-num">03</span> TEXTURING</span>
+                <span class="process-arrow" aria-hidden="true">&rarr;</span>
+                <span class="process-step"><span class="process-num">04</span> VR RENDER</span>
+              </div>
+              <a href="#" class="project-cta">VIEW CASE STUDY &rarr;</a>
+            </div>
+          </article>
 
-        <!-- Card 5: Medieval Wagon Journey -->
-        <article class="case-study-card">
-          <div class="case-study-hero-image"><img src="assets/wagon.png" alt="Medieval Wagon Journey — Environment Study"></div>
-          <div class="case-study-content">
-            <h3 class="case-study-title">MEDIEVAL WAGON JOURNEY — ENVIRONMENT STUDY</h3>
-            <div class="case-study-tags">Environment Art · Blender · Substance Painter · Unreal Engine 5</div>
-            <p class="case-study-desc">A high-fidelity narrative environment depicting a medieval wagon journey along Hadrian's Wall, built as a curatorial exhibit piece. Modular kit construction from 14th-century wagon plans, PBR texturing pipeline from Blender to Substance Painter to Unreal Engine 5. Designed with museum-quality digital labels and graphic UI overlays.</p>
-            <div class="process-strip">
-              <div class="process-thumb"><div class="process-thumb-img"><span>PROCESS 01</span></div><div class="process-thumb-label">RESEARCH</div></div>
-              <div class="process-thumb"><div class="process-thumb-img"><span>PROCESS 02</span></div><div class="process-thumb-label">ASSETS</div></div>
-              <div class="process-thumb"><div class="process-thumb-img"><span>PROCESS 03</span></div><div class="process-thumb-label">ENVIRONMENT</div></div>
+          <!-- Battle of Britain -->
+          <article class="project-card reveal-on-scroll">
+            <div class="project-image-wrap">
+              <img src="assets/spitfire.png"
+                   alt="3D render of a Spitfire Mk IX taking off from RAF Kenley during a Battle of Britain scramble sequence"
+                   loading="lazy"
+                   width="1600" height="900">
             </div>
-            <a href="#" class="case-study-link">VIEW CASE STUDY →</a>
-          </div>
-        </article>
+            <div class="project-content">
+              <h3 class="project-title">BATTLE OF BRITAIN — RAF SCRAMBLE</h3>
+              <div class="project-tags">Cinematic Animation &middot; Blender &middot; Unreal Engine 5 &middot; Historical Research</div>
+              <p class="project-desc">A cinematic short recreating an RAF scramble during the 1940 Battle of Britain, centred on a Spitfire Mk IX at RAF Kenley. Hard-surface modelling from mechanical blueprints, atmospheric volumetrics, and UE5 Sequencer animation.</p>
+              <div class="process-flow">
+                <span class="process-step"><span class="process-num">01</span> BLUEPRINTS</span>
+                <span class="process-arrow" aria-hidden="true">&rarr;</span>
+                <span class="process-step"><span class="process-num">02</span> MODELLING</span>
+                <span class="process-arrow" aria-hidden="true">&rarr;</span>
+                <span class="process-step"><span class="process-num">03</span> ATMOSPHERE</span>
+                <span class="process-arrow" aria-hidden="true">&rarr;</span>
+                <span class="process-step"><span class="process-num">04</span> SEQUENCE</span>
+              </div>
+              <a href="#" class="project-cta">VIEW CASE STUDY &rarr;</a>
+            </div>
+          </article>
 
-        <!-- Card 6: N.O.R.A. -->
-        <article class="case-study-card">
-          <div class="case-study-hero-image"><img src="assets/N.O.R.A.png" alt="N.O.R.A. — Neural Offline Response Assistant"></div>
-          <div class="case-study-content">
-            <h3 class="case-study-title">N.O.R.A. — NEURAL OFFLINE RESPONSE ASSISTANT</h3>
-            <div class="case-study-tags">Product Design · Raspberry Pi · AI Engineering · Vibe Coding</div>
-            <p class="case-study-desc">A portable, battery-powered AI assistant built on Raspberry Pi Zero W, combining cloud AI with a comprehensive offline emergency database of 87 life-saving articles. Developed through human-AI collaborative engineering — I provided vision, hardware integration, testing, and UX direction while working with Claude as a development partner for code architecture and generation. Gothic minimalist interface, 30x query performance improvement, 7,000+ lines of code across Python and TypeScript.</p>
-            <div class="process-strip">
-              <div class="process-thumb"><div class="process-thumb-img"><span>PROCESS 01</span></div><div class="process-thumb-label">HARDWARE</div></div>
-              <div class="process-thumb"><div class="process-thumb-img"><span>PROCESS 02</span></div><div class="process-thumb-label">INTERFACE</div></div>
-              <div class="process-thumb"><div class="process-thumb-img"><span>PROCESS 03</span></div><div class="process-thumb-label">DATABASE</div></div>
-              <div class="process-thumb"><div class="process-thumb-img"><span>PROCESS 04</span></div><div class="process-thumb-label">TESTING</div></div>
+          <!-- Medieval Wagon Journey -->
+          <article class="project-card reveal-on-scroll">
+            <div class="project-image-wrap">
+              <img src="assets/wagon.png"
+                   alt="High-fidelity medieval wagon environment along Hadrian's Wall with volumetric lighting and PBR materials"
+                   loading="lazy"
+                   width="1600" height="900">
             </div>
-            <a href="#" class="case-study-link">VIEW CASE STUDY →</a>
+            <div class="project-content">
+              <h3 class="project-title">MEDIEVAL WAGON JOURNEY</h3>
+              <div class="project-tags">Environment Art &middot; Blender &middot; Substance Painter &middot; Unreal Engine 5</div>
+              <p class="project-desc">A high-fidelity narrative environment depicting a medieval wagon journey along Hadrian's Wall, built as a curatorial exhibit piece. Modular kit construction from 14th-century wagon plans, PBR texturing pipeline from Blender to Substance Painter to Unreal Engine 5.</p>
+              <div class="process-flow">
+                <span class="process-step"><span class="process-num">01</span> RESEARCH</span>
+                <span class="process-arrow" aria-hidden="true">&rarr;</span>
+                <span class="process-step"><span class="process-num">02</span> ASSETS</span>
+                <span class="process-arrow" aria-hidden="true">&rarr;</span>
+                <span class="process-step"><span class="process-num">03</span> ENVIRONMENT</span>
+              </div>
+              <a href="#" class="project-cta">VIEW CASE STUDY &rarr;</a>
+            </div>
+          </article>
+
+          <!-- N.O.R.A. -->
+          <article class="project-card reveal-on-scroll">
+            <div class="project-image-wrap">
+              <img src="assets/N.O.R.A.png"
+                   alt="N.O.R.A. portable AI assistant device built on Raspberry Pi Zero W with gothic minimalist interface"
+                   loading="lazy"
+                   width="1600" height="900">
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">N.O.R.A. — NEURAL OFFLINE RESPONSE ASSISTANT</h3>
+              <div class="project-tags">Product Design &middot; Raspberry Pi &middot; AI Engineering &middot; Vibe Coding</div>
+              <p class="project-desc">A portable, battery-powered AI assistant built on Raspberry Pi Zero W, combining cloud AI with a comprehensive offline emergency database of 87 life-saving articles. Gothic minimalist interface, 30&times; query performance improvement, 7,000+ lines of code across Python and TypeScript.</p>
+              <div class="process-flow">
+                <span class="process-step"><span class="process-num">01</span> HARDWARE</span>
+                <span class="process-arrow" aria-hidden="true">&rarr;</span>
+                <span class="process-step"><span class="process-num">02</span> INTERFACE</span>
+                <span class="process-arrow" aria-hidden="true">&rarr;</span>
+                <span class="process-step"><span class="process-num">03</span> DATABASE</span>
+                <span class="process-arrow" aria-hidden="true">&rarr;</span>
+                <span class="process-step"><span class="process-num">04</span> TESTING</span>
+              </div>
+              <a href="#" class="project-cta">VIEW CASE STUDY &rarr;</a>
+            </div>
+          </article>
+
+        </div><!-- /.project-grid -->
+      </div><!-- /.container -->
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- ABOUT / PHILOSOPHY -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <section id="about" class="about">
+      <div class="container-narrow">
+
+        <!-- Part A: Philosophy Statement -->
+        <div class="about-philosophy reveal-on-scroll">
+          <h2 class="about-motto">EX LABORE VENUSTAS</h2>
+          <p class="about-motto-translation"><em>From Work, Beauty</em></p>
+
+          <div class="about-text">
+            <p>I'm a 3D artist working primarily in Blender, expanding into Unreal Engine 5. I specialise in atmospheric rendering, environment art, and cinematic storytelling — work that sits at the intersection of gothic precision and historical narrative. I also work with tactile processes: hand-carved lino printing, embroidery, and 3D printing. Craft isn't limited to a screen.</p>
+            <p>Every project begins with a question: would this hold up in 1425 and in 2025? That dual-era test shapes everything — respecting the discipline of what came before while pushing technical boundaries forward. Design as ritual, not production. Refinement over agreement. The work earns its place through labour, not decoration.</p>
           </div>
-        </article>
+        </div>
+
+        <!-- Part B: Capabilities -->
+        <div class="about-capabilities reveal-on-scroll">
+          <div class="capability-column">
+            <h3 class="capability-heading">3D &amp; ENVIRONMENT ART</h3>
+            <p class="capability-list">Blender &middot; ZBrush<br>Substance Painter<br>Unreal Engine 5<br>Unity (exploring)</p>
+          </div>
+          <div class="capability-column">
+            <h3 class="capability-heading">MOTION &amp; CINEMATICS</h3>
+            <p class="capability-list">After Effects &middot; DaVinci<br>UE5 Sequencer<br>Camera Animation<br>Compositing</p>
+          </div>
+          <div class="capability-column">
+            <h3 class="capability-heading">BRAND &amp; PRINT</h3>
+            <p class="capability-list">Lino Print &middot; Embroidery<br>Adobe Suite<br>Zine &amp; Publication<br>3D Printing (Bambu A1)</p>
+          </div>
+        </div>
+
+        <!-- Part C: Current Status -->
+        <div class="about-status reveal-on-scroll">
+          <hr class="divider" aria-hidden="true">
+          <p class="about-currently">Currently: Second-year Graphic Design student at the University of Salford, specialising in 3D. Available for studio placements, contract work, and collaborative projects.</p>
+        </div>
 
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- About Section -->
-  <section id="about" class="about">
-    <div class="container-narrow">
-      <h2 class="section-label">ABOUT</h2>
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- CONTACT -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <section id="contact" class="contact">
+      <div class="container-narrow contact-inner">
+        <h2 class="section-label">GET IN TOUCH</h2>
 
-      <div class="about-intro">
-        <h3 class="about-title">Ex Labore Venustas</h3>
-        <div class="about-subtitle">From Work, Beauty</div>
-        <p class="about-text">
-          I'm a 3D artist working primarily in Blender, expanding into Unreal Engine 5. I specialise in atmospheric rendering, environment art, and cinematic storytelling — work that sits at the intersection of gothic precision and historical narrative. I also work with tactile processes: hand-carved lino printing, embroidery, and 3D printing. Craft isn't limited to a screen.
-        </p>
-        <div class="about-currently">Currently: Second-year Graphic Design student at the University of Salford, specialising in 3D. Available for studio placements, contract work, and collaborative projects.</div>
-      </div>
-    </div>
-  </section>
+        <a href="mailto:hello@themoriartyexperience.com" class="contact-email">hello@themoriartyexperience.com</a>
 
-  <!-- Contact Section -->
-  <section id="contact" class="contact">
-    <div class="contact-inner">
-      <h2 class="section-label">CONTACT</h2>
-      <h3 class="contact-title">Get In Touch</h3>
-      <div class="contact-actions">
-        <a href="#" class="btn-primary"><!-- TODO: Replace with real email mailto link -->
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-            <polyline points="22,6 12,13 2,6"></polyline>
-          </svg>
-          EMAIL
-        </a>
+        <p class="contact-context">Open to studio placements, commissions, and collaborations.</p>
+
         <div class="contact-social">
-          <a href="#" target="_blank" rel="noopener noreferrer">ARTSTATION</a><!-- TODO: Replace with real URL -->
-          <a href="#" target="_blank" rel="noopener noreferrer">INSTAGRAM</a><!-- TODO: Replace with real URL -->
-          <a href="#" target="_blank" rel="noopener noreferrer">LINKEDIN</a><!-- TODO: Replace with real URL -->
+          <a href="#" target="_blank" rel="noopener noreferrer">ARTSTATION</a>
+          <a href="#" target="_blank" rel="noopener noreferrer">INSTAGRAM</a>
+          <a href="#" target="_blank" rel="noopener noreferrer">LINKEDIN</a>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Footer -->
+  </main>
+
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- FOOTER -->
+  <!-- ═══════════════════════════════════════════════════════ -->
   <footer class="footer">
     <div class="footer-inner">
-      <div class="footer-copy">© 2025–2026 CAIN MORIARTY</div>
-      <div class="footer-motto">Ex Labore Venustas — From Work, Beauty</div>
+      <!-- Full logo lockup -->
+      <img class="footer-brandmark" src="assets/full logo.jpg" alt="The Moriarty Experience">
+      <p class="footer-copy">&copy; 2025–2026 CAIN MORIARTY</p>
+      <p class="footer-motto">Ex Labore Venustas — From Work, Beauty</p>
     </div>
   </footer>
 
-  <!-- Three.js (local copy) -->
-  <script src="three.min.js"></script>
-  
-  <!-- GLTFLoader (local working copy) -->
-  <script src="GLTFLoader-working.js"></script>
-  
-  <!-- Simple Model Viewer -->
-  <script src="model-viewer-simple.js"></script>
-  
-  <!-- Main scripts -->
   <script src="scripts.js"></script>
 </body>
 </html>

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 100" fill="none">
+  <!-- The Moriarty Experience — Triple-Stroke M Brandmark -->
+  <path d="M10 90 L10 10 L60 55 L110 10 L110 90" 
+        stroke="#E1E1E1" 
+        stroke-width="6" 
+        stroke-linecap="square" 
+        stroke-linejoin="miter"
+        fill="none"/>
+</svg>
