@@ -5,20 +5,26 @@
 
 /* ─── Design Tokens ─── */
 :root {
-  /* Colour palette — from brand guidelines */
-  --color-black: #1A1A1A;
+  /* Colour palette — from brand identity system v1.0.0 */
+  --color-black: #000000;
   --color-blood-red: #880808;
-  --color-white: #FFFFFF;
+  --color-white: #E1E1E1;       /* Brand off-white — NOT #FFFFFF */
+
+  /* Text hierarchy — three tiers on off-white background */
+  --text-primary: #000000;      /* Headings, body copy, nav, CTAs */
+  --text-secondary: #555555;    /* Context lines, process labels, capabilities */
+  --text-muted: #888888;        /* Tags, captions, pending states */
+  --text-accent: #880808;       /* Hover states only */
 
   /* Extended palette */
-  --color-surface: #F5F5F5;
-  --color-muted: #666666;
-  --color-divider: #E0E0E0;
+  --color-surface: #D9D9D9;     /* Alternating section background */
+  --color-divider: #C8C8C8;     /* Visible dividers on off-white */
+  --color-image-bg: #D0D0D0;    /* Image placeholder background */
   --color-red-glow: rgba(136, 8, 8, 0.12);
 
-  /* Typography */
-  --font-title: 'Gotham Black', 'Montserrat', sans-serif;
-  --font-body: 'Helvetica Neue', 'Inter', sans-serif;
+  /* Typography — Montserrat (Gotham substitute), Inter (Helvetica Neue substitute) */
+  --font-title: 'Montserrat', sans-serif;
+  --font-body: 'Inter', 'Helvetica Neue', sans-serif;
   --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
 
   /* Spacing scale (8px base grid) */
@@ -63,7 +69,7 @@ html {
 body {
   font-family: var(--font-body);
   font-weight: 300;
-  color: var(--color-black);
+  color: var(--text-primary);
   background-color: var(--color-white);
   line-height: 1.65;
   letter-spacing: 0.01em;
@@ -110,7 +116,7 @@ button:focus-visible {
   left: 0;
   right: 0;
   z-index: 100;
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(225, 225, 225, 0.92);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--color-divider);
@@ -136,7 +142,7 @@ button:focus-visible {
   display: flex;
   align-items: center;
   text-decoration: none;
-  color: var(--color-black);
+  color: var(--text-primary);
 }
 
 .nav-brandmark {
@@ -156,13 +162,13 @@ button:focus-visible {
   font-size: 0.8rem;
   letter-spacing: 0.12em;
   text-decoration: none;
-  color: var(--color-muted);
+  color: var(--text-secondary);
   transition: color 0.25s var(--ease-default);
   position: relative;
 }
 
 .nav-link:hover {
-  color: var(--color-black);
+  color: var(--text-primary);
 }
 
 .nav-link::after {
@@ -183,7 +189,7 @@ button:focus-visible {
 }
 
 .nav-link.active {
-  color: var(--color-black);
+  color: var(--text-primary);
 }
 
 /* Hamburger — mobile only */
@@ -201,7 +207,7 @@ button:focus-visible {
   display: block;
   width: 24px;
   height: 1.5px;
-  background: var(--color-black);
+  background: var(--text-primary);
   transition: transform var(--duration-fast), opacity var(--duration-fast);
 }
 
@@ -225,7 +231,7 @@ button:focus-visible {
   position: fixed;
   inset: 0;
   z-index: 150;
-  background: rgba(255, 255, 255, 0.97);
+  background: rgba(225, 225, 225, 0.97);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -245,7 +251,7 @@ button:focus-visible {
   right: var(--space-md);
   background: none;
   border: none;
-  color: var(--color-black);
+  color: var(--text-primary);
   font-size: 2rem;
   cursor: pointer;
   padding: var(--space-xs);
@@ -264,7 +270,7 @@ button:focus-visible {
   font-weight: 900;
   font-size: 2rem;
   letter-spacing: 0.12em;
-  color: var(--color-black);
+  color: var(--text-primary);
   text-decoration: none;
   opacity: 0;
   transform: translateY(20px);
@@ -281,7 +287,7 @@ button:focus-visible {
 .mobile-menu.open .mobile-menu-link:nth-child(3) { transition-delay: 0.3s; }
 
 .mobile-menu-link:hover {
-  color: var(--color-blood-red);
+  color: var(--text-accent);
 }
 
 
@@ -321,7 +327,7 @@ button:focus-visible {
   font-size: clamp(3rem, 6vw, 5.5rem);
   line-height: 0.95;
   letter-spacing: 0.04em;
-  color: var(--color-black);
+  color: var(--text-primary);
   margin-bottom: var(--space-md);
 }
 
@@ -330,7 +336,7 @@ button:focus-visible {
   font-weight: 300;
   font-size: 0.85rem;
   letter-spacing: 0.15em;
-  color: var(--color-muted);
+  color: var(--text-secondary);
   margin-bottom: var(--space-sm);
 }
 
@@ -339,7 +345,7 @@ button:focus-visible {
   font-weight: 300;
   font-size: clamp(0.95rem, 1.1vw, 1.1rem);
   line-height: 1.65;
-  color: var(--color-black);
+  color: var(--text-primary);
   max-width: 480px;
   margin: 0 auto;
 }
@@ -371,7 +377,7 @@ button:focus-visible {
 .scroll-line {
   width: 1px;
   height: 48px;
-  background: var(--color-muted);
+  background: var(--text-secondary);
   animation: scrollDrift 3s ease-in-out infinite;
 }
 
@@ -417,7 +423,7 @@ button:focus-visible {
   font-size: clamp(1.75rem, 3vw, 2.5rem);
   letter-spacing: 0.06em;
   line-height: 1.0;
-  color: var(--color-black);
+  color: var(--text-primary);
   white-space: nowrap;
 }
 
@@ -458,7 +464,7 @@ button:focus-visible {
   overflow: hidden;
   border-radius: 2px;
   aspect-ratio: 16 / 9;
-  background: #F0F0F0;
+  background: var(--color-image-bg);
 }
 
 .project-image-wrap img {
@@ -469,7 +475,8 @@ button:focus-visible {
 }
 
 .project-featured:hover .project-image-wrap img,
-.project-card:hover .project-image-wrap img {
+.project-card:hover .project-image-wrap img,
+.project-closing:hover .project-image-wrap img {
   transform: scale(1.02);
   filter: brightness(1.05);
 }
@@ -486,7 +493,7 @@ button:focus-visible {
   font-size: clamp(1.25rem, 2vw, 1.75rem);
   letter-spacing: 0.03em;
   line-height: 1.1;
-  color: var(--color-black);
+  color: var(--text-primary);
   margin-bottom: var(--space-xs);
 }
 
@@ -494,7 +501,7 @@ button:focus-visible {
   font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: var(--color-muted);
+  color: var(--text-muted);
   margin-bottom: var(--space-xs);
   line-height: 1.4;
 }
@@ -502,7 +509,7 @@ button:focus-visible {
 /* Project context — the brief/intent line */
 .project-context {
   font-size: 0.85rem;
-  color: var(--color-muted);
+  color: var(--text-secondary);
   line-height: 1.55;
   margin-bottom: var(--space-sm);
   max-width: 65ch;
@@ -511,7 +518,7 @@ button:focus-visible {
 
 .project-desc {
   font-size: clamp(0.95rem, 1.1vw, 1.1rem);
-  color: var(--color-black);
+  color: var(--text-primary);
   line-height: 1.65;
   max-width: 65ch;
   margin-bottom: var(--space-md);
@@ -530,7 +537,7 @@ button:focus-visible {
   font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: var(--color-muted);
+  color: var(--text-secondary);
   line-height: 1.4;
 }
 
@@ -546,7 +553,7 @@ button:focus-visible {
   bottom: calc(100% + 8px);
   left: 50%;
   transform: translateX(-50%);
-  background: var(--color-black);
+  background: var(--text-primary);
   color: var(--color-white);
   font-size: 0.7rem;
   letter-spacing: 0.02em;
@@ -573,7 +580,7 @@ button:focus-visible {
 .process-num {
   font-variant-numeric: tabular-nums;
   margin-right: 0.35em;
-  color: var(--color-black);
+  color: var(--text-primary);
   opacity: 0.5;
 }
 
@@ -591,25 +598,25 @@ button:focus-visible {
   font-size: 0.8rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: var(--color-black);
+  color: var(--text-primary);
   text-decoration: none;
   transition: color 0.25s var(--ease-default);
 }
 
 .project-cta:hover {
-  color: var(--color-blood-red);
+  color: var(--text-accent);
 }
 
 /* Pending CTA — case study not yet available */
 .project-cta--pending {
-  color: var(--color-muted);
+  color: var(--text-muted);
   cursor: default;
   font-style: italic;
   font-size: 0.75rem;
 }
 
 .project-cta--pending:hover {
-  color: var(--color-muted);
+  color: var(--text-muted);
 }
 
 
@@ -677,7 +684,7 @@ button:focus-visible {
   font-size: clamp(1.75rem, 3vw, 2.5rem);
   letter-spacing: 0.06em;
   line-height: 1.0;
-  color: var(--color-black);
+  color: var(--text-primary);
   margin-bottom: var(--space-xs);
 }
 
@@ -685,13 +692,13 @@ button:focus-visible {
   font-family: var(--font-body);
   font-weight: 300;
   font-size: 1rem;
-  color: var(--color-muted);
+  color: var(--text-secondary);
   margin-bottom: var(--space-xl);
 }
 
 .about-text p {
   font-size: clamp(0.95rem, 1.1vw, 1.1rem);
-  color: var(--color-black);
+  color: var(--text-primary);
   line-height: 1.65;
   max-width: 65ch;
   margin-bottom: var(--space-md);
@@ -722,13 +729,13 @@ button:focus-visible {
   font-weight: 900;
   font-size: 0.75rem;
   letter-spacing: 0.08em;
-  color: var(--color-black);
+  color: var(--text-primary);
   margin-bottom: var(--space-sm);
 }
 
 .capability-list {
   font-size: 0.9rem;
-  color: var(--color-muted);
+  color: var(--text-secondary);
   line-height: 1.8;
   font-weight: 300;
 }
@@ -747,7 +754,7 @@ button:focus-visible {
 
 .about-currently {
   font-size: 0.85rem;
-  color: var(--color-muted);
+  color: var(--text-secondary);
   letter-spacing: 0.02em;
   line-height: 1.7;
 }
@@ -757,7 +764,7 @@ button:focus-visible {
 .contact {
   min-height: 100vh;
   padding: var(--space-3xl) 0;
-  background: #F5F5F5;
+  background: var(--color-surface);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -777,19 +784,19 @@ button:focus-visible {
   font-weight: 900;
   font-size: clamp(1.25rem, 2.5vw, 2rem);
   letter-spacing: 0.03em;
-  color: var(--color-black);
+  color: var(--text-primary);
   text-decoration: none;
   transition: color 0.25s var(--ease-default);
   margin-bottom: var(--space-md);
 }
 
 .contact-email:hover {
-  color: var(--color-blood-red);
+  color: var(--text-accent);
 }
 
 .contact-context {
   font-size: clamp(0.95rem, 1.1vw, 1.1rem);
-  color: var(--color-muted);
+  color: var(--text-secondary);
   line-height: 1.65;
   margin-bottom: var(--space-lg);
 }
@@ -807,13 +814,13 @@ button:focus-visible {
   font-size: 0.8rem;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  color: var(--color-muted);
+  color: var(--text-secondary);
   text-decoration: none;
   transition: color 0.25s var(--ease-default);
 }
 
 .contact-social a:hover {
-  color: var(--color-black);
+  color: var(--text-primary);
 }
 
 /* Social links pending state */
@@ -862,14 +869,14 @@ button:focus-visible {
 .footer-copy {
   font-size: 0.75rem;
   letter-spacing: 0.08em;
-  color: var(--color-muted);
+  color: var(--text-muted);
   font-variant-caps: all-small-caps;
 }
 
 .footer-motto {
   font-size: 0.75rem;
   letter-spacing: 0.02em;
-  color: var(--color-muted);
+  color: var(--text-muted);
   font-style: italic;
   opacity: 0.7;
 }
@@ -931,10 +938,27 @@ button:focus-visible {
   .contact {
     padding: var(--space-2xl) 0;
   }
+
+  /* Capability columns — clear vertical separation on mobile */
+  .capability-column {
+    padding-bottom: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid var(--color-divider);
+  }
+
+  .capability-column:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
 }
 
 /* ─── Responsive: Phone ─── */
 @media (max-width: 480px) {
+  :root {
+    --content-padding-inline: 20px;
+  }
+
   .hero-subtitle {
     font-size: 0.75rem;
     letter-spacing: 0.1em;
@@ -960,6 +984,11 @@ button:focus-visible {
 
   .process-step:last-child::after {
     content: none;
+  }
+
+  /* N.O.R.A. — prevent awkward breaks in the acronym */
+  .project-title {
+    word-break: keep-all;
   }
 
   .contact-email {
