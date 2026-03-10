@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Byōdō-in Phoenix Hall — Cain Moriarty | The Moriarty Experience</title>
+  <meta name="description" content="A faithful 3D reconstruction of the Byōdō-in Phoenix Hall as a static VR museum exhibit — modelled in Blender, textured in Substance Painter, rendered as 8K 360° panoramas in Unreal Engine 5.">
+  <meta name="author" content="Cain Moriarty">
+
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=Montserrat:wght@900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+  <div class="scroll-progress" aria-hidden="true"></div>
+
+  <header class="nav" role="banner">
+    <nav class="nav-inner" aria-label="Main navigation">
+      <a href="../index.html" class="nav-brand" aria-label="The Moriarty Experience — return to portfolio">
+        <img class="nav-brandmark" src="../assets/logo.jpg" alt="The Moriarty Experience">
+      </a>
+      <div class="nav-links">
+        <a href="../index.html#work" class="nav-link">WORK</a>
+        <a href="../index.html#about" class="nav-link">ABOUT</a>
+        <a href="../index.html#contact" class="nav-link">CONTACT</a>
+      </div>
+      <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+    </nav>
+  </header>
+
+  <div class="mobile-menu" aria-hidden="true">
+    <button class="mobile-menu-close" aria-label="Close menu">&times;</button>
+    <nav class="mobile-menu-nav" aria-label="Mobile navigation">
+      <a href="../index.html#work" class="mobile-menu-link">WORK</a>
+      <a href="../index.html#about" class="mobile-menu-link">ABOUT</a>
+      <a href="../index.html#contact" class="mobile-menu-link">CONTACT</a>
+    </nav>
+  </div>
+
+  <main>
+
+    <div class="project-page-hero">
+      <img src="../assets/buddha.png"
+           alt="3D reconstruction of Byōdō-in Phoenix Hall interior with Amida Buddha statue and Heian-period ornamentation, rendered in Unreal Engine 5"
+           fetchpriority="high">
+      <div class="project-page-hero-overlay" aria-hidden="true"></div>
+    </div>
+
+    <div class="container-narrow">
+
+      <header class="project-page-header reveal-on-scroll">
+        <p class="project-breadcrumb"><a href="../index.html#work">← SELECTED WORK</a></p>
+        <h1 class="project-page-title">BYŌDŌ-IN PHOENIX HALL</h1>
+        <p class="project-page-tags">Environment Art &middot; Blender &middot; Unreal Engine 5 &middot; VR 360&deg;</p>
+      </header>
+
+      <div class="project-page-body">
+
+        <section class="project-section reveal-on-scroll">
+          <p class="project-section-label">OVERVIEW</p>
+          <p class="project-overview-context">University project exploring how historical spaces can function as interactive museum exhibits — accuracy to the record as a non-negotiable creative constraint.</p>
+          <p class="project-overview-desc">A faithful reconstruction of the Byōdō-in Phoenix Hall as a static VR environment, part of the 'Echoes of the Past' project. Modelled in Blender from Machiya architectural reference and Heian-period (794–1185) design language, textured in Substance Painter, and rendered as 8K 360&deg; panoramas in Unreal Engine 5. The project was not an interpretation — it was a reconstruction. Every decision had to be justifiable against historical evidence. Where the evidence was ambiguous, the most conservative reading was adopted.</p>
+        </section>
+
+        <section class="project-section reveal-on-scroll">
+          <p class="project-section-label">PROCESS</p>
+          <div class="process-steps">
+
+            <div class="process-step-card">
+              <p class="process-step-card-num">01</p>
+              <h3 class="process-step-card-title">REFERENCE</h3>
+              <p class="process-step-card-desc">Architectural reference was drawn from Machiya construction techniques and Heian-period design language. Period illustrations, UNESCO World Heritage documentation, and academic architectural surveys were cross-referenced to ensure the reconstruction remained historically accurate rather than interpretive. The proportional systems of classical Japanese architecture — ken-based modular grids — were applied throughout.</p>
+            </div>
+
+            <div class="process-step-card">
+              <p class="process-step-card-num">02</p>
+              <h3 class="process-step-card-title">BLOCKOUT</h3>
+              <p class="process-step-card-desc">The temple was constructed in Blender using a modular approach — core structural elements (columns, beams, bracketing systems, roof tiles) were built to historical measurements and instanced across the structure. The asymmetrical wing extensions of the Phoenix Hall presented particular modelling challenges, requiring custom solutions where standard modular repetition broke down against the actual geometry of the building.</p>
+            </div>
+
+            <div class="process-step-card">
+              <p class="process-step-card-num">03</p>
+              <h3 class="process-step-card-title">TEXTURING</h3>
+              <p class="process-step-card-desc">All surface materials were created in Substance Painter using a physically based rendering workflow. Aged cypress wood, oxidised copper roof tiles, lacquered vermilion surfaces, and worn stone paving were each developed from photographic reference. The objective was to represent the material language of a structure over a thousand years old — not pristine, not derelict, but carrying the specific patina of careful, continuous preservation.</p>
+            </div>
+
+            <div class="process-step-card">
+              <p class="process-step-card-num">04</p>
+              <h3 class="process-step-card-title">VR RENDER</h3>
+              <p class="process-step-card-desc">Final output was a set of 8K 360&deg; panoramic renders produced in Unreal Engine 5, designed for deployment as a museum exhibit experience. The environment was lit to approximate the atmospheric quality of filtered light through paper shoji screens — a defining visual characteristic of Heian-period interior spaces. Lumen global illumination was tuned to capture the soft, diffuse quality of indirect light specific to the space.</p>
+            </div>
+
+          </div>
+        </section>
+
+        <nav class="project-page-nav" aria-label="Project navigation">
+          <a href="balance-brewing.html" class="project-page-nav-link">
+            <span class="project-page-nav-label">← PREVIOUS</span>
+            <span class="project-page-nav-title">BALANCE BREWING</span>
+          </a>
+          <a href="../index.html#work" class="project-page-nav-center">ALL WORK</a>
+          <a href="battle-of-britain.html" class="project-page-nav-link project-page-nav-link--next">
+            <span class="project-page-nav-label">NEXT →</span>
+            <span class="project-page-nav-title">BATTLE OF BRITAIN</span>
+          </a>
+        </nav>
+
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <img class="footer-brandmark" src="../assets/logo-full.jpg" alt="The Moriarty Experience">
+      <p class="footer-copy">&copy; 2025–2026 CAIN MORIARTY</p>
+      <p class="footer-motto">Ex Labore Venustas — From Work, Beauty</p>
+    </div>
+  </footer>
+
+  <script src="project.js"></script>
+</body>
+</html>
