@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Codex Ingenium | The Moriarty Experience</title>
+  <meta name="description" content="The Codex Ingenium — a framework for making. Craft over shortcuts, story before spectacle, discipline as devotion, respect for tradition.">
+  <meta name="author" content="Cain Moriarty">
+  <meta name="robots" content="noindex">
+
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;1,300&family=JetBrains+Mono:wght@400&family=Montserrat:wght@900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Lock Screen -->
+  <div class="codex-lock" id="codex-lock">
+    <div class="lock-content">
+      <video class="ascii-brandmark"
+             autoplay
+             muted
+             loop
+             playsinline
+             disablepictureinpicture>
+        <source src="assets/ascii-video.webm" type="video/webm">
+        <source src="assets/ascii-video.mp4" type="video/mp4">
+        <!-- Static fallback if video fails entirely -->
+        <img src="assets/ascii-frame.jpg" alt="The Moriarty Experience brandmark rendered in ASCII art">
+      </video>
+
+      <h1 class="lock-motto">EX LABORE VENUSTAS</h1>
+      <p class="lock-prompt">Enter to proceed</p>
+    </div>
+  </div>
+
+  <!-- Codex Content (hidden until lock dismissed) -->
+  <div class="codex-page" id="codex-page">
+
+    <header class="nav visible" role="banner">
+      <nav class="nav-inner" aria-label="Main navigation">
+        <a href="index.html" class="nav-brand" aria-label="The Moriarty Experience — return to portfolio">
+          <img class="nav-brandmark" src="assets/logo.jpg" alt="The Moriarty Experience">
+        </a>
+        <div class="nav-links">
+          <a href="index.html#work" class="nav-link">WORK</a>
+          <a href="index.html#about" class="nav-link">ABOUT</a>
+          <a href="index.html#contact" class="nav-link">CONTACT</a>
+        </div>
+        <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </nav>
+    </header>
+
+    <div class="mobile-menu" aria-hidden="true">
+      <button class="mobile-menu-close" aria-label="Close menu">&times;</button>
+      <nav class="mobile-menu-nav" aria-label="Mobile navigation">
+        <a href="index.html#work" class="mobile-menu-link">WORK</a>
+        <a href="index.html#about" class="mobile-menu-link">ABOUT</a>
+        <a href="index.html#contact" class="mobile-menu-link">CONTACT</a>
+      </nav>
+    </div>
+
+    <main>
+      <div class="codex-content">
+
+        <h1 class="codex-h1">THE CODEX INGENIUM</h1>
+        <p class="codex-subtitle">A framework for making</p>
+
+        <!-- Divider -->
+        <div class="section-divider" aria-hidden="true">
+          <span class="mark">
+            <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path d="M2 20V4l5 8-5 8zm7 0V4l5 8-5 8zm7 0V4l5 8-5 8z"/>
+            </svg>
+          </span>
+        </div>
+
+        <h2 class="codex-motto">EX LABORE VENUSTAS</h2>
+        <p class="codex-motto-translation">From Work, Beauty</p>
+
+        <div class="section-divider" aria-hidden="true">
+          <span class="mark">
+            <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path d="M2 20V4l5 8-5 8zm7 0V4l5 8-5 8zm7 0V4l5 8-5 8z"/>
+            </svg>
+          </span>
+        </div>
+
+        <div class="codex-prose">
+          <p>Every piece of work carries a question with it: does this hold up? Not under the comfortable light of a portfolio review or the warm validation of social media — but against the standard of the thing itself. The standard that existed before you started, and will exist after you finish. The craft traditions that produced illuminated manuscripts and cathedral stonework didn't operate on deadlines or deliverables. They operated on an internal standard of completion that had nothing to do with external approval. That standard is what this framework exists to preserve.</p>
+          <p>The Codex Ingenium is not a manifesto. It's a set of constraints — a deliberately imposed structure that shapes how decisions get made. Every project, regardless of medium, is tested against these principles before it ships. Not because the principles are sacred, but because constraints produce clarity, and clarity produces work that doesn't need to be explained.</p>
+          <p>The name comes from the Latin: craft of ingenuity. The idea that making things well is itself a form of intelligence — that the hand teaches the mind. This isn't romanticism. It's observable. The understanding that comes from carving a lino block, from debugging a rendering pipeline, from hand-modelling a mechanical component to blueprint accuracy — these forms of knowledge don't reduce to theory. They are earned through labour. Ex labore venustas.</p>
+        </div>
+
+        <div class="section-divider" aria-hidden="true">
+          <span class="mark">
+            <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path d="M2 20V4l5 8-5 8zm7 0V4l5 8-5 8zm7 0V4l5 8-5 8z"/>
+            </svg>
+          </span>
+        </div>
+
+        <h2 class="codex-h2">THE DUAL-ERA TEST</h2>
+        <p class="codex-h2-sub">Would this hold up in 1425 and in 2025?</p>
+
+        <div class="section-divider" aria-hidden="true" style="margin: 32px auto;">
+          <span class="mark">
+            <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path d="M2 20V4l5 8-5 8zm7 0V4l5 8-5 8zm7 0V4l5 8-5 8z"/>
+            </svg>
+          </span>
+        </div>
+
+        <div class="codex-prose">
+          <p>The dual-era test is the core design heuristic. Before a decision is finalised — a typeface, a layout structure, a material choice, a colour — it gets measured against two questions: would a medieval craftsman recognise the discipline in this? And would a contemporary studio respect the execution? If either answer is no, the decision gets revised. This isn't about making things look old. It's about making things that participate in a longer tradition of considered making — work that could exist at either end of a six-hundred-year timeline because the underlying principles haven't changed.</p>
+        </div>
+
+        <div class="section-divider" aria-hidden="true">
+          <span class="mark">
+            <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path d="M2 20V4l5 8-5 8zm7 0V4l5 8-5 8zm7 0V4l5 8-5 8z"/>
+            </svg>
+          </span>
+        </div>
+
+        <h2 class="codex-h2">PRINCIPLES</h2>
+
+        <div style="margin-top: var(--space-xl);"></div>
+
+        <ul class="codex-principles">
+          <li class="codex-principle">
+            <p class="codex-principle-num">01</p>
+            <p class="codex-principle-statement">Craft over shortcuts.</p>
+            <p class="codex-principle-desc">If the fast way and the right way diverge, take the right way. The time invested in doing something properly is never wasted — it compounds into skills that make the next project faster and better. Procedural solutions are fine when they're the best tool; they're not fine when they're the easiest escape.</p>
+          </li>
+          <li class="codex-principle">
+            <p class="codex-principle-num">02</p>
+            <p class="codex-principle-statement">Story before spectacle.</p>
+            <p class="codex-principle-desc">Visual impact without narrative purpose is decoration. Every render, every animation, every print should be telling you something — about its subject, about its context, about the decisions that shaped it. The spectacle should serve the story, not replace it.</p>
+          </li>
+          <li class="codex-principle">
+            <p class="codex-principle-num">03</p>
+            <p class="codex-principle-statement">Discipline as devotion.</p>
+            <p class="codex-principle-desc">The repetitive, painstaking aspects of craft — precision modelling, clean topology, even ink coverage, careful documentation — are not obstacles to creative work. They are creative work. The discipline is what separates considered making from content production.</p>
+          </li>
+          <li class="codex-principle">
+            <p class="codex-principle-num">04</p>
+            <p class="codex-principle-statement">Respect for tradition.</p>
+            <p class="codex-principle-desc">Every tool, every technique, every visual convention has a history. Understanding that history — how a method developed, why it works, what it replaced — makes you a better practitioner. You don't need to replicate the past. You need to know it well enough to build on it honestly.</p>
+          </li>
+        </ul>
+
+        <div class="section-divider" aria-hidden="true">
+          <span class="mark">
+            <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path d="M2 20V4l5 8-5 8zm7 0V4l5 8-5 8zm7 0V4l5 8-5 8z"/>
+            </svg>
+          </span>
+        </div>
+
+        <h2 class="codex-h2">INFLUENCES</h2>
+
+        <div style="margin-top: var(--space-xl);"></div>
+
+        <p class="codex-influences">
+          Gothic architecture. Medieval craftsmanship. Mythological symbolism.<br>
+          Warhammer. Berserk. Tolkien. Dune.<br>
+          Iron Maiden. Powerwolf.
+        </p>
+
+        <div class="section-divider" aria-hidden="true">
+          <span class="mark">
+            <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path d="M2 20V4l5 8-5 8zm7 0V4l5 8-5 8zm7 0V4l5 8-5 8z"/>
+            </svg>
+          </span>
+        </div>
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        <img class="footer-brandmark" src="assets/logo-full.jpg" alt="The Moriarty Experience">
+        <p class="footer-copy">&copy; 2025–2026 CAIN MORIARTY</p>
+        <p class="footer-motto">Ex Labore Venustas — From Work, Beauty</p>
+      </div>
+    </footer>
+
+  </div>
+
+  <script src="codex.js"></script>
+</body>
+</html>

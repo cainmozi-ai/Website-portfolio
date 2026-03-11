@@ -86,4 +86,24 @@
 
   setupRevealObserver();
   updateScrollProgress();
+
+  // CODEX keyboard sequence — typing C-O-D-E-X navigates to hidden page
+  (function () {
+    var sequence = 'codex';
+    var buffer = '';
+    var timeout;
+    document.addEventListener('keydown', function (e) {
+      if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA' || e.target.isContentEditable) return;
+      buffer += e.key.toLowerCase();
+      clearTimeout(timeout);
+      timeout = setTimeout(function () { buffer = ''; }, 2000);
+      if (buffer.length > sequence.length) {
+        buffer = buffer.slice(-sequence.length);
+      }
+      if (buffer === sequence) {
+        buffer = '';
+        window.location.href = '../codex.html';
+      }
+    });
+  })();
 })();

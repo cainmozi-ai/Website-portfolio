@@ -4,10 +4,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Midnight Run — Corvette C7 Cinematic | Cain Moriarty | The Moriarty Experience</title>
-  <meta name="description" content="A cinematic night drive through a rain-slicked city — post-processing as craft. Blender Cycles, wet-surface reflections, and colour grading in After Effects.">
+  <meta name="description" content="A cinematic night drive through a rain-slicked city — post-processing as craft. Blender Cycles, wet-surface reflections, and colour grading in After Effects. Case study by Cain Moriarty.">
   <meta name="author" content="Cain Moriarty">
 
+  <!-- Open Graph -->
+  <meta property="og:title" content="Midnight Run — Corvette C7 Cinematic — Cain Moriarty">
+  <meta property="og:description" content="Cinematic night drive through a rain-slicked city — Blender Cycles, wet-surface reflections, and colour grading in After Effects.">
+  <meta property="og:image" content="https://themoriartyexperience.com/assets/car-render.jpg">
+  <meta property="og:type" content="article">
+
   <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=Montserrat:wght@900&display=swap" rel="stylesheet">
@@ -46,68 +54,145 @@
 
   <main>
 
-    <div class="project-page-hero">
-      <img src="../assets/car-render.jpg"
-           alt="Cinematic night render of a Corvette C7 on rain-slicked city streets with volumetric lighting and wet-surface reflections"
-           fetchpriority="high">
-      <div class="project-page-hero-overlay" aria-hidden="true"></div>
-    </div>
+    <!-- Section 1: Project Header -->
+    <section class="cs-hero-section">
+      <div class="container">
+        <a href="../index.html#work" class="cs-back">&larr; BACK TO WORK</a>
+      </div>
+      <div class="cs-hero-image">
+        <img src="../assets/car-render.jpg"
+             alt="Cinematic night render of a Corvette C7 on rain-slicked city streets with volumetric lighting and wet-surface reflections"
+             fetchpriority="high">
+      </div>
+      <div class="container cs-header-wrap">
+        <h1 class="cs-title">MIDNIGHT RUN — CORVETTE C7 CINEMATIC</h1>
+        <p class="cs-tags">3D Animation &middot; Blender Cycles &middot; Post-Production &middot; After Effects</p>
+      </div>
+    </section>
 
-    <div class="container-narrow">
+    <!-- Section 2: Overview -->
+    <section class="cs-overview">
+      <p class="cs-overview-context">Personal project investigating how colour grading, surface physics, and atmospheric rendering transform a 3D scene into cinematic footage.</p>
+      <p class="cs-overview-desc">A cinematic night drive through a rain-slicked city, built from kitbashed assets in Blender Cycles. Colour grading, motion blur, light bloom, and wet-surface reflections — post-processing treated as a craft discipline, not an afterthought. Composited and graded in After Effects. The project's central question was: at what point does 3D rendering become indistinguishable from photography? The answer, reached through iteration, was that the difference lives almost entirely in the post-production decisions rather than the render itself.</p>
+      <p class="cs-overview-detail">The wet-surface shader system — producing the characteristic high-gloss reflections of rain-slicked tarmac where city lights pool and smear across horizontal surfaces — became the technical centrepiece of the project.</p>
+    </section>
 
-      <header class="project-page-header reveal-on-scroll">
-        <p class="project-breadcrumb"><a href="../index.html#work">← SELECTED WORK</a></p>
-        <h1 class="project-page-title">MIDNIGHT RUN — CORVETTE C7 CINEMATIC</h1>
-        <p class="project-page-tags">3D Animation &middot; Blender Cycles &middot; Post-Production &middot; After Effects</p>
-      </header>
-
-      <div class="project-page-body">
-
-        <section class="project-section reveal-on-scroll">
-          <p class="project-section-label">OVERVIEW</p>
-          <p class="project-overview-context">Personal project investigating how colour grading, surface physics, and atmospheric rendering transform a 3D scene into cinematic footage.</p>
-          <p class="project-overview-desc">A cinematic night drive through a rain-slicked city, built from kitbashed assets in Blender Cycles. Colour grading, motion blur, light bloom, and wet-surface reflections — post-processing treated as a craft discipline, not an afterthought. Composited and graded in After Effects. The project's central question was: at what point does 3D rendering become indistinguishable from photography? The answer, reached through iteration, was that the difference lives almost entirely in the post-production decisions rather than the render itself.</p>
-        </section>
-
-        <section class="project-section reveal-on-scroll">
-          <p class="project-section-label">PROCESS</p>
-          <div class="process-steps">
-
-            <div class="process-step-card">
-              <p class="process-step-card-num">01</p>
-              <h3 class="process-step-card-title">BLOCKOUT</h3>
-              <p class="process-step-card-desc">The urban environment was assembled from a combination of modelled and kitbashed assets in Blender — modular building facades, street furniture, signage, and wet road surface geometry. Particular care was given to the drainage channels and gutter geometry that would later catch and reflect light in key compositional moments. The city needed to read as a plausible environment, not a set.</p>
-            </div>
-
-            <div class="process-step-card">
-              <p class="process-step-card-num">02</p>
-              <h3 class="process-step-card-title">LIGHTING</h3>
-              <p class="process-step-card-desc">The night lighting rig was built around practical sources — sodium streetlamps producing warm amber casts, cooler blue neon signs, and the diffuse glow of rain-reflected headlights. Volumetric fog was layered to give each source physical presence and depth. Wet-surface shader parameters were iterated to achieve the characteristic high-gloss reflections of rain-slicked tarmac — the specific quality where city lights pool and smear across horizontal surfaces.</p>
-            </div>
-
-            <div class="process-step-card">
-              <p class="process-step-card-num">03</p>
-              <h3 class="process-step-card-title">COMPOSITING</h3>
-              <p class="process-step-card-desc">Post-production in After Effects treated the Cycles render as raw footage to be graded, not a finished product. Motion blur was applied selectively to camera-facing surfaces to sell the sense of motion. Light bloom was calibrated against reference photography of nighttime cityscapes — enough to feel photographic, not enough to read as digital. Final colour grade shifted the palette towards a cooler, more cinematic colour space, pulling warmth from the shadows and letting the practical source colours define the highlights.</p>
-            </div>
-
-          </div>
-        </section>
-
-        <nav class="project-page-nav" aria-label="Project navigation">
-          <a href="battle-of-britain.html" class="project-page-nav-link">
-            <span class="project-page-nav-label">← PREVIOUS</span>
-            <span class="project-page-nav-title">BATTLE OF BRITAIN</span>
-          </a>
-          <a href="../index.html#work" class="project-page-nav-center">ALL WORK</a>
-          <a href="medieval-wagon.html" class="project-page-nav-link project-page-nav-link--next">
-            <span class="project-page-nav-label">NEXT →</span>
-            <span class="project-page-nav-title">MEDIEVAL WAGON JOURNEY</span>
-          </a>
-        </nav>
-
+    <!-- Section 3: Details Strip -->
+    <div class="cs-details-strip">
+      <div class="cs-details-grid">
+        <div class="cs-detail">
+          <p class="cs-detail-label">YEAR</p>
+          <p class="cs-detail-value">2024–2025</p>
+        </div>
+        <div class="cs-detail">
+          <p class="cs-detail-label">TOOLS</p>
+          <p class="cs-detail-value">Blender Cycles, After Effects</p>
+        </div>
+        <div class="cs-detail">
+          <p class="cs-detail-label">ROLE</p>
+          <p class="cs-detail-value">Sole designer</p>
+        </div>
+        <div class="cs-detail">
+          <p class="cs-detail-label">CONTEXT</p>
+          <p class="cs-detail-value">Personal project</p>
+        </div>
       </div>
     </div>
+
+    <!-- Section 4: Process -->
+    <section class="cs-process">
+      <h2 class="cs-process-heading reveal-on-scroll">PROCESS</h2>
+
+      <div class="cs-process-stages">
+        <div class="cs-process-stage reveal-on-scroll">
+          <div class="cs-process-image">
+            <img src="../assets/midnight-process-blockout.jpg"
+                 alt="Blender viewport showing the kitbashed city environment — modular building facades, street furniture, and road geometry in blockout stage"
+                 loading="lazy">
+          </div>
+          <div class="cs-process-text">
+            <p class="cs-process-num">01</p>
+            <h3 class="cs-process-stage-title">BLOCKOUT</h3>
+            <p class="cs-process-desc">The urban environment was assembled from a combination of modelled and kitbashed assets in Blender — modular building facades, street furniture, signage, and wet road surface geometry. Particular care was given to the drainage channels and gutter geometry that would later catch and reflect light in key compositional moments. The city needed to read as a plausible environment, not a set.</p>
+          </div>
+        </div>
+
+        <div class="cs-process-stage reveal-on-scroll">
+          <div class="cs-process-image">
+            <img src="../assets/midnight-process-lighting.jpg"
+                 alt="Before and after lighting comparison — the night scene with and without volumetric fog and practical light sources"
+                 loading="lazy">
+          </div>
+          <div class="cs-process-text">
+            <p class="cs-process-num">02</p>
+            <h3 class="cs-process-stage-title">LIGHTING</h3>
+            <p class="cs-process-desc">The night lighting rig was built around practical sources — sodium streetlamps producing warm amber casts, cooler blue neon signs, and the diffuse glow of rain-reflected headlights. Volumetric fog was layered to give each source physical presence and depth. Wet-surface shader parameters were iterated to achieve the characteristic high-gloss reflections of rain-slicked tarmac — the specific quality where city lights pool and smear across horizontal surfaces.</p>
+          </div>
+        </div>
+
+        <div class="cs-process-stage reveal-on-scroll">
+          <div class="cs-process-image">
+            <img src="../assets/midnight-process-compositing.jpg"
+                 alt="After Effects colour grading stages — raw Cycles render versus final graded output showing motion blur, bloom, and colour space shift"
+                 loading="lazy">
+          </div>
+          <div class="cs-process-text">
+            <p class="cs-process-num">03</p>
+            <h3 class="cs-process-stage-title">COMPOSITING</h3>
+            <p class="cs-process-desc">Post-production in After Effects treated the Cycles render as raw footage to be graded, not a finished product. Motion blur was applied selectively to camera-facing surfaces to sell the sense of motion. Light bloom was calibrated against reference photography of nighttime cityscapes — enough to feel photographic, not enough to read as digital. Final colour grade shifted the palette towards a cooler, more cinematic colour space, pulling warmth from the shadows and letting the practical source colours define the highlights.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 5: Video -->
+    <div class="video-viewer-container">
+      <video class="project-video"
+             autoplay muted loop playsinline
+             poster="../assets/midnight-run-poster.jpg">
+        <source src="../assets/videos/midnight-run.mp4" type="video/mp4">
+      </video>
+    </div>
+
+    <!-- Section 5: Gallery (Option A — full-width stacked, cinematic) -->
+    <section class="cs-gallery cs-gallery--stacked">
+      <h2 class="cs-gallery-heading reveal-on-scroll">OUTCOME</h2>
+      <div class="cs-gallery-item reveal-on-scroll">
+        <img src="../assets/midnight-gallery-hero.jpg"
+             alt="Corvette C7 cinematic frame — rain-slicked street with volumetric headlights and wet-surface reflections"
+             loading="lazy">
+      </div>
+      <div class="cs-gallery-item reveal-on-scroll">
+        <img src="../assets/midnight-gallery-reflection.jpg"
+             alt="Surface reflection detail — city lights pooling across rain-slicked tarmac with sodium streetlamp glow"
+             loading="lazy">
+      </div>
+      <div class="cs-gallery-item reveal-on-scroll">
+        <img src="../assets/midnight-gallery-motion.jpg"
+             alt="Motion frame — Corvette in motion with selective blur and neon signage reflections streaking across wet road"
+             loading="lazy">
+      </div>
+    </section>
+
+    <!-- Section 6: Reflection -->
+    <section class="cs-reflection reveal-on-scroll">
+      <hr class="cs-reflection-rule">
+      <p class="cs-reflection-text">This project taught me that the render is raw footage, not a finished product. The most impactful improvements came from post-production decisions — colour grading, motion blur calibration, bloom control — rather than from the geometry or materials.</p>
+    </section>
+
+    <!-- Section 7: Project Navigation -->
+    <nav class="cs-nav" aria-label="Project navigation">
+      <div class="cs-nav-inner">
+        <a href="battle-of-britain.html" class="cs-nav-link">
+          <span class="cs-nav-project">&larr; BATTLE OF BRITAIN</span>
+          <span class="cs-nav-label">Previous Project</span>
+        </a>
+        <a href="medieval-wagon.html" class="cs-nav-link cs-nav-link--next">
+          <span class="cs-nav-project">MEDIEVAL WAGON JOURNEY &rarr;</span>
+          <span class="cs-nav-label">Next Project</span>
+        </a>
+      </div>
+    </nav>
 
   </main>
 
@@ -116,6 +201,11 @@
       <img class="footer-brandmark" src="../assets/logo-full.jpg" alt="The Moriarty Experience">
       <p class="footer-copy">&copy; 2025–2026 CAIN MORIARTY</p>
       <p class="footer-motto">Ex Labore Venustas — From Work, Beauty</p>
+      <a href="../codex.html" class="footer-codex-glyph" aria-label="">
+        <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path d="M2 20V4l5 8-5 8zm7 0V4l5 8-5 8zm7 0V4l5 8-5 8z"/>
+        </svg>
+      </a>
     </div>
   </footer>
 

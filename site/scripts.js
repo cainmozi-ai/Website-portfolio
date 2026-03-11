@@ -199,6 +199,36 @@
     // Keyboard
     document.addEventListener('keydown', handleKeyDown);
 
+    // CODEX keyboard sequence — works on any page
+    (function () {
+      var sequence = ['c', 'o', 'd', 'e', 'x'];
+      var progress = 0;
+      var timeout;
+
+      document.addEventListener('keydown', function (e) {
+        // Don't trigger if user is typing in an input field
+        if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA' || e.target.isContentEditable) return;
+
+        var key = e.key.toLowerCase();
+
+        if (key === sequence[progress]) {
+          progress++;
+          clearTimeout(timeout);
+
+          if (progress === sequence.length) {
+            // Full sequence entered
+            window.location.href = 'codex.html';
+            progress = 0;
+          } else {
+            // Reset if no key pressed within 2 seconds
+            timeout = setTimeout(function () { progress = 0; }, 2000);
+          }
+        } else {
+          progress = 0;
+        }
+      });
+    })();
+
     // Setup observers
     setupSectionObserver();
     setupRevealObserver();
