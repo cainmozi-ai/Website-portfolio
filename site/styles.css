@@ -879,6 +879,8 @@ button:focus-visible {
 
 /* ─── Footer ─── */
 .footer {
+  position: relative;
+  z-index: 1;
   padding: var(--space-2xl) var(--space-md);
   background: var(--color-white);
   border-top: var(--border-subtle);
@@ -1280,9 +1282,35 @@ button:focus-visible {
 
 /* ─── Case Study Template ─── */
 
-/* Section 1: Hero */
+/* Section 1: Hero — fullscreen fixed image */
 .cs-hero-section {
-  padding-top: calc(var(--nav-height) + 7.5rem);
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.cs-hero-image {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background: #F0F0F0;
+  z-index: 0;
+}
+
+.cs-hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Content that scrolls over the hero image */
+.cs-content {
+  position: relative;
+  z-index: 1;
+  background: var(--color-white);
 }
 
 .cs-back {
@@ -1295,24 +1323,11 @@ button:focus-visible {
   color: #888888;
   text-decoration: none;
   transition: color var(--duration-fast) var(--ease-default);
-  padding-bottom: var(--space-md);
+  margin-bottom: var(--space-sm);
 }
 
 .cs-back:hover {
   color: var(--color-black);
-}
-
-.cs-hero-image {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  overflow: hidden;
-  background: #F0F0F0;
-}
-
-.cs-hero-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
 }
 
 .cs-header-wrap {
