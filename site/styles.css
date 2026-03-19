@@ -1714,6 +1714,23 @@ button:focus-visible {
   }
 }
 
+/* Balance project: show full image content (no crop) */
+body.balance-project .cs-hero-image img,
+body.balance-project .cs-process-image img,
+body.balance-project .cs-gallery-item img,
+body.balance-project .cs-gallery-hero img,
+body.balance-project .cs-gallery-details img {
+  object-fit: contain;
+  object-position: center;
+}
+
+body.balance-project .cs-gallery-item img:hover,
+body.balance-project .cs-gallery-hero img:hover,
+body.balance-project .cs-gallery-details img:hover {
+  transform: none;
+  filter: none;
+}
+
 
 /* ─── Print Stylesheet — PDF leave-behind capability ─── */
 @media print {
