@@ -1,0 +1,13 @@
+{
+  "name": "moriarty-experience",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "vite site",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^5.4.0"
+  }
+}
