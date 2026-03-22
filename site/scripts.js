@@ -141,12 +141,21 @@
   }
 
   // ─── Mobile Menu ───
+  const FOCUSABLE = 'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])';
+
+  function getFocusableElements() {
+    return Array.from(mobileMenu.querySelectorAll(FOCUSABLE));
+  }
+
   function openMobileMenu() {
     if (!mobileMenu) return;
     mobileMenu.classList.add('open');
     mobileMenu.setAttribute('aria-hidden', 'false');
     hamburger.setAttribute('aria-expanded', 'true');
     document.body.style.overflow = 'hidden';
+    // Move focus into menu after transition starts
+    const focusable = getFocusableElements();
+    if (focusable.length) setTimeout(() => focusable[0].focus(), 50);
   }
 
   function closeMobileMenu() {
@@ -155,6 +164,27 @@
     mobileMenu.setAttribute('aria-hidden', 'true');
     hamburger.setAttribute('aria-expanded', 'false');
     document.body.style.overflow = '';
+  }
+
+  // ─── Focus Trap for Mobile Menu ───
+  function handleMenuFocusTrap(e) {
+    if (!mobileMenu || !mobileMenu.classList.contains('open')) return;
+    if (e.key !== 'Tab') return;
+    const focusable = getFocusableElements();
+    if (!focusable.length) return;
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    if (e.shiftKey) {
+      if (document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      }
+    } else {
+      if (document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    }
   }
 
   // ─── Smooth Scroll for Nav Links ───
@@ -175,6 +205,7 @@
       closeMobileMenu();
       hamburger.focus();
     }
+    handleMenuFocusTrap(e);
   }
 
   // ─── Initialization ───

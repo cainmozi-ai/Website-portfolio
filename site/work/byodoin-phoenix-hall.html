@@ -11,6 +11,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=Montserrat:wght@900&display=swap" rel="stylesheet">
+  <link rel="canonical" href="https://themoriartyexperience.com/work/byodoin-phoenix-hall.html">
   <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
@@ -47,9 +48,14 @@
   <main>
 
     <div class="project-page-hero">
-      <img src="../assets/buddha.png"
-           alt="3D reconstruction of Byōdō-in Phoenix Hall interior with Amida Buddha statue and Heian-period ornamentation, rendered in Unreal Engine 5"
-           fetchpriority="high">
+      <picture>
+        <source type="image/webp"
+                srcset="../assets/buddha-400.webp 400w, ../assets/buddha-800.webp 800w, ../assets/buddha-1600.webp 1600w"
+                sizes="100vw">
+        <img src="../assets/buddha-1600.jpg"
+             alt="3D reconstruction of Byōdō-in Phoenix Hall interior with Amida Buddha statue and Heian-period ornamentation, rendered in Unreal Engine 5"
+             fetchpriority="high">
+      </picture>
       <div class="project-page-hero-overlay" aria-hidden="true"></div>
     </div>
 
