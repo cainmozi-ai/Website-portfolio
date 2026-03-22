@@ -34,6 +34,9 @@
 </head>
 <body>
 
+  <!-- Skip to content — keyboard navigation -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
   <!-- Scroll Progress Bar -->
   <div class="scroll-progress" aria-hidden="true"></div>
 
@@ -68,7 +71,7 @@
     </nav>
   </div>
 
-  <main>
+  <main id="main-content">
 
     <!-- ═══════════════════════════════════════════════════════ -->
     <!-- HERO / LANDING -->
@@ -109,11 +112,16 @@
         <!-- Featured Project (Balance Brewing) — strongest process story, opens the portfolio -->
         <article class="project-featured reveal-on-scroll">
           <a href="work/balance-brewing.html" class="project-image-wrap" aria-label="View Balance Brewing &amp; Blending project">
-            <img src="assets/Balance.jpg"
-                 alt="Hand-carved lino print label designs for Balance Brewing — Headless Horseman, Old Crockern, and Mermaid — photographed across Greater Manchester locations"
-                 loading="eager"
-                 fetchpriority="high"
-                 width="1600" height="900">
+            <picture>
+              <source type="image/webp"
+                      srcset="assets/balance-400.webp 400w, assets/balance-800.webp 800w, assets/balance-1600.webp 1600w"
+                      sizes="(max-width: 600px) 400px, (max-width: 1100px) 800px, 1600px">
+              <img src="assets/balance-1600.jpg"
+                   alt="Hand-carved lino print label designs for Balance Brewing — Headless Horseman, Old Crockern, and Mermaid — photographed across Greater Manchester locations"
+                   loading="eager"
+                   fetchpriority="high"
+                   width="1600" height="900">
+            </picture>
           </a>
           <div class="project-content">
             <h3 class="project-title"><a href="work/balance-brewing.html">BALANCE BREWING &amp; BLENDING</a></h3>
@@ -139,10 +147,15 @@
           <!-- Byōdō-in Phoenix Hall -->
           <article class="project-card reveal-on-scroll">
             <a href="work/byodoin-phoenix-hall.html" class="project-image-wrap" aria-label="View Byōdō-in Phoenix Hall project">
-              <img src="assets/buddha.png"
-                   alt="3D reconstruction of Byōdō-in Phoenix Hall interior with Amida Buddha statue and Heian-period ornamentation, rendered in Unreal Engine 5"
-                   loading="lazy"
-                   width="1600" height="900">
+              <picture>
+                <source type="image/webp"
+                        srcset="assets/buddha-400.webp 400w, assets/buddha-800.webp 800w, assets/buddha-1600.webp 1600w"
+                        sizes="(max-width: 600px) 400px, (max-width: 900px) 800px, 1600px">
+                <img src="assets/buddha.png"
+                     alt="3D reconstruction of Byōdō-in Phoenix Hall interior with Amida Buddha statue and Heian-period ornamentation, rendered in Unreal Engine 5"
+                     loading="lazy"
+                     width="1600" height="900">
+              </picture>
             </a>
             <div class="project-content">
               <h3 class="project-title"><a href="work/byodoin-phoenix-hall.html">BYŌDŌ-IN PHOENIX HALL</a></h3>
@@ -165,10 +178,15 @@
           <!-- Battle of Britain -->
           <article class="project-card reveal-on-scroll">
             <a href="work/battle-of-britain.html" class="project-image-wrap" aria-label="View Battle of Britain — RAF Scramble project">
-              <img src="assets/spitfire.png"
-                   alt="Cinematic 3D render of a Spitfire Mk IX launching from RAF Kenley during a 1940 Battle of Britain scramble sequence"
-                   loading="lazy"
-                   width="1600" height="900">
+              <picture>
+                <source type="image/webp"
+                        srcset="assets/spitfire-400.webp 400w, assets/spitfire-800.webp 800w, assets/spitfire-1600.webp 1600w"
+                        sizes="(max-width: 600px) 400px, (max-width: 900px) 800px, 1600px">
+                <img src="assets/spitfire.png"
+                     alt="Cinematic 3D render of a Spitfire Mk IX launching from RAF Kenley during a 1940 Battle of Britain scramble sequence"
+                     loading="lazy"
+                     width="1600" height="900">
+              </picture>
             </a>
             <div class="project-content">
               <h3 class="project-title"><a href="work/battle-of-britain.html">BATTLE OF BRITAIN — RAF SCRAMBLE</a></h3>
@@ -191,10 +209,15 @@
           <!-- Midnight Run — Corvette C7 -->
           <article class="project-card reveal-on-scroll">
             <a href="work/corvette-midnight-run.html" class="project-image-wrap" aria-label="View Midnight Run — Corvette C7 Cinematic project">
-              <img src="assets/car-render.jpg"
-                   alt="Cinematic night render of a Corvette C7 on rain-slicked city streets with volumetric lighting and wet-surface reflections"
-                   loading="lazy"
-                   width="1600" height="900">
+              <picture>
+                <source type="image/webp"
+                        srcset="assets/car-render-400.webp 400w, assets/car-render-800.webp 800w, assets/car-render-1600.webp 1600w"
+                        sizes="(max-width: 600px) 400px, (max-width: 900px) 800px, 1600px">
+                <img src="assets/car-render.jpg"
+                     alt="Cinematic night render of a Corvette C7 on rain-slicked city streets with volumetric lighting and wet-surface reflections"
+                     loading="lazy"
+                     width="1600" height="900">
+              </picture>
             </a>
             <div class="project-content">
               <h3 class="project-title"><a href="work/corvette-midnight-run.html">MIDNIGHT RUN — CORVETTE C7 CINEMATIC</a></h3>
@@ -215,10 +238,15 @@
           <!-- Medieval Wagon Journey -->
           <article class="project-card reveal-on-scroll">
             <a href="work/medieval-wagon.html" class="project-image-wrap" aria-label="View Medieval Wagon Journey project">
-              <img src="assets/wagon.png"
-                   alt="High-fidelity medieval wagon environment along Hadrian's Wall with volumetric lighting, PBR materials, and modular kit construction"
-                   loading="lazy"
-                   width="1600" height="900">
+              <picture>
+                <source type="image/webp"
+                        srcset="assets/wagon-400.webp 400w, assets/wagon-800.webp 800w, assets/wagon-1600.webp 1600w"
+                        sizes="(max-width: 600px) 400px, (max-width: 900px) 800px, 1600px">
+                <img src="assets/wagon.png"
+                     alt="High-fidelity medieval wagon environment along Hadrian's Wall with volumetric lighting, PBR materials, and modular kit construction"
+                     loading="lazy"
+                     width="1600" height="900">
+              </picture>
             </a>
             <div class="project-content">
               <h3 class="project-title"><a href="work/medieval-wagon.html">MEDIEVAL WAGON JOURNEY</a></h3>
@@ -241,10 +269,15 @@
         <!-- Closing Project (N.O.R.A.) — end on a high, demonstrates unexpected range -->
         <article class="project-closing reveal-on-scroll">
           <a href="work/nora.html" class="project-image-wrap" aria-label="View N.O.R.A. project">
-            <img src="assets/nora.png"
-                 alt="N.O.R.A. portable AI assistant device built on Raspberry Pi Zero W — gothic minimalist interface displaying emergency database and real-time query response"
-                 loading="lazy"
-                 width="1600" height="900">
+            <picture>
+              <source type="image/webp"
+                      srcset="assets/nora-400.webp 400w, assets/nora-800.webp 800w, assets/nora-1600.webp 1600w"
+                      sizes="(max-width: 600px) 400px, (max-width: 1100px) 800px, 1600px">
+              <img src="assets/nora.png"
+                   alt="N.O.R.A. portable AI assistant device built on Raspberry Pi Zero W — gothic minimalist interface displaying emergency database and real-time query response"
+                   loading="lazy"
+                   width="1600" height="900">
+            </picture>
           </a>
           <div class="project-content">
             <h3 class="project-title"><a href="work/nora.html">N.O.R.A. — NEURAL OFFLINE RESPONSE ASSISTANT</a></h3>
@@ -319,12 +352,7 @@
 
         <p class="contact-context">Open to studio placements, commissions, and collaborations.</p>
 
-        <div class="contact-social">
-          <span class="contact-social--pending">ARTSTATION</span>
-          <span class="contact-social--pending">INSTAGRAM</span>
-          <span class="contact-social--pending">LINKEDIN</span>
-        </div>
-        <p class="contact-social-note">Profile links coming soon.</p>
+        <p class="contact-social-note">More work on ArtStation and Instagram — links coming soon.</p>
       </div>
     </section>
 

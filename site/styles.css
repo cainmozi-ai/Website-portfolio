@@ -89,6 +89,27 @@ button:focus-visible {
   outline-offset: 4px;
 }
 
+/* Skip-to-content link — visually hidden until focused */
+.skip-link {
+  position: fixed;
+  top: -100%;
+  left: var(--space-sm);
+  z-index: 9999;
+  padding: 0.6em 1.2em;
+  background: var(--color-black);
+  color: var(--color-white);
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  border-radius: 2px;
+  transition: top 0.15s ease;
+}
+
+.skip-link:focus {
+  top: var(--space-sm);
+}
+
 
 /* ─── Scroll Progress Bar ─── */
 .scroll-progress {
@@ -195,6 +216,10 @@ button:focus-visible {
   padding: var(--space-xs);
   flex-direction: column;
   gap: 5px;
+  min-width: 44px;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
 }
 
 .hamburger-line {
@@ -806,42 +831,9 @@ button:focus-visible {
   margin-bottom: var(--space-lg);
 }
 
-.contact-social {
-  display: flex;
-  justify-content: center;
-  gap: var(--space-lg);
-  flex-wrap: wrap;
-}
-
-.contact-social a {
-  font-family: var(--font-body);
-  font-weight: 400;
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: var(--color-muted);
-  text-decoration: none;
-  transition: color 0.25s var(--ease-default);
-}
-
-.contact-social a:hover {
-  color: var(--color-black);
-}
-
-/* Social links pending state */
-.contact-social--pending {
-  font-family: var(--font-body);
-  font-weight: 400;
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: var(--color-divider);
-  cursor: default;
-}
-
 .contact-social-note {
-  font-size: 0.75rem;
-  color: var(--color-divider);
+  font-size: 0.85rem;
+  color: var(--color-muted);
   margin-top: var(--space-sm);
   font-style: italic;
 }
