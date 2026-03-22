@@ -21,6 +21,9 @@
   let activeSection = 'hero';
   let ticking = false;
 
+  // ─── Reduced Motion Detection (M7) ───
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
   // ─── Navigation: Show/Hide on Scroll ───
   // Nav is hidden while hero is in view, appears after scrolling past hero
   function updateNavVisibility() {
@@ -81,9 +84,9 @@
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            // Stagger reveals that enter simultaneously
             const el = entry.target;
-            const delay = parseFloat(el.dataset.revealDelay) || 0;
+            // Skip stagger delay under reduced motion (M7)
+            const delay = prefersReducedMotion ? 0 : (parseFloat(el.dataset.revealDelay) || 0);
             setTimeout(() => {
               el.classList.add('revealed');
             }, delay);
@@ -127,6 +130,29 @@
     }
   }
 
+  // ─── Project Image Parallax (M6) ───
+  // Applies a subtle translateY to images within .project-image-wrap as they scroll.
+  // Uses transform only — no layout properties triggered.
+  let parallaxImages = [];
+
+  function setupParallax() {
+    if (prefersReducedMotion) return; // Respect reduced motion (M7)
+    parallaxImages = Array.from(document.querySelectorAll('.project-image-wrap img'));
+  }
+
+  function updateParallax() {
+    if (!parallaxImages.length) return;
+    const vh = window.innerHeight;
+    parallaxImages.forEach((img) => {
+      const rect = img.closest('.project-image-wrap').getBoundingClientRect();
+      // Only apply to images in or near the viewport
+      if (rect.bottom < -100 || rect.top > vh + 100) return;
+      const centre = rect.top + rect.height / 2 - vh / 2;
+      const offset = (centre / vh) * 22; // max 22px shift
+      img.style.transform = `translateY(${offset}px) scale(1.06)`; // scale offsets clipping
+    });
+  }
+
   // ─── Unified Scroll Handler ───
   function onScroll() {
     if (!ticking) {
@@ -134,6 +160,7 @@
         updateNavVisibility();
         updateScrollProgress();
         updateScrollIndicator();
+        updateParallax();
         ticking = false;
       });
       ticking = true;
@@ -230,9 +257,10 @@
     // Keyboard
     document.addEventListener('keydown', handleKeyDown);
 
-    // Setup observers
+    // Setup observers and effects
     setupSectionObserver();
     setupRevealObserver();
+    setupParallax();
 
     // Initial state
     updateNavVisibility();

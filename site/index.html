@@ -26,12 +26,72 @@
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 
   <!-- Fonts: Montserrat 900 (Gotham Black substitute) + Inter 300/400 (Helvetica Neue substitute) -->
+  <!-- Loaded async (non-render-blocking); display=swap prevents invisible text -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=Montserrat:wght@900&display=swap" rel="stylesheet">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=Montserrat:wght@900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=Montserrat:wght@900&display=swap"></noscript>
 
   <link rel="canonical" href="https://themoriartyexperience.com/">
   <link rel="stylesheet" href="styles.css">
+
+  <!-- Structured Data — Person + CreativeWork portfolio -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Cain Moriarty",
+    "url": "https://themoriartyexperience.com",
+    "email": "hello@themoriartyexperience.com",
+    "jobTitle": "3D Artist & Visual Storyteller",
+    "description": "3D artist specialising in atmospheric rendering, environment art, and cinematic storytelling. Blender, Unreal Engine 5, and tactile craft.",
+    "knowsAbout": ["3D Modelling", "Environment Art", "Unreal Engine 5", "Blender", "Substance Painter", "Cinematic Animation", "Lino Printing", "Brand Identity"],
+    "hasCreativeWork": [
+      {
+        "@type": "CreativeWork",
+        "name": "Balance Brewing & Blending",
+        "description": "A self-initiated craft brewery brand built from the ground up — hand-carved lino print labels rooted in British folklore, environmental photography, and a printed zine.",
+        "url": "https://themoriartyexperience.com/work/balance-brewing.html",
+        "image": "https://themoriartyexperience.com/assets/balance-1600.webp"
+      },
+      {
+        "@type": "CreativeWork",
+        "name": "Byōdō-in Phoenix Hall",
+        "description": "A faithful 3D reconstruction of the Byōdō-in Phoenix Hall as a static VR museum exhibit, rendered as 8K 360° panoramas in Unreal Engine 5.",
+        "url": "https://themoriartyexperience.com/work/byodoin-phoenix-hall.html",
+        "image": "https://themoriartyexperience.com/assets/buddha-1600.webp"
+      },
+      {
+        "@type": "CreativeWork",
+        "name": "Battle of Britain — RAF Scramble",
+        "description": "A cinematic short recreating an RAF scramble during the Battle of Britain — Spitfire Mk IX hard-surface modelling from mechanical blueprints.",
+        "url": "https://themoriartyexperience.com/work/battle-of-britain.html",
+        "image": "https://themoriartyexperience.com/assets/spitfire-1600.webp"
+      },
+      {
+        "@type": "CreativeWork",
+        "name": "Midnight Run — Corvette C7 Cinematic",
+        "description": "A cinematic night drive through a rain-slicked city built in Blender Cycles, composited and graded in After Effects.",
+        "url": "https://themoriartyexperience.com/work/corvette-midnight-run.html",
+        "image": "https://themoriartyexperience.com/assets/car-render-1600.webp"
+      },
+      {
+        "@type": "CreativeWork",
+        "name": "Medieval Wagon Journey",
+        "description": "A high-fidelity narrative environment depicting a medieval wagon journey along Hadrian's Wall — modular kit construction from historical source material.",
+        "url": "https://themoriartyexperience.com/work/medieval-wagon.html",
+        "image": "https://themoriartyexperience.com/assets/wagon-1600.webp"
+      },
+      {
+        "@type": "CreativeWork",
+        "name": "N.O.R.A. — Neural Offline Response Assistant",
+        "description": "A portable, battery-powered AI assistant built on Raspberry Pi Zero W with offline emergency database and gothic minimalist interface.",
+        "url": "https://themoriartyexperience.com/work/nora.html",
+        "image": "https://themoriartyexperience.com/assets/nora-1600.webp"
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
 
@@ -46,7 +106,7 @@
     <nav class="nav-inner" aria-label="Main navigation">
       <a href="#hero" class="nav-brand" aria-label="The Moriarty Experience — return to top">
         <!-- Compact brandmark -->
-        <img class="nav-brandmark" src="assets/logo.jpg" alt="The Moriarty Experience">
+        <img class="nav-brandmark" src="assets/logo.webp" alt="The Moriarty Experience">
       </a>
       <div class="nav-links">
         <a href="#work" class="nav-link" data-section="work">WORK</a>
@@ -81,7 +141,7 @@
       <div class="hero-content">
         <!-- Brandmark -->
         <div class="hero-brandmark hero-reveal" style="--reveal-delay: 0.3s">
-          <img src="assets/logo-red.jpg" alt="The Moriarty Experience brandmark">
+          <img src="assets/logo-red.webp" alt="The Moriarty Experience brandmark">
         </div>
 
         <!-- Name -->
@@ -125,7 +185,7 @@
             </picture>
           </a>
           <div class="project-content">
-            <h3 class="project-title"><a href="work/balance-brewing.html">BALANCE BREWING &amp; BLENDING</a></h3>
+            <h3 class="project-title text-reveal"><a href="work/balance-brewing.html">BALANCE BREWING &amp; BLENDING</a></h3>
             <div class="project-tags">Brand Identity &middot; Lino Print &middot; Campaign Design &middot; Zine</div>
             <p class="project-context">A self-initiated brief: build a craft brewery brand from the ground up — identity, packaging, photography, and campaign collateral.</p>
             <p class="project-desc">Three label designs — Headless Horseman, Old Crockern, Mermaid — each rooted in British folklore and regional storytelling, hand-carved from single lino blocks. Supported by environmental photography across Greater Manchester, Instagram content, stories, and a 10-page A5 printed zine. Research to final deliverable, every stage done by hand.</p>
@@ -159,7 +219,7 @@
               </picture>
             </a>
             <div class="project-content">
-              <h3 class="project-title"><a href="work/byodoin-phoenix-hall.html">BYŌDŌ-IN PHOENIX HALL</a></h3>
+              <h3 class="project-title text-reveal"><a href="work/byodoin-phoenix-hall.html">BYŌDŌ-IN PHOENIX HALL</a></h3>
               <div class="project-tags">Environment Art &middot; Blender &middot; Unreal Engine 5 &middot; VR 360&deg;</div>
               <p class="project-context">University project exploring how historical spaces can function as interactive museum exhibits.</p>
               <p class="project-desc">A faithful reconstruction of the Byōdō-in Phoenix Hall as a static VR environment, part of the 'Echoes of the Past' project. Modelled in Blender from Machiya architectural reference and Heian-period design language, textured in Substance Painter, and rendered as 8K 360&deg; panoramas in Unreal Engine 5. Accuracy to the historical record was non-negotiable.</p>
@@ -190,7 +250,7 @@
               </picture>
             </a>
             <div class="project-content">
-              <h3 class="project-title"><a href="work/battle-of-britain.html">BATTLE OF BRITAIN — RAF SCRAMBLE</a></h3>
+              <h3 class="project-title text-reveal"><a href="work/battle-of-britain.html">BATTLE OF BRITAIN — RAF SCRAMBLE</a></h3>
               <div class="project-tags">Cinematic Animation &middot; Blender &middot; Unreal Engine 5 &middot; Historical Research</div>
               <p class="project-context">A cinematic study in historical accuracy — recreating a documented 1940 event through hard-surface modelling and atmospheric simulation.</p>
               <p class="project-desc">A cinematic short recreating an RAF scramble during the Battle of Britain, centred on a Spitfire Mk IX at RAF Kenley. Hard-surface modelling from mechanical blueprints, atmospheric volumetrics, and UE5 Sequencer animation.</p>
@@ -221,7 +281,7 @@
               </picture>
             </a>
             <div class="project-content">
-              <h3 class="project-title"><a href="work/corvette-midnight-run.html">MIDNIGHT RUN — CORVETTE C7 CINEMATIC</a></h3>
+              <h3 class="project-title text-reveal"><a href="work/corvette-midnight-run.html">MIDNIGHT RUN — CORVETTE C7 CINEMATIC</a></h3>
               <div class="project-tags">3D Animation &middot; Blender Cycles &middot; Post-Production &middot; After Effects</div>
               <p class="project-context">Personal project investigating how colour grading, surface physics, and atmospheric rendering transform a 3D scene into cinematic footage.</p>
               <p class="project-desc">A cinematic night drive through a rain-slicked city, built from kitbashed assets in Blender. Colour grading, motion blur, light bloom, and wet-surface reflections — post-processing as a craft discipline, not an afterthought. Composited and graded in After Effects.</p>
@@ -250,7 +310,7 @@
               </picture>
             </a>
             <div class="project-content">
-              <h3 class="project-title"><a href="work/medieval-wagon.html">MEDIEVAL WAGON JOURNEY</a></h3>
+              <h3 class="project-title text-reveal"><a href="work/medieval-wagon.html">MEDIEVAL WAGON JOURNEY</a></h3>
               <div class="project-tags">Environment Art &middot; Blender &middot; Substance Painter &middot; Unreal Engine 5</div>
               <p class="project-context">Environment art study built as a curatorial exhibit piece, testing modular kit construction from historical source material.</p>
               <p class="project-desc">A high-fidelity narrative environment depicting a medieval wagon journey along Hadrian's Wall. Modular kit construction from 14th-century wagon plans, PBR texturing pipeline from Blender to Substance Painter to Unreal Engine 5.</p>
@@ -281,7 +341,7 @@
             </picture>
           </a>
           <div class="project-content">
-            <h3 class="project-title"><a href="work/nora.html">N.O.R.A. — NEURAL OFFLINE RESPONSE ASSISTANT</a></h3>
+            <h3 class="project-title text-reveal"><a href="work/nora.html">N.O.R.A. — NEURAL OFFLINE RESPONSE ASSISTANT</a></h3>
             <div class="project-tags">Product Design &middot; Raspberry Pi &middot; AI Engineering &middot; Vibe Coding</div>
             <p class="project-context">Self-initiated product: a portable AI assistant that works without internet — hardware, software, and interface design in one functional device.</p>
             <p class="project-desc">A portable, battery-powered AI assistant built on Raspberry Pi Zero W, combining cloud AI with a comprehensive offline emergency database of 87 life-saving articles. Gothic minimalist interface, 30&times; query performance improvement, 7,000+ lines of code across Python and TypeScript.</p>
@@ -365,7 +425,7 @@
   <footer class="footer">
     <div class="footer-inner">
       <!-- Full logo lockup -->
-      <img class="footer-brandmark" src="assets/logo-full.jpg" alt="The Moriarty Experience">
+      <img class="footer-brandmark" src="assets/logo-full.webp" alt="The Moriarty Experience">
       <p class="footer-copy">&copy; 2025–2026 CAIN MORIARTY</p>
       <p class="footer-motto">Ex Labore Venustas — From Work, Beauty</p>
     </div>
