@@ -1328,6 +1328,55 @@ button:focus-visible {
 }
 
 
+/* ─── Dark Mode ─── */
+@media (prefers-color-scheme: dark) {
+  /* Backgrounds of light sections */
+  body                    { background-color: #111111; color: #EBEBEB; }
+  .nav                    { background: rgba(17, 17, 17, 0.9); border-bottom-color: #2A2A2A; }
+  .hero                   { background: #111111; }
+  .work                   { background: #111111; }
+  .about                  { background: #111111; border-top-color: #2A2A2A; }
+  .section-rule           { background: #2A2A2A; }
+  .divider                { background: #2A2A2A; }
+  .project-image-wrap     { background: #2A2A2A; }
+
+  /* About internals */
+  .about-capabilities     { border-top-color: #2A2A2A; }
+
+  /* Nav text */
+  .nav-brand              { color: #EBEBEB; }
+  .nav-link               { color: rgba(235, 235, 235, 0.55); }
+  .nav-link:hover,
+  .nav-link.active        { color: #EBEBEB; }
+
+  /* Hero text */
+  .hero-title,
+  .hero-statement         { color: #EBEBEB; }
+  .hero-subtitle          { color: rgba(235, 235, 235, 0.55); }
+
+  /* Work section text */
+  .section-label          { color: #EBEBEB; }
+  .project-title          { color: #EBEBEB; }
+  .project-tags,
+  .project-context,
+  .project-desc           { color: rgba(235, 235, 235, 0.55); }
+
+  /* About section text */
+  .about-motto            { color: #EBEBEB; }
+  .about-motto-translation,
+  .capability-list,
+  .about-currently        { color: rgba(235, 235, 235, 0.55); }
+  .about-text p           { color: rgba(235, 235, 235, 0.8); }
+  .capability-heading     { color: #EBEBEB; }
+
+  /* Mobile menu */
+  .mobile-menu            { background: #111111; }
+
+  /* Contact + footer: already dark; re-anchor bg to fixed dark values
+     because --color-black is not overridden so no action needed here */
+}
+
+
 /* ─── Print Stylesheet — PDF leave-behind capability ─── */
 @media print {
   body {
