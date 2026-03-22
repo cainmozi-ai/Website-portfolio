@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 — Page Not Found | The Moriarty Experience</title>
+  <meta name="description" content="This page does not exist.">
+  <meta name="robots" content="noindex, nofollow">
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=Montserrat:wght@900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=Montserrat:wght@900&display=swap"></noscript>
+  <link rel="stylesheet" href="/styles.css">
+
+  <style>
+    /* 404-specific layout — dark, atmospheric, on-brand */
+    .not-found {
+      min-height: 100svh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--color-black);
+      padding: var(--space-md);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Vignette atmosphere matching hero */
+    .not-found::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 70% at 50% 50%, transparent 40%, rgba(136, 8, 8, 0.06) 100%);
+      pointer-events: none;
+    }
+
+    .not-found-inner {
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .not-found-code {
+      font-family: var(--font-title);
+      font-weight: 900;
+      font-size: clamp(5rem, 18vw, 12rem);
+      line-height: 0.9;
+      letter-spacing: -0.02em;
+      color: var(--color-blood-red);
+      display: block;
+      margin-bottom: var(--space-lg);
+      opacity: 0.9;
+    }
+
+    .not-found-heading {
+      font-family: var(--font-title);
+      font-weight: 900;
+      font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+      letter-spacing: 0.06em;
+      color: var(--color-white);
+      margin-bottom: var(--space-md);
+    }
+
+    .not-found-body {
+      font-family: var(--font-body);
+      font-weight: 300;
+      font-size: clamp(0.95rem, 1.1vw, 1.05rem);
+      color: rgba(255, 255, 255, 0.5);
+      line-height: 1.65;
+      max-width: 42ch;
+      margin: 0 auto var(--space-xl);
+    }
+
+    .not-found-cta {
+      display: inline-block;
+      font-family: var(--font-body);
+      font-weight: 400;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--color-white);
+      text-decoration: none;
+      border-bottom: 1px solid var(--color-blood-red);
+      padding-bottom: 2px;
+      transition: color 0.25s, border-color 0.25s;
+    }
+
+    .not-found-cta:hover {
+      color: var(--color-blood-red);
+    }
+
+    .not-found-cta:focus-visible {
+      outline: 2px solid var(--color-blood-red);
+      outline-offset: 4px;
+    }
+
+    .not-found-divider {
+      width: 1px;
+      height: 48px;
+      background: var(--color-blood-red);
+      opacity: 0.4;
+      margin: var(--space-xl) auto 0;
+    }
+  </style>
+</head>
+<body>
+
+  <main>
+    <div class="not-found" role="main">
+      <div class="not-found-inner">
+        <span class="not-found-code" aria-hidden="true">404</span>
+        <h1 class="not-found-heading">PAGE NOT FOUND</h1>
+        <p class="not-found-body">This page doesn't exist or has been moved. The work is still here — you may have taken a wrong turn.</p>
+        <a href="/" class="not-found-cta">RETURN TO PORTFOLIO</a>
+        <div class="not-found-divider" aria-hidden="true"></div>
+      </div>
+    </div>
+  </main>
+
+</body>
+</html>
