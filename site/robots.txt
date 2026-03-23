@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /codex.html
+Disallow: /*.bak$
+
+Sitemap: https://themoriartyexperience.com/sitemap.xml

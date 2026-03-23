@@ -25,14 +25,14 @@
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 
-  <!-- Fonts: Montserrat 900 (Gotham Black substitute) + Inter 300/400 (Helvetica Neue substitute) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=Montserrat:wght@900&display=swap" rel="stylesheet">
+  <!-- Fonts: Self-hosted Montserrat 900 + Inter 300/400 -->
+  <link rel="preload" href="assets/fonts/montserrat-900-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
 
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <a href="#main-content" class="skip-link">Skip to content</a>
 
   <!-- Scroll Progress Bar -->
   <div class="scroll-progress" aria-hidden="true"></div>
@@ -68,7 +68,7 @@
     </nav>
   </div>
 
-  <main>
+  <main id="main-content">
 
     <!-- ═══════════════════════════════════════════════════════ -->
     <!-- HERO / LANDING -->
@@ -77,7 +77,15 @@
       <div class="hero-content">
         <!-- Brandmark -->
         <div class="hero-brandmark hero-reveal" style="--reveal-delay: 0.3s">
-          <img src="assets/logo-red.jpg" alt="The Moriarty Experience brandmark">
+          <picture>
+            <source type="image/webp"
+                    srcset="assets/logo-red-400w.webp 400w, assets/logo-red-800w.webp 800w, assets/logo-red-1200w.webp 1200w, assets/logo-red-1600w.webp 1600w"
+                    sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 800px">
+            <img src="assets/logo-red.jpg"
+                 srcset="assets/logo-red-400w.jpg 400w, assets/logo-red-800w.jpg 800w, assets/logo-red-1200w.jpg 1200w, assets/logo-red-1600w.jpg 1600w"
+                 sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 800px"
+                 alt="The Moriarty Experience brandmark">
+          </picture>
         </div>
 
         <!-- Name -->
@@ -108,12 +116,19 @@
 
         <!-- Featured Project (Balance Brewing) — strongest process story, opens the portfolio -->
         <article class="project-featured reveal-on-scroll">
-          <a href="work/balance-brewing.html" class="project-image-wrap" aria-label="View Balance Brewing &amp; Blending project">
-              <img src="assets/Balance/mockup.jpg"
-                 alt="Hand-carved lino print label designs for Balance Brewing — Headless Horseman, Old Crockern, and Mermaid — photographed across Greater Manchester locations"
-                 loading="eager"
-                 fetchpriority="high"
-                 width="1600" height="900">
+          <a href="work/balance-brewing.html" class="project-image-wrap blur-placeholder" aria-label="View Balance Brewing &amp; Blending project" style="background-image: url('data:image/jpeg;base64,/9j/2wBDABsSFBcUERsXFhceHBsgKEIrKCUlKFE6PTBCYFVlZF9VXVtqeJmBanGQc1tdhbWGkJ6jq62rZ4C8ybqmx5moq6T/2wBDARweHigjKE4rK06kbl1upKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKT/wAARCAAPABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAQFAgP/xAAdEAABBAMBAQAAAAAAAAAAAAABAAIEEQMSISMx/8QAFQEBAQAAAAAAAAAAAAAAAAAAAIL/xAAXEQADAQAAAAAAAAAAAAAAAAAAAREh/9oADAMBAAIRAxEAPwCfGxnJxMvgura1wiOGM9TciT50FCQazCa/ZriL+IWi4E2UJBD/2Q==')">
+              <picture>
+                <source type="image/webp"
+                        srcset="assets/Balance/mockup-400w.webp 400w, assets/Balance/mockup-800w.webp 800w, assets/Balance/mockup-1200w.webp 1200w, assets/Balance/mockup-1600w.webp 1600w"
+                        sizes="(max-width: 600px) 100vw, (max-width: 1200px) 80vw, 1200px">
+                <img src="assets/Balance/mockup.jpg"
+                     srcset="assets/Balance/mockup-400w.jpg 400w, assets/Balance/mockup-800w.jpg 800w, assets/Balance/mockup-1200w.jpg 1200w, assets/Balance/mockup-1600w.jpg 1600w"
+                     sizes="(max-width: 600px) 100vw, (max-width: 1200px) 80vw, 1200px"
+                     alt="Hand-carved lino print label designs for Balance Brewing — Headless Horseman, Old Crockern, and Mermaid — photographed across Greater Manchester locations"
+                     loading="eager"
+                     fetchpriority="high"
+                     width="1600" height="900">
+              </picture>
           </a>
           <div class="project-content">
             <h3 class="project-title"><a href="work/balance-brewing.html">BALANCE BREWING &amp; BLENDING</a></h3>
@@ -139,10 +154,17 @@
           <!-- Byōdō-in Phoenix Hall -->
           <article class="project-card reveal-on-scroll">
             <a href="work/byodoin-phoenix-hall.html" class="project-image-wrap" aria-label="View Byōdō-in Phoenix Hall project">
-              <img src="assets/buddha.png"
-                   alt="3D reconstruction of Byōdō-in Phoenix Hall interior with Amida Buddha statue and Heian-period ornamentation, rendered in Unreal Engine 5"
-                   loading="lazy"
-                   width="1600" height="900">
+              <picture>
+                <source type="image/webp"
+                        srcset="assets/buddha-400w.webp 400w, assets/buddha-800w.webp 800w, assets/buddha-1200w.webp 1200w"
+                        sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 800px">
+                <img src="assets/buddha.png"
+                     srcset="assets/buddha-400w.png 400w, assets/buddha-800w.png 800w, assets/buddha-1200w.png 1200w"
+                     sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 800px"
+                     alt="3D reconstruction of Byōdō-in Phoenix Hall interior with Amida Buddha statue and Heian-period ornamentation, rendered in Unreal Engine 5"
+                     loading="lazy"
+                     width="1600" height="900">
+              </picture>
             </a>
             <div class="project-content">
               <h3 class="project-title"><a href="work/byodoin-phoenix-hall.html">BYŌDŌ-IN PHOENIX HALL</a></h3>
@@ -165,10 +187,17 @@
           <!-- Battle of Britain -->
           <article class="project-card reveal-on-scroll">
             <a href="work/battle-of-britain.html" class="project-image-wrap" aria-label="View Battle of Britain — RAF Scramble project">
-              <img src="assets/spitfire.png"
-                   alt="Cinematic 3D render of a Spitfire Mk IX launching from RAF Kenley during a 1940 Battle of Britain scramble sequence"
-                   loading="lazy"
-                   width="1600" height="900">
+              <picture>
+                <source type="image/webp"
+                        srcset="assets/spitfire-400w.webp 400w, assets/spitfire-800w.webp 800w, assets/spitfire-1200w.webp 1200w"
+                        sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 800px">
+                <img src="assets/spitfire.png"
+                     srcset="assets/spitfire-400w.png 400w, assets/spitfire-800w.png 800w, assets/spitfire-1200w.png 1200w"
+                     sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 800px"
+                     alt="Cinematic 3D render of a Spitfire Mk IX launching from RAF Kenley during a 1940 Battle of Britain scramble sequence"
+                     loading="lazy"
+                     width="1600" height="900">
+              </picture>
             </a>
             <div class="project-content">
               <h3 class="project-title"><a href="work/battle-of-britain.html">BATTLE OF BRITAIN — RAF SCRAMBLE</a></h3>
@@ -191,10 +220,13 @@
           <!-- Midnight Run — Corvette C7 -->
           <article class="project-card reveal-on-scroll">
             <a href="work/corvette-midnight-run.html" class="project-image-wrap" aria-label="View Midnight Run — Corvette C7 Cinematic project">
-              <img src="assets/car-render.jpg"
-                   alt="Cinematic night render of a Corvette C7 on rain-slicked city streets with volumetric lighting and wet-surface reflections"
-                   loading="lazy"
-                   width="1600" height="900">
+              <picture>
+                <source type="image/webp" srcset="assets/car-render.webp">
+                <img src="assets/car-render.jpg"
+                     alt="Cinematic night render of a Corvette C7 on rain-slicked city streets with volumetric lighting and wet-surface reflections"
+                     loading="lazy"
+                     width="1600" height="900">
+              </picture>
             </a>
             <div class="project-content">
               <h3 class="project-title"><a href="work/corvette-midnight-run.html">MIDNIGHT RUN — CORVETTE C7 CINEMATIC</a></h3>
@@ -215,10 +247,17 @@
           <!-- Medieval Wagon Journey -->
           <article class="project-card reveal-on-scroll">
             <a href="work/medieval-wagon.html" class="project-image-wrap" aria-label="View Medieval Wagon Journey project">
-              <img src="assets/wagon.png"
-                   alt="High-fidelity medieval wagon environment along Hadrian's Wall with volumetric lighting, PBR materials, and modular kit construction"
-                   loading="lazy"
-                   width="1600" height="900">
+              <picture>
+                <source type="image/webp"
+                        srcset="assets/wagon-400w.webp 400w, assets/wagon-800w.webp 800w, assets/wagon-1200w.webp 1200w"
+                        sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 800px">
+                <img src="assets/wagon.png"
+                     srcset="assets/wagon-400w.png 400w, assets/wagon-800w.png 800w, assets/wagon-1200w.png 1200w"
+                     sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 800px"
+                     alt="High-fidelity medieval wagon environment along Hadrian's Wall with volumetric lighting, PBR materials, and modular kit construction"
+                     loading="lazy"
+                     width="1600" height="900">
+              </picture>
             </a>
             <div class="project-content">
               <h3 class="project-title"><a href="work/medieval-wagon.html">MEDIEVAL WAGON JOURNEY</a></h3>
@@ -241,10 +280,13 @@
         <!-- Closing Project (N.O.R.A.) — end on a high, demonstrates unexpected range -->
         <article class="project-closing reveal-on-scroll">
           <a href="work/nora.html" class="project-image-wrap" aria-label="View N.O.R.A. project">
-            <img src="assets/nora.png"
-                 alt="N.O.R.A. portable AI assistant device built on Raspberry Pi Zero W — gothic minimalist interface displaying emergency database and real-time query response"
-                 loading="lazy"
-                 width="1600" height="900">
+            <picture>
+              <source type="image/webp" srcset="assets/nora.webp">
+              <img src="assets/nora.png"
+                   alt="N.O.R.A. portable AI assistant device built on Raspberry Pi Zero W — gothic minimalist interface displaying emergency database and real-time query response"
+                   loading="lazy"
+                   width="1600" height="900">
+            </picture>
           </a>
           <div class="project-content">
             <h3 class="project-title"><a href="work/nora.html">N.O.R.A. — NEURAL OFFLINE RESPONSE ASSISTANT</a></h3>
@@ -266,7 +308,7 @@
       </div><!-- /.container -->
     </section>
     <!-- Section Divider -->
-    <div class="section-divider" aria-hidden="true">
+    <div class="section-divider reveal-on-scroll" aria-hidden="true">
       <span class="mark">
         <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
           <path d="M2 20V4l5 8-5 8zm7 0V4l5 8-5 8zm7 0V4l5 8-5 8z"/>
@@ -321,7 +363,7 @@
     </section>
 
     <!-- Section Divider -->
-    <div class="section-divider" aria-hidden="true">
+    <div class="section-divider reveal-on-scroll" aria-hidden="true">
       <span class="mark">
         <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
           <path d="M2 20V4l5 8-5 8zm7 0V4l5 8-5 8zm7 0V4l5 8-5 8z"/>
@@ -340,12 +382,13 @@
 
         <p class="contact-context">Open to studio placements, commissions, and collaborations.</p>
 
+        <!-- Social links: uncomment when profiles are live
         <div class="contact-social">
-          <span class="contact-social--pending">ARTSTATION</span>
-          <span class="contact-social--pending">INSTAGRAM</span>
-          <span class="contact-social--pending">LINKEDIN</span>
+          <a href="https://artstation.com/YOUR_PROFILE" class="contact-social-link">ARTSTATION</a>
+          <a href="https://instagram.com/YOUR_PROFILE" class="contact-social-link">INSTAGRAM</a>
+          <a href="https://linkedin.com/in/YOUR_PROFILE" class="contact-social-link">LINKEDIN</a>
         </div>
-        <p class="contact-social-note">Profile links coming soon.</p>
+        -->
       </div>
     </section>
 
@@ -361,7 +404,7 @@
       <p class="footer-copy">&copy; 2025–2026 CAIN MORIARTY</p>
       <p class="footer-motto">Ex Labore Venustas — From Work, Beauty</p>
       <!-- Hidden Codex glyph — ornamental to most, a door for the curious -->
-      <a href="codex.html" class="footer-codex-glyph" aria-label="">
+      <a href="codex.html" class="footer-codex-glyph" aria-hidden="true" tabindex="-1">
         <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
           <path d="M2 20V4l5 8-5 8zm7 0V4l5 8-5 8zm7 0V4l5 8-5 8z"/>
         </svg>
@@ -369,6 +412,22 @@
     </div>
   </footer>
 
+  <script src="shared.js"></script>
   <script src="scripts.js"></script>
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Cain Moriarty",
+    "url": "https://themoriartyexperience.com",
+    "jobTitle": "3D Artist & Visual Storyteller",
+    "description": "3D artist specialising in atmospheric rendering, environment art, and cinematic storytelling. Blender, Unreal Engine 5, and tactile craft.",
+    "email": "hello@themoriartyexperience.com",
+    "knowsAbout": ["3D Art", "Environment Art", "Blender", "Unreal Engine 5", "Lino Print", "Cinematic Rendering", "Brand Design"],
+    "sameAs": []
+  }
+  </script>
 </body>
 </html>

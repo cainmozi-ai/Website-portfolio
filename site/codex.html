@@ -11,22 +11,24 @@
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;1,300&family=JetBrains+Mono:wght@400&family=Montserrat:wght@900&display=swap" rel="stylesheet">
+
+  <link rel="preload" href="assets/fonts/montserrat-900-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <a href="#main-content" class="skip-link">Skip to content</a>
 
   <!-- Lock Screen -->
-  <div class="codex-lock" id="codex-lock">
+  <div class="codex-lock" id="codex-lock" role="dialog" aria-label="Enter to access The Codex Ingenium">
     <div class="lock-content">
       <video class="ascii-brandmark"
              autoplay
              muted
              loop
              playsinline
-             disablepictureinpicture>
+             disablepictureinpicture
+             aria-label="Animated ASCII art brandmark">
         <source src="assets/ascii-video.webm" type="video/webm">
         <source src="assets/ascii-video.mp4" type="video/mp4">
         <!-- Static fallback if video fails entirely -->
@@ -34,7 +36,7 @@
       </video>
 
       <h1 class="lock-motto">EX LABORE VENUSTAS</h1>
-      <p class="lock-prompt">Enter to proceed</p>
+      <button class="lock-prompt" id="codex-enter" type="button">Enter to proceed</button>
     </div>
   </div>
 
@@ -68,7 +70,7 @@
       </nav>
     </div>
 
-    <main>
+    <main id="main-content">
       <div class="codex-content">
 
         <h1 class="codex-h1">THE CODEX INGENIUM</h1>
@@ -197,6 +199,7 @@
 
   </div>
 
+  <script src="shared.js"></script>
   <script src="codex.js"></script>
 </body>
 </html>

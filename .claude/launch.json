@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "Portfolio Site (http-server)",
+      "runtimeExecutable": "node",
+      "runtimeArgs": ["node_modules/http-server/bin/http-server", "site", "-c-1", "-p", "8080"],
+      "port": 8080
+    }
+  ]
+}

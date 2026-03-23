@@ -16,12 +16,14 @@
   <link rel="icon" type="image/svg+xml" href="../favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
   <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=Montserrat:wght@900&display=swap" rel="stylesheet">
+  
+  
+  <link rel="preload" href="../assets/fonts/montserrat-900-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
+  <a href="#main-content" class="skip-link">Skip to content</a>
 
   <div class="scroll-progress" aria-hidden="true"></div>
 
@@ -52,14 +54,21 @@
     </nav>
   </div>
 
-  <main>
+  <main id="main-content">
 
     <!-- Section 1: Fullscreen Hero Image -->
     <section class="cs-hero-section">
-      <div class="cs-hero-image">
-        <img src="../assets/wagon.png"
-             alt="High-fidelity medieval wagon environment along Hadrian's Wall with volumetric lighting, PBR materials, and modular kit construction"
-             fetchpriority="high">
+      <div class="cs-hero-image blur-placeholder" style="background-image: url('data:image/jpeg;base64,/9j/2wBDABsSFBcUERsXFhceHBsgKEIrKCUlKFE6PTBCYFVlZF9VXVtqeJmBanGQc1tdhbWGkJ6jq62rZ4C8ybqmx5moq6T/2wBDARweHigjKE4rK06kbl1upKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKT/wAARCAAUABQDASIAAhEBAxEB/8QAGAABAQEBAQAAAAAAAAAAAAAAAAQCAQP/xAAgEAACAgEDBQAAAAAAAAAAAAAAAQIDBBESMRMVIkFR/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAH/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwDPbqER5eNRWvEojlJw5Ishub11IPDoRYNxaSBRLG2a4Z12zfsABvf0AAf/2Q==')">
+        <picture>
+          <source type="image/webp"
+                  srcset="../assets/wagon-400w.webp 400w, ../assets/wagon-800w.webp 800w, ../assets/wagon-1200w.webp 1200w"
+                  sizes="100vw">
+          <img src="../assets/wagon.png"
+               srcset="../assets/wagon-400w.png 400w, ../assets/wagon-800w.png 800w, ../assets/wagon-1200w.png 1200w"
+               sizes="100vw"
+               alt="High-fidelity medieval wagon environment along Hadrian's Wall with volumetric lighting, PBR materials, and modular kit construction"
+               fetchpriority="high">
+        </picture>
       </div>
     </section>
 
@@ -200,7 +209,7 @@
       <img class="footer-brandmark" src="../assets/logo-full.jpg" alt="The Moriarty Experience">
       <p class="footer-copy">&copy; 2025–2026 CAIN MORIARTY</p>
       <p class="footer-motto">Ex Labore Venustas — From Work, Beauty</p>
-      <a href="../codex.html" class="footer-codex-glyph" aria-label="">
+      <a href="../codex.html" class="footer-codex-glyph" aria-hidden="true" tabindex="-1">
         <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
           <path d="M2 20V4l5 8-5 8zm7 0V4l5 8-5 8zm7 0V4l5 8-5 8z"/>
         </svg>
@@ -208,6 +217,7 @@
     </div>
   </footer>
 
+  <script src="../shared.js"></script>
   <script src="project.js"></script>
 </body>
 </html>

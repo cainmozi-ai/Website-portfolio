@@ -1,6 +1,7 @@
 /* ═══════════════════════════════════════════════════════════════
    THE CODEX INGENIUM — Lock Screen & Page Script
-   Pre-rendered ASCII video lock screen, mobile menu
+   Pre-rendered ASCII video lock screen
+   Mobile menu handled by shared.js
    ═══════════════════════════════════════════════════════════════ */
 
 (function () {
@@ -23,8 +24,12 @@
           content.style.opacity = '1';
         });
         window.scrollTo(0, 0);
-      }, 800); // match the CSS transition duration
+      }, 800);
     }
+
+    // Auto-focus the enter button
+    var enterBtn = document.getElementById('codex-enter');
+    if (enterBtn) enterBtn.focus();
 
     // Enter key to proceed
     document.addEventListener('keydown', function onKey(e) {
@@ -34,52 +39,15 @@
       }
     });
 
-    // Tap/click anywhere to proceed on mobile
+    // Button click or tap anywhere to proceed
+    if (enterBtn) enterBtn.addEventListener('click', unlockCodex, { once: true });
     lock.addEventListener('click', unlockCodex, { once: true });
   }
 
-  // ─── Mobile Menu ───
-  function initMobileMenu() {
-    const hamburger = document.querySelector('.nav-hamburger');
-    const mobileMenu = document.querySelector('.mobile-menu');
-    const mobileClose = document.querySelector('.mobile-menu-close');
-
-    function openMenu() {
-      if (!mobileMenu || !hamburger) return;
-      mobileMenu.classList.add('open');
-      mobileMenu.setAttribute('aria-hidden', 'false');
-      hamburger.setAttribute('aria-expanded', 'true');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeMenu() {
-      if (!mobileMenu || !hamburger) return;
-      mobileMenu.classList.remove('open');
-      mobileMenu.setAttribute('aria-hidden', 'true');
-      hamburger.setAttribute('aria-expanded', 'false');
-      document.body.style.overflow = '';
-    }
-
-    if (hamburger) hamburger.addEventListener('click', openMenu);
-    if (mobileClose) mobileClose.addEventListener('click', closeMenu);
-
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && mobileMenu && mobileMenu.classList.contains('open')) {
-        closeMenu();
-        if (hamburger) hamburger.focus();
-      }
-    });
-  }
-
   // ─── Init ───
-  function init() {
-    initLockScreen();
-    initMobileMenu();
-  }
-
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
+    document.addEventListener('DOMContentLoaded', initLockScreen);
   } else {
-    init();
+    initLockScreen();
   }
 })();

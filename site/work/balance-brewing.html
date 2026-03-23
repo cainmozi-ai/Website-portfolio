@@ -16,12 +16,14 @@
   <link rel="icon" type="image/svg+xml" href="../favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
   <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=Montserrat:wght@900&display=swap" rel="stylesheet">
+  
+  
+  <link rel="preload" href="../assets/fonts/montserrat-900-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="../styles.css">
 </head>
 <body class="balance-project">
+  <a href="#main-content" class="skip-link">Skip to content</a>
 
   <div class="scroll-progress" aria-hidden="true"></div>
 
@@ -52,14 +54,22 @@
     </nav>
   </div>
 
-  <main>
+  <main id="main-content">
 
     <!-- Section 1: Fullscreen Hero Image -->
     <section class="cs-hero-section">
-      <div class="cs-hero-image">
-        <img src="../assets/Balance/mockup.jpg"
-             alt="Hand-carved lino print label designs for Balance Brewing — Headless Horseman, Old Crockern, and Mermaid — photographed across Greater Manchester locations"
-             fetchpriority="high">
+      <div class="cs-hero-image blur-placeholder" style="background-image: url('data:image/jpeg;base64,/9j/2wBDABsSFBcUERsXFhceHBsgKEIrKCUlKFE6PTBCYFVlZF9VXVtqeJmBanGQc1tdhbWGkJ6jq62rZ4C8ybqmx5moq6T/2wBDARweHigjKE4rK06kbl1upKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKT/wAARCAAPABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAQFAgP/xAAdEAABBAMBAQAAAAAAAAAAAAABAAIEEQMSISMx/8QAFQEBAQAAAAAAAAAAAAAAAAAAAIL/xAAXEQADAQAAAAAAAAAAAAAAAAAAAREh/9oADAMBAAIRAxEAPwCfGxnJxMvgura1wiOGM9TciT50FCQazCa/ZriL+IWi4E2UJBD/2Q==')">
+        <picture>
+          <source type="image/webp"
+                  srcset="../assets/Balance/mockup-400w.webp 400w, ../assets/Balance/mockup-800w.webp 800w, ../assets/Balance/mockup-1200w.webp 1200w, ../assets/Balance/mockup-1600w.webp 1600w"
+                  sizes="(max-width: 600px) 100vw, 100vw">
+          <img src="../assets/Balance/mockup.jpg"
+               srcset="../assets/Balance/mockup-400w.jpg 400w, ../assets/Balance/mockup-800w.jpg 800w, ../assets/Balance/mockup-1200w.jpg 1200w, ../assets/Balance/mockup-1600w.jpg 1600w"
+               sizes="(max-width: 600px) 100vw, 100vw"
+               alt="Hand-carved lino print label designs for Balance Brewing — Headless Horseman, Old Crockern, and Mermaid — photographed across Greater Manchester locations"
+               loading="eager"
+               fetchpriority="high">
+        </picture>
       </div>
     </section>
 
@@ -106,9 +116,16 @@
       <div class="cs-process-stages">
         <div class="cs-process-stage reveal-on-scroll">
           <div class="cs-process-image">
-              <img src="../assets/Balance/research.jpg"
-                 alt="Research reference board showing British folklore imagery — Headless Horseman, Old Crockern of Dartmoor, and Mermaid mythological sources"
-                 loading="lazy">
+              <picture>
+                <source type="image/webp"
+                        srcset="../assets/Balance/research-400w.webp 400w, ../assets/Balance/research-800w.webp 800w, ../assets/Balance/research-1200w.webp 1200w, ../assets/Balance/research-1600w.webp 1600w"
+                        sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 800px">
+                <img src="../assets/Balance/research.jpg"
+                     srcset="../assets/Balance/research-400w.jpg 400w, ../assets/Balance/research-800w.jpg 800w, ../assets/Balance/research-1200w.jpg 1200w, ../assets/Balance/research-1600w.jpg 1600w"
+                     sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 800px"
+                     alt="Research reference board showing British folklore imagery — Headless Horseman, Old Crockern of Dartmoor, and Mermaid mythological sources"
+                     loading="lazy">
+              </picture>
           </div>
           <div class="cs-process-text">
             <p class="cs-process-num">01</p>
@@ -119,9 +136,16 @@
 
         <div class="cs-process-stage reveal-on-scroll">
           <div class="cs-process-image">
-              <img src="../assets/Balance/close up lino.jpg"
-                 alt="Close-up of hand-carved lino block showing the subtractive carving process — tools, ink, and cut block detail"
-                 loading="lazy">
+              <picture>
+                <source type="image/webp"
+                        srcset="../assets/Balance/close-up-lino-400w.webp 400w, ../assets/Balance/close-up-lino-800w.webp 800w, ../assets/Balance/close-up-lino-1200w.webp 1200w, ../assets/Balance/close-up-lino-1600w.webp 1600w"
+                        sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 800px">
+                <img src="../assets/Balance/close-up-lino.jpg"
+                     srcset="../assets/Balance/close-up-lino-400w.jpg 400w, ../assets/Balance/close-up-lino-800w.jpg 800w, ../assets/Balance/close-up-lino-1200w.jpg 1200w, ../assets/Balance/close-up-lino-1600w.jpg 1600w"
+                     sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 800px"
+                     alt="Close-up of hand-carved lino block showing the subtractive carving process — tools, ink, and cut block detail"
+                     loading="lazy">
+              </picture>
           </div>
           <div class="cs-process-text">
             <p class="cs-process-num">02</p>
@@ -132,9 +156,16 @@
 
         <div class="cs-process-stage reveal-on-scroll">
           <div class="cs-process-image">
-              <img src="../assets/Balance/behind the scenes.JPG"
-                 alt="Behind-the-scenes environmental photography shoot across Greater Manchester — bottle styling and location setup"
-                 loading="lazy">
+              <picture>
+                <source type="image/webp"
+                        srcset="../assets/Balance/behind-the-scenes-400w.webp 400w, ../assets/Balance/behind-the-scenes-800w.webp 800w, ../assets/Balance/behind-the-scenes-1200w.webp 1200w, ../assets/Balance/behind-the-scenes-1600w.webp 1600w"
+                        sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 800px">
+                <img src="../assets/Balance/behind-the-scenes.jpg"
+                     srcset="../assets/Balance/behind-the-scenes-400w.jpg 400w, ../assets/Balance/behind-the-scenes-800w.jpg 800w, ../assets/Balance/behind-the-scenes-1200w.jpg 1200w, ../assets/Balance/behind-the-scenes-1600w.jpg 1600w"
+                     sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 800px"
+                     alt="Behind-the-scenes environmental photography shoot across Greater Manchester — bottle styling and location setup"
+                     loading="lazy">
+              </picture>
           </div>
           <div class="cs-process-text">
             <p class="cs-process-num">03</p>
@@ -145,9 +176,12 @@
 
         <div class="cs-process-stage reveal-on-scroll">
           <div class="cs-process-image">
-              <img src="../assets/Balance/zine.jpg"
-                 alt="Campaign deliverables layout — zine spreads, Instagram content mockups, and printed label designs"
-                 loading="lazy">
+              <picture>
+                <source type="image/webp" srcset="../assets/Balance/zine.webp">
+                <img src="../assets/Balance/zine.jpg"
+                     alt="Campaign deliverables layout — zine spreads, Instagram content mockups, and printed label designs"
+                     loading="lazy">
+              </picture>
           </div>
           <div class="cs-process-text">
             <p class="cs-process-num">04</p>
@@ -163,34 +197,72 @@
       <h2 class="cs-gallery-heading reveal-on-scroll">OUTCOME</h2>
       <div class="cs-gallery-grid">
         <div class="cs-gallery-item reveal-on-scroll">
-          <img src="../assets/Balance/moorland post 1 1080x1350.jpg"
-               alt="Headless Horseman lino print label design — hand-carved figurative illustration on craft beer bottle"
-               loading="lazy">
+          <picture>
+            <source type="image/webp"
+                    srcset="../assets/Balance/moorland-post-1-400w.webp 400w, ../assets/Balance/moorland-post-1-800w.webp 800w, ../assets/Balance/moorland-post-1-1200w.webp 1200w"
+                    sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 800px">
+            <img src="../assets/Balance/moorland-post-1.jpg"
+                 srcset="../assets/Balance/moorland-post-1-400w.jpg 400w, ../assets/Balance/moorland-post-1-800w.jpg 800w, ../assets/Balance/moorland-post-1-1200w.jpg 1200w"
+                 sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 800px"
+                 alt="Headless Horseman lino print label design — hand-carved figurative illustration on craft beer bottle"
+                 loading="lazy">
+          </picture>
         </div>
         <div class="cs-gallery-item reveal-on-scroll">
-          <img src="../assets/Balance/woodland post 1 1080x1350.jpg"
-               alt="Old Crockern lino print label design — Dartmoor spirit carved from single lino block"
-               loading="lazy">
+          <picture>
+            <source type="image/webp"
+                    srcset="../assets/Balance/woodland-post-1-400w.webp 400w, ../assets/Balance/woodland-post-1-800w.webp 800w, ../assets/Balance/woodland-post-1-1200w.webp 1200w, ../assets/Balance/woodland-post-1-1600w.webp 1600w"
+                    sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 800px">
+            <img src="../assets/Balance/woodland-post-1.jpg"
+                 srcset="../assets/Balance/woodland-post-1-400w.jpg 400w, ../assets/Balance/woodland-post-1-800w.jpg 800w, ../assets/Balance/woodland-post-1-1200w.jpg 1200w, ../assets/Balance/woodland-post-1-1600w.jpg 1600w"
+                 sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 800px"
+                 alt="Old Crockern lino print label design — Dartmoor spirit carved from single lino block"
+                 loading="lazy">
+          </picture>
         </div>
         <div class="cs-gallery-item reveal-on-scroll">
-          <img src="../assets/Balance/seaside post 1 1080x1350.jpg"
-               alt="Mermaid lino print label design — mythological figure hand-carved for craft brewery branding"
-               loading="lazy">
+          <picture>
+            <source type="image/webp"
+                    srcset="../assets/Balance/seaside-post-1-400w.webp 400w, ../assets/Balance/seaside-post-1-800w.webp 800w, ../assets/Balance/seaside-post-1-1200w.webp 1200w"
+                    sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 800px">
+            <img src="../assets/Balance/seaside-post-1.jpg"
+                 srcset="../assets/Balance/seaside-post-1-400w.jpg 400w, ../assets/Balance/seaside-post-1-800w.jpg 800w, ../assets/Balance/seaside-post-1-1200w.jpg 1200w"
+                 sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 800px"
+                 alt="Mermaid lino print label design — mythological figure hand-carved for craft brewery branding"
+                 loading="lazy">
+          </picture>
         </div>
         <div class="cs-gallery-item reveal-on-scroll">
-          <img src="../assets/Balance/zine.jpg"
-               alt="Balance Brewing 10-page A5 zine spread — documenting the lino carving process and folklore research"
-               loading="lazy">
+          <picture>
+            <source type="image/webp" srcset="../assets/Balance/zine.webp">
+            <img src="../assets/Balance/zine.jpg"
+                 alt="Balance Brewing 10-page A5 zine spread — documenting the lino carving process and folklore research"
+                 loading="lazy">
+          </picture>
         </div>
         <div class="cs-gallery-item reveal-on-scroll">
-          <img src="../assets/Balance/behind the scenes.JPG"
-               alt="Environmental photography — Balance Brewing bottles photographed on location across Greater Manchester"
-               loading="lazy">
+          <picture>
+            <source type="image/webp"
+                    srcset="../assets/Balance/behind-the-scenes-400w.webp 400w, ../assets/Balance/behind-the-scenes-800w.webp 800w, ../assets/Balance/behind-the-scenes-1200w.webp 1200w, ../assets/Balance/behind-the-scenes-1600w.webp 1600w"
+                    sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 800px">
+            <img src="../assets/Balance/behind-the-scenes.jpg"
+                 srcset="../assets/Balance/behind-the-scenes-400w.jpg 400w, ../assets/Balance/behind-the-scenes-800w.jpg 800w, ../assets/Balance/behind-the-scenes-1200w.jpg 1200w, ../assets/Balance/behind-the-scenes-1600w.jpg 1600w"
+                 sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 800px"
+                 alt="Environmental photography — Balance Brewing bottles photographed on location across Greater Manchester"
+                 loading="lazy">
+          </picture>
         </div>
         <div class="cs-gallery-item reveal-on-scroll">
-          <img src="../assets/Balance/mockup.jpg"
-               alt="Physical mockups — printed labels applied to bottles with craft packaging design"
-               loading="lazy">
+          <picture>
+            <source type="image/webp"
+                    srcset="../assets/Balance/mockup-400w.webp 400w, ../assets/Balance/mockup-800w.webp 800w, ../assets/Balance/mockup-1200w.webp 1200w, ../assets/Balance/mockup-1600w.webp 1600w"
+                    sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 800px">
+            <img src="../assets/Balance/mockup.jpg"
+                 srcset="../assets/Balance/mockup-400w.jpg 400w, ../assets/Balance/mockup-800w.jpg 800w, ../assets/Balance/mockup-1200w.jpg 1200w, ../assets/Balance/mockup-1600w.jpg 1600w"
+                 sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 800px"
+                 alt="Physical mockups — printed labels applied to bottles with craft packaging design"
+                 loading="lazy">
+          </picture>
         </div>
       </div>
     </section>
@@ -223,7 +295,7 @@
       <img class="footer-brandmark" src="../assets/logo-full.jpg" alt="The Moriarty Experience">
       <p class="footer-copy">&copy; 2025–2026 CAIN MORIARTY</p>
       <p class="footer-motto">Ex Labore Venustas — From Work, Beauty</p>
-      <a href="../codex.html" class="footer-codex-glyph" aria-label="">
+      <a href="../codex.html" class="footer-codex-glyph" aria-hidden="true" tabindex="-1">
         <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
           <path d="M2 20V4l5 8-5 8zm7 0V4l5 8-5 8zm7 0V4l5 8-5 8z"/>
         </svg>
@@ -231,6 +303,7 @@
     </div>
   </footer>
 
+  <script src="../shared.js"></script>
   <script src="project.js"></script>
 </body>
 </html>

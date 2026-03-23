@@ -13,6 +13,43 @@
   // Brandmark SVG for loader
   var LOADER_SVG = '<svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M2 20V4l5 8-5 8zm7 0V4l5 8-5 8zm7 0V4l5 8-5 8z"/></svg>';
 
+  // ─── Dynamic Script Loading ───
+  // Three.js + GLTFLoader are loaded on demand, not upfront
+  var threeLoaded = typeof THREE !== 'undefined';
+  var threeLoading = false;
+  var threeCallbacks = [];
+
+  function loadThreeJS(callback) {
+    if (threeLoaded) { callback(); return; }
+    threeCallbacks.push(callback);
+    if (threeLoading) return;
+    threeLoading = true;
+
+    // Detect path prefix (project pages are in work/ subdirectory)
+    var scripts = document.getElementsByTagName('script');
+    var prefix = '';
+    for (var i = 0; i < scripts.length; i++) {
+      if (scripts[i].src && scripts[i].src.indexOf('model-viewer.js') !== -1) {
+        prefix = scripts[i].src.replace(/model-viewer\.js.*$/, '');
+        break;
+      }
+    }
+
+    var threeScript = document.createElement('script');
+    threeScript.src = prefix + 'three.min.js';
+    threeScript.onload = function () {
+      var gltfScript = document.createElement('script');
+      gltfScript.src = prefix + 'GLTFLoader-working.js';
+      gltfScript.onload = function () {
+        threeLoaded = true;
+        threeCallbacks.forEach(function (cb) { cb(); });
+        threeCallbacks = [];
+      };
+      document.head.appendChild(gltfScript);
+    };
+    document.head.appendChild(threeScript);
+  }
+
   // ─── Lazy Init via Intersection Observer ───
   function setupLazyViewers() {
     var containers = document.querySelectorAll('.model-viewer-container');
@@ -21,8 +58,10 @@
     var observer = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         if (entry.isIntersecting) {
-          initViewer(entry.target);
           observer.unobserve(entry.target);
+          loadThreeJS(function () {
+            initViewer(entry.target);
+          });
         }
       });
     }, { threshold: 0.1 });
