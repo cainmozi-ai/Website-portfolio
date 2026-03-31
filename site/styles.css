@@ -74,8 +74,8 @@
   --color-red-glow: rgba(136, 8, 8, 0.12);
 
   /* Typography */
-  --font-title: 'Gotham Black', 'Montserrat', sans-serif;
-  --font-body: 'Helvetica Neue', 'Inter', sans-serif;
+  --font-title: 'Montserrat', 'Gotham Black', sans-serif;
+  --font-body: 'Inter', 'Helvetica Neue', sans-serif;
   --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
 
   /* Spacing scale (8px base grid) */
@@ -438,34 +438,6 @@ button:focus-visible {
   }
 }
 
-/* Scroll indicator */
-.scroll-indicator {
-  position: absolute;
-  bottom: var(--space-lg);
-  left: 50%;
-  transform: translateX(-50%);
-  transition: opacity 0.3s;
-}
-
-.scroll-line {
-  width: 1px;
-  height: 48px;
-  background: var(--color-muted);
-  animation: scrollDrift 3s ease-in-out infinite;
-}
-
-@keyframes scrollDrift {
-  0%, 100% {
-    opacity: 0.3;
-    transform: scaleY(0.6);
-    transform-origin: top;
-  }
-  50% {
-    opacity: 0.7;
-    transform: scaleY(1);
-    transform-origin: top;
-  }
-}
 
 
 /* ─── Containers ─── */
@@ -1817,21 +1789,275 @@ button:focus-visible {
   }
 }
 
-/* Balance project: show full image content (no crop) */
-body.balance-project .cs-hero-image img,
-body.balance-project .cs-process-image img,
-body.balance-project .cs-gallery-item img,
-body.balance-project .cs-gallery-hero img,
-body.balance-project .cs-gallery-details img {
+/* Balance project: show full image content (no crop, natural proportions) */
+body.balance-project .cs-process-image {
+  aspect-ratio: auto;
+  overflow: visible;
+}
+
+body.balance-project .cs-process-image img {
+  width: 100%;
+  height: auto;
   object-fit: contain;
   object-position: center;
 }
 
-body.balance-project .cs-gallery-item img:hover,
-body.balance-project .cs-gallery-hero img:hover,
-body.balance-project .cs-gallery-details img:hover {
-  transform: none;
-  filter: none;
+body.balance-project .cs-gallery--grid .cs-gallery-item img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: auto;
+  object-fit: contain;
+  object-position: center;
+}
+
+body.balance-project .cs-gallery-hero img,
+body.balance-project .cs-gallery-details img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: auto;
+  object-fit: contain;
+  object-position: center;
+}
+
+body.balance-project .cs-hero-image img {
+  object-fit: cover;
+  object-position: center;
+}
+
+
+/* ─── Image Lightbox ─── */
+.lightbox-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 500;
+  background: rgba(0, 0, 0, 0.92);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s;
+  cursor: zoom-out;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.lightbox-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 8px;
+  line-height: 1;
+  z-index: 501;
+  transition: transform 0.2s ease;
+}
+
+.lightbox-close:hover {
+  transform: scale(1.2);
+}
+
+.lightbox-img {
+  max-width: 90vw;
+  max-height: 80vh;
+  object-fit: contain;
+  border-radius: 2px;
+  cursor: default;
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 0.3s ease 0.05s, transform 0.3s ease 0.05s;
+}
+
+.lightbox-overlay.active .lightbox-img {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.lightbox-caption {
+  color: rgba(255, 255, 255, 0.6);
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  letter-spacing: 0.02em;
+  margin-top: 16px;
+  max-width: 600px;
+  text-align: center;
+  line-height: 1.5;
+}
+
+
+/* ─── Character Reveal Animation ─── */
+.char-reveal {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  transition-delay: calc(var(--char-index) * 0.03s);
+}
+
+.chars-visible .char-reveal {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* ─── Custom Cursor ─── */
+.cursor-dot,
+.cursor-ring {
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.cursor-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--color-accent);
+}
+
+.cursor-ring {
+  width: 32px;
+  height: 32px;
+  border: 1px solid rgba(136, 8, 8, 0.4);
+  transition: width 0.25s ease, height 0.25s ease, border-color 0.25s ease;
+}
+
+.cursor-ring.cursor-hover {
+  width: 48px;
+  height: 48px;
+  border-color: var(--color-accent);
+}
+
+.cursor-dot.cursor-hover {
+  opacity: 0;
+}
+
+/* Hide default cursor when custom cursor is active */
+body:has(.cursor-dot) {
+  cursor: none;
+}
+
+body:has(.cursor-dot) a,
+body:has(.cursor-dot) button,
+body:has(.cursor-dot) [role="button"],
+body:has(.cursor-dot) .project-image-wrap {
+  cursor: none;
+}
+
+
+/* ─── Scroll Mouse Icon ─── */
+.scroll-mouse-icon {
+  color: var(--color-muted);
+  opacity: 0.5;
+}
+
+.scroll-mouse-wheel {
+  animation: scrollWheel 2s ease-in-out infinite;
+}
+
+@keyframes scrollWheel {
+  0% { transform: translateY(0); opacity: 1; }
+  50% { transform: translateY(6px); opacity: 0.3; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+
+/* ─── Hero Grain Overlay ─── */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  opacity: 0.025;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+
+/* ─── Project Card Hover Lift ─── */
+.project-card {
+  transition: transform 0.3s ease;
+}
+
+@media (min-width: 769px) {
+  .project-card:hover {
+    transform: translateY(-4px);
+  }
+}
+
+/* Process step card hover glow */
+.process-step-card {
+  transition: border-color var(--duration-normal) var(--ease-default),
+              box-shadow var(--duration-normal) var(--ease-default);
+}
+
+.process-step-card:hover {
+  box-shadow: 0 0 0 1px var(--color-accent), 0 4px 24px var(--color-red-glow);
+}
+
+
+/* ─── CTA Arrow Animation ─── */
+.project-cta {
+  transition: color 0.25s var(--ease-default), transform 0.3s var(--ease-default);
+}
+
+.project-cta:hover {
+  letter-spacing: 0.14em;
+}
+
+
+/* ─── Section Divider Enhanced ─── */
+.section-divider::before,
+.section-divider::after {
+  transition: transform 0.6s var(--ease-default);
+  transform: scaleX(0);
+}
+
+.section-divider.revealed::before,
+.section-divider.revealed::after {
+  transform: scaleX(1);
+}
+
+.section-divider::before {
+  transform-origin: right;
+}
+
+.section-divider::after {
+  transform-origin: left;
+}
+
+
+/* ─── Contact Email Glow ─── */
+.contact-email:hover {
+  text-shadow: 0 0 20px var(--color-red-glow);
+}
+
+
+/* ─── Capability Column Hover ─── */
+.capability-column {
+  padding: var(--space-md);
+  border-radius: 2px;
+  transition: background-color 0.3s ease;
+}
+
+.capability-column:hover {
+  background-color: var(--color-surface-alt);
 }
 
 
@@ -1843,7 +2069,6 @@ body.balance-project .cs-gallery-details img:hover {
   }
 
   .nav,
-  .scroll-indicator,
   .scroll-progress,
   .mobile-menu,
   .nav-hamburger {

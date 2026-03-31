@@ -10,7 +10,7 @@
   <!-- Open Graph -->
   <meta property="og:title" content="By&#332;d&#332;-in Phoenix Hall — Cain Moriarty">
   <meta property="og:description" content="3D reconstruction of the By&#332;d&#332;-in Phoenix Hall as a VR museum exhibit — Blender, Substance Painter, Unreal Engine 5.">
-  <meta property="og:image" content="https://themoriartyexperience.com/assets/buddha.png">
+  <meta property="og:image" content="https://themoriartyexperience.com/assets/Byodo-in/reference.jpeg">
   <meta property="og:type" content="article">
 
   <link rel="icon" type="image/svg+xml" href="../favicon.svg">
@@ -59,16 +59,9 @@
     <!-- Section 1: Fullscreen Hero Image -->
     <section class="cs-hero-section">
       <div class="cs-hero-image blur-placeholder" style="background-image: url('data:image/jpeg;base64,/9j/2wBDABsSFBcUERsXFhceHBsgKEIrKCUlKFE6PTBCYFVlZF9VXVtqeJmBanGQc1tdhbWGkJ6jq62rZ4C8ybqmx5moq6T/2wBDARweHigjKE4rK06kbl1upKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKT/wAARCAAUABQDASIAAhEBAxEB/8QAGQABAAMBAQAAAAAAAAAAAAAAAAIDBAEF/8QAHhAAAwACAgMBAAAAAAAAAAAAAAECAxEEIRIUMUH/xAAWAQEBAQAAAAAAAAAAAAAAAAAAAQL/xAAVEQEBAAAAAAAAAAAAAAAAAAAAAf/aAAwDAQACEQMRAD8A8ab77JO50W+snl8SzNw4xJPZhtjdA2RxYqd7AEm2nv8ATNmyVVdsARHJukvrABR//9k=')">
-        <picture>
-          <source type="image/webp"
-                  srcset="../assets/buddha-400w.webp 400w, ../assets/buddha-800w.webp 800w, ../assets/buddha-1200w.webp 1200w"
-                  sizes="100vw">
-          <img src="../assets/buddha.png"
-               srcset="../assets/buddha-400w.png 400w, ../assets/buddha-800w.png 800w, ../assets/buddha-1200w.png 1200w"
-               sizes="100vw"
-               alt="3D reconstruction of By&#332;d&#332;-in Phoenix Hall interior with Amida Buddha statue and Heian-period ornamentation, rendered in Unreal Engine 5"
-               fetchpriority="high">
-        </picture>
+           <img src="../assets/Byodo-in/Final%20render.png"
+             alt="By&#332;d&#332;-in Phoenix Hall final render"
+             fetchpriority="high">
       </div>
     </section>
 
@@ -119,8 +112,8 @@
       <div class="cs-process-stages">
         <div class="cs-process-stage reveal-on-scroll">
           <div class="cs-process-image">
-            <img src="../assets/byodoin-process-reference.jpg"
-                 alt="Historical reference board — Machiya architectural plans, Heian-period design language documentation, and UNESCO photographs of the real By&#332;d&#332;-in"
+            <img src="../assets/Byodo-in/reference.jpeg"
+                 alt="By&#332;d&#332;-in Phoenix Hall reference image"
                  loading="lazy">
           </div>
           <div class="cs-process-text">
@@ -132,8 +125,8 @@
 
         <div class="cs-process-stage reveal-on-scroll">
           <div class="cs-process-image">
-            <img src="../assets/byodoin-process-blockout.jpg"
-                 alt="Blender viewport showing initial blockout geometry of the Phoenix Hall — wireframe view with scale references and spatial planning"
+            <img src="../assets/Byodo-in/texture%201.png"
+                 alt="By&#332;d&#332;-in Phoenix Hall blockout and structural texture reference"
                  loading="lazy">
           </div>
           <div class="cs-process-text">
@@ -145,8 +138,8 @@
 
         <div class="cs-process-stage reveal-on-scroll">
           <div class="cs-process-image">
-            <img src="../assets/byodoin-process-texturing.jpg"
-                 alt="Substance Painter material studies — before and after PBR texture application showing aged cypress wood, oxidised copper, and lacquered vermilion surfaces"
+            <img src="../assets/Byodo-in/texture%202.png"
+                 alt="By&#332;d&#332;-in Phoenix Hall material texturing reference"
                  loading="lazy">
           </div>
           <div class="cs-process-text">
@@ -158,8 +151,8 @@
 
         <div class="cs-process-stage reveal-on-scroll">
           <div class="cs-process-image">
-            <img src="../assets/byodoin-process-vr.jpg"
-                 alt="Unreal Engine 5 final render setup — 8K 360-degree panorama configuration with Lumen global illumination showing filtered light through paper shoji screens"
+            <img src="../assets/Byodo-in/close%20up%203.png"
+                 alt="By&#332;d&#332;-in Phoenix Hall final render close-up"
                  loading="lazy">
           </div>
           <div class="cs-process-text">
@@ -171,32 +164,42 @@
       </div>
     </section>
 
-    <!-- Section 5: Interactive 360° Panorama Viewer -->
-    <div class="model-viewer-container" data-viewer-type="panorama" data-pano-src="../assets/panoramas/byodoin-4k.jpg">
+    <!-- Section 5: Interactive 3D Model Viewer -->
+    <div class="model-viewer-container" data-viewer-type="orbit" data-model-src="../assets/Byodo-in/Byodo-in.obj">
     </div>
 
-    <!-- Section 5: Gallery (Option C — hero + detail crops) -->
-    <section class="cs-gallery cs-gallery--hero-detail">
+    <!-- Section 5: Gallery — exterior renders -->
+    <section class="cs-gallery cs-gallery--grid">
       <h2 class="cs-gallery-heading reveal-on-scroll">OUTCOME</h2>
-      <div class="cs-gallery-hero reveal-on-scroll">
-        <img src="../assets/byodoin-gallery-panorama.jpg"
-             alt="By&#332;d&#332;-in Phoenix Hall interior panoramic render — full interior with Amida Buddha, ornamented ceiling, and Heian-period architectural detail"
-             loading="lazy">
-      </div>
-      <div class="cs-gallery-details">
-        <div class="reveal-on-scroll">
-          <img src="../assets/byodoin-gallery-detail-01.jpg"
-               alt="Detail crop — ornamental ceiling bracketing and gilded canopy above the Amida Buddha statue"
+      <div class="cs-gallery-grid cs-gallery-grid--single-col">
+        <div class="cs-gallery-item reveal-on-scroll">
+          <img src="../assets/Byodo-in/close%20up%201.png"
+               alt="By&#332;d&#332;-in Phoenix Hall close-up render 1"
                loading="lazy">
         </div>
-        <div class="reveal-on-scroll">
-          <img src="../assets/byodoin-gallery-detail-02.jpg"
-               alt="Detail crop — lacquered vermilion columns and aged cypress wood beam construction"
+        <div class="cs-gallery-item reveal-on-scroll">
+          <img src="../assets/Byodo-in/close%20up%202.png"
+               alt="By&#332;d&#332;-in Phoenix Hall close-up render 2"
                loading="lazy">
         </div>
-        <div class="reveal-on-scroll">
-          <img src="../assets/byodoin-gallery-detail-03.jpg"
-               alt="Detail crop — comparison between the 3D reconstruction and the real By&#332;d&#332;-in Phoenix Hall"
+        <div class="cs-gallery-item reveal-on-scroll">
+          <img src="../assets/Byodo-in/close%20up%203.png"
+               alt="By&#332;d&#332;-in Phoenix Hall close-up render 3"
+               loading="lazy">
+        </div>
+        <div class="cs-gallery-item reveal-on-scroll">
+          <img src="../assets/Byodo-in/close%20up%204.png"
+               alt="By&#332;d&#332;-in Phoenix Hall close-up render 4"
+               loading="lazy">
+        </div>
+        <div class="cs-gallery-item reveal-on-scroll">
+          <img src="../assets/Byodo-in/close%20up%205.png"
+               alt="By&#332;d&#332;-in Phoenix Hall close-up render 5"
+               loading="lazy">
+        </div>
+        <div class="cs-gallery-item reveal-on-scroll">
+          <img src="../assets/Byodo-in/close%20up%206.png"
+               alt="By&#332;d&#332;-in Phoenix Hall close-up render 6"
                loading="lazy">
         </div>
       </div>
@@ -241,5 +244,6 @@
   <script src="../model-viewer.js"></script>
   <script src="../shared.js"></script>
   <script src="project.js"></script>
+  <script src="../enhancements.js" defer></script>
 </body>
 </html>

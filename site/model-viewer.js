@@ -1,9 +1,10 @@
 /* ═══════════════════════════════════════════════════════════════
-   THE MORIARTY EXPERIENCE — Case Study Model Viewer
-   Handles: orbit viewer (glTF) + 360° panorama viewer
+  THE MORIARTY EXPERIENCE — Case Study Model Viewer
+  Handles: orbit viewer (glTF/OBJ) + 360° panorama viewer
    Usage: Add data attributes to .model-viewer-container elements
    
-   Orbit:    data-viewer-type="orbit" data-model-src="assets/models/spitfire.glb"
+  Orbit:    data-viewer-type="orbit" data-model-src="assets/models/spitfire.glb"
+         data-viewer-type="orbit" data-model-src="assets/Byodo-in/Byodo-in.obj"
    Panorama: data-viewer-type="panorama" data-pano-src="assets/panoramas/byodoin-4k.jpg"
    ═══════════════════════════════════════════════════════════════ */
 
@@ -35,17 +36,39 @@
       }
     }
 
+    function finalizeThreeLoad() {
+      threeLoaded = true;
+      threeCallbacks.forEach(function (cb) { cb(); });
+      threeCallbacks = [];
+    }
+
+    function loadOptionalScripts(basePath, onComplete) {
+      var scriptsToLoad = [
+        'GLTFLoader-working.js',
+        'OBJLoader.js'
+      ];
+      var idx = 0;
+
+      function loadNext() {
+        if (idx >= scriptsToLoad.length) {
+          onComplete();
+          return;
+        }
+
+        var script = document.createElement('script');
+        script.src = basePath + scriptsToLoad[idx++];
+        script.onload = loadNext;
+        script.onerror = loadNext;
+        document.head.appendChild(script);
+      }
+
+      loadNext();
+    }
+
     var threeScript = document.createElement('script');
     threeScript.src = prefix + 'three.min.js';
     threeScript.onload = function () {
-      var gltfScript = document.createElement('script');
-      gltfScript.src = prefix + 'GLTFLoader-working.js';
-      gltfScript.onload = function () {
-        threeLoaded = true;
-        threeCallbacks.forEach(function (cb) { cb(); });
-        threeCallbacks = [];
-      };
-      document.head.appendChild(gltfScript);
+      loadOptionalScripts(prefix, finalizeThreeLoad);
     };
     document.head.appendChild(threeScript);
   }
@@ -109,6 +132,8 @@
 
     var camera = new THREE.PerspectiveCamera(45, container.clientWidth / container.clientHeight, 0.1, 100);
     camera.position.set(0, 0.5, 3);
+    camera.far = 5000;
+    camera.updateProjectionMatrix();
 
     var rendererEl = document.createElement('canvas');
     rendererEl.className = 'model-viewer-canvas';
@@ -149,11 +174,87 @@
       controls.dampingFactor = 0.05;
     }
 
-    // Load model using GLTFLoader
-    if (THREE.GLTFLoader) {
+    function fitAndAddModel(model, isObj) {
+      if (isObj) {
+        model.traverse(function (child) {
+          if (child.isMesh) {
+            child.material = new THREE.MeshStandardMaterial({
+              color: 0xd7dce3,
+              roughness: 0.75,
+              metalness: 0.05,
+              side: THREE.DoubleSide
+            });
+            if (child.geometry && !child.geometry.attributes.normal) {
+              child.geometry.computeVertexNormals();
+            }
+            child.castShadow = false;
+            child.receiveShadow = false;
+          }
+        });
+      }
+
+      var box = new THREE.Box3().setFromObject(model);
+      var center = box.getCenter(new THREE.Vector3());
+      var size = box.getSize(new THREE.Vector3());
+      var maxDim = Math.max(size.x, size.y, size.z) || 1;
+      var scale = 2 / maxDim;
+      model.scale.setScalar(scale);
+      model.position.sub(center.multiplyScalar(scale));
+
+      var scaledCenterY = (size.y * scale) * 0.1;
+      if (controls) {
+        controls.target.set(0, scaledCenterY, 0);
+      }
+
+      camera.position.set(0, Math.max(0.5, scaledCenterY + 0.3), 3.2);
+      camera.lookAt(0, scaledCenterY, 0);
+
+      scene.add(model);
+
+      var loader = container.querySelector('.model-viewer-loader');
+      if (loader) loader.classList.add('loaded');
+    }
+
+    var isObjModel = /\.obj(?:\?|#|$)/i.test(modelSrc);
+
+    function addModelFallback() {
+      var fallbackGeom = new THREE.IcosahedronGeometry(0.8, 1);
+      var fallbackMat = new THREE.MeshStandardMaterial({
+        color: 0x8b0000,
+        roughness: 0.35,
+        metalness: 0.15
+      });
+      var fallbackMesh = new THREE.Mesh(fallbackGeom, fallbackMat);
+      scene.add(fallbackMesh);
+
+      if (controls) {
+        controls.target.set(0, 0, 0);
+      }
+
+      var loader = container.querySelector('.model-viewer-loader');
+      if (loader) loader.classList.add('loaded');
+    }
+
+    if (isObjModel && THREE.OBJLoader) {
+      var fileLoader = new THREE.FileLoader();
+      fileLoader.setResponseType('text');
+      fileLoader.load(modelSrc, function (rawText) {
+        try {
+          // Some exported OBJ files contain null bytes/BOM; strip these before parsing.
+          var cleanText = String(rawText || '').replace(/^\uFEFF/, '').replace(/\0/g, '');
+          var obj = new THREE.OBJLoader().parse(cleanText);
+          fitAndAddModel(obj, true);
+        } catch (parseErr) {
+          console.warn('OBJ parse error:', parseErr);
+          addModelFallback();
+        }
+      }, undefined, function (err) {
+        console.warn('OBJ load error:', err);
+        addModelFallback();
+      });
+    } else if (THREE.GLTFLoader) {
       var gltfLoader = new THREE.GLTFLoader();
 
-      // Try Draco if available
       if (THREE.DRACOLoader) {
         var dracoLoader = new THREE.DRACOLoader();
         dracoLoader.setDecoderPath('https://www.gstatic.com/draco/v1/decoders/');
@@ -161,25 +262,14 @@
       }
 
       gltfLoader.load(modelSrc, function (gltf) {
-        var model = gltf.scene;
-
-        // Centre and scale model
-        var box = new THREE.Box3().setFromObject(model);
-        var center = box.getCenter(new THREE.Vector3());
-        var size = box.getSize(new THREE.Vector3());
-        var maxDim = Math.max(size.x, size.y, size.z);
-        var scale = 2 / maxDim;
-        model.scale.setScalar(scale);
-        model.position.sub(center.multiplyScalar(scale));
-
-        scene.add(model);
-
-        // Fade in model, hide loader
-        var loader = container.querySelector('.model-viewer-loader');
-        if (loader) loader.classList.add('loaded');
+        fitAndAddModel(gltf.scene, false);
       }, undefined, function (err) {
         console.warn('Model load error:', err);
+        addModelFallback();
       });
+    } else {
+      console.warn('No compatible loader found for model:', modelSrc);
+      addModelFallback();
     }
 
     // Hide hint on first interaction

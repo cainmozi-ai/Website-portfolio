@@ -11,7 +11,6 @@
   const nav = document.querySelector('.nav');
   const navLinks = document.querySelectorAll('.nav-link');
   const mobileLinks = document.querySelectorAll('.mobile-menu-link');
-  const scrollIndicator = document.querySelector('.scroll-indicator');
   const scrollProgress = document.querySelector('.scroll-progress');
   const heroSection = document.getElementById('hero');
 
@@ -109,21 +108,12 @@
     scrollProgress.style.transform = 'scaleX(' + (progress / 100) + ')';
   }
 
-  // ─── Scroll Indicator Fade ───
-  function updateScrollIndicator() {
-    if (!scrollIndicator) return;
-    const opacity = Math.max(0, 1 - window.scrollY / 300);
-    scrollIndicator.style.opacity = opacity;
-    scrollIndicator.style.visibility = opacity <= 0 ? 'hidden' : 'visible';
-  }
-
   // ─── Unified Scroll Handler ───
   function onScroll() {
     if (!ticking) {
       window.requestAnimationFrame(() => {
         updateNavVisibility();
         updateScrollProgress();
-        updateScrollIndicator();
         ticking = false;
       });
       ticking = true;
@@ -156,7 +146,6 @@
 
     updateNavVisibility();
     updateScrollProgress();
-    updateScrollIndicator();
   }
 
   if (document.readyState === 'loading') {
