@@ -562,6 +562,19 @@ button:focus-visible {
   line-height: 1.4;
 }
 
+/* WIP badge — home page project card */
+.project-wip-badge {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #880808;
+  border: 1px solid #880808;
+  padding: 0.2em 0.6em;
+  margin-bottom: var(--space-xs);
+}
+
 /* Project context — the brief/intent line */
 .project-context {
   font-size: 0.85rem;
@@ -1428,6 +1441,19 @@ button:focus-visible {
   line-height: 1.6;
 }
 
+/* WIP label — case study page */
+.cs-wip-label {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #880808;
+  border: 1px solid #880808;
+  padding: 0.25em 0.7em;
+  margin-top: var(--space-sm);
+}
+
 /* Section 2: Overview */
 .cs-overview {
   max-width: var(--content-narrow);
@@ -2172,70 +2198,6 @@ body:has(.cursor-dot) .project-image-wrap {
   display: block;
 }
 
-
-/* ─── Interactive 3D Model Viewer Container ─── */
-.model-viewer-container {
-  width: 100%;
-  height: 70vh;
-  min-height: 500px;
-  max-height: 800px;
-  background-color: var(--color-viewer-bg);
-  position: relative;
-  margin: 80px 0;
-  overflow: hidden;
-}
-
-.model-viewer-canvas {
-  width: 100%;
-  height: 100%;
-  display: block;
-}
-
-/* Loading state — pulsing brandmark */
-.model-viewer-loader {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 2;
-  transition: opacity 0.6s var(--ease-default);
-}
-
-.model-viewer-loader.loaded {
-  opacity: 0;
-  pointer-events: none;
-}
-
-.model-viewer-loader .loader-mark {
-  width: 32px;
-  height: 32px;
-  color: var(--color-accent);
-  animation: loaderPulse 2s ease-in-out infinite;
-}
-
-@keyframes loaderPulse {
-  0%, 100% { opacity: 0.4; }
-  50% { opacity: 1; }
-}
-
-/* Hint label */
-.model-viewer-hint {
-  position: absolute;
-  bottom: 24px;
-  right: 24px;
-  font-family: var(--font-body);
-  font-weight: 300;
-  font-size: 0.7rem;
-  color: var(--color-muted);
-  z-index: 3;
-  transition: opacity 0.6s var(--ease-default);
-  pointer-events: none;
-}
-
-.model-viewer-hint.hidden {
-  opacity: 0;
-}
 
 
 /* ─── Video Embed Container ─── */
