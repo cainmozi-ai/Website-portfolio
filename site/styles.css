@@ -1727,6 +1727,63 @@ button:focus-visible {
   filter: brightness(1.05);
 }
 
+/* Character Expressions Grid (N.O.R.A.) */
+.cs-expressions {
+  max-width: var(--content-wide, 1200px);
+  margin: 0 auto;
+  padding: var(--space-xl) var(--content-padding-inline) var(--space-2xl);
+  text-align: center;
+}
+
+.cs-expressions-desc {
+  max-width: var(--content-narrow, 680px);
+  margin: 0 auto var(--space-xl);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.cs-expressions-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 1rem;
+}
+
+.cs-expression-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.cs-expression-item img {
+  width: 100%;
+  max-width: 120px;
+  aspect-ratio: 4 / 5;
+  object-fit: contain;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+.cs-expression-item span {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+@media (max-width: 900px) {
+  .cs-expressions-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 500px) {
+  .cs-expressions-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
 /* Section 6: Reflection */
 .cs-reflection {
   max-width: var(--content-narrow);
