@@ -10,20 +10,28 @@
   <!-- Open Graph -->
   <meta property="og:title" content="Cain Moriarty — 3D Artist &amp; Visual Storyteller">
   <meta property="og:description" content="Cinematic minimalism with provable technique. 3D environments, motion, and brand design.">
-  <meta property="og:image" content="https://themoriartyexperience.com/assets/Balance/mockup-1200w.jpg">
+  <meta property="og:image" content="https://themoriartyexperience.com/assets/share/home.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Cain Moriarty — 3D Artist &amp; Visual Storyteller">
   <meta property="og:url" content="https://themoriartyexperience.com">
+  <meta property="og:site_name" content="The Moriarty Experience">
   <meta property="og:type" content="website">
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Cain Moriarty — 3D Artist &amp; Visual Storyteller">
   <meta name="twitter:description" content="Cinematic minimalism with provable technique.">
-  <meta name="twitter:image" content="https://themoriartyexperience.com/assets/Balance/mockup-1200w.jpg">
+  <meta name="twitter:image" content="https://themoriartyexperience.com/assets/share/home.jpg">
 
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#880808">
+  <link rel="canonical" href="https://themoriartyexperience.com/">
 
   <!-- Fonts: Self-hosted Montserrat 900 + Inter 300/400 -->
   <link rel="preload" href="assets/fonts/montserrat-900-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -42,9 +50,10 @@
     <nav class="nav-inner" aria-label="Main navigation">
       <a href="#hero" class="nav-brand" aria-label="The Moriarty Experience — return to top">
         <!-- Compact brandmark -->
-        <img class="nav-brandmark" src="assets/logo.jpg" alt="The Moriarty Experience">
+        <img class="nav-brandmark" src="assets/logo.jpg" alt="The Moriarty Experience" width="1600" height="1600" decoding="async">
       </a>
       <div class="nav-links">
+        <a href="#showreel" class="nav-link" data-section="showreel">SHOWREEL</a>
         <a href="#work" class="nav-link" data-section="work">WORK</a>
         <a href="#about" class="nav-link" data-section="about">ABOUT</a>
         <a href="#contact" class="nav-link" data-section="contact">CONTACT</a>
@@ -62,6 +71,7 @@
   <div class="mobile-menu" aria-hidden="true">
     <button class="mobile-menu-close" aria-label="Close menu">&times;</button>
     <nav class="mobile-menu-nav" aria-label="Mobile navigation">
+      <a href="#showreel" class="mobile-menu-link">SHOWREEL</a>
       <a href="#work" class="mobile-menu-link">WORK</a>
       <a href="#about" class="mobile-menu-link">ABOUT</a>
       <a href="#contact" class="mobile-menu-link">CONTACT</a>
@@ -84,7 +94,7 @@
             <img src="assets/logo-red.jpg"
                  srcset="assets/logo-red-400w.jpg 400w, assets/logo-red-800w.jpg 800w, assets/logo-red-1200w.jpg 1200w, assets/logo-red-1600w.jpg 1600w"
                  sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 800px"
-                 alt="The Moriarty Experience brandmark">
+                 alt="The Moriarty Experience brandmark" width="1600" height="1600" decoding="async">
           </picture>
         </div>
 
@@ -101,6 +111,41 @@
     </section>
 
     <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- SHOWREEL -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <section id="showreel" class="showreel">
+      <div class="container">
+        <div class="section-heading">
+          <h2 class="section-label">SHOWREEL</h2>
+          <div class="section-rule" aria-hidden="true"></div>
+        </div>
+
+        <div class="showreel-frame reveal-on-scroll">
+          <video class="showreel-video"
+                 controls playsinline preload="none"
+                 width="1920" height="1080"
+                 poster="assets/showreel-poster.jpg"
+                 aria-label="Cain Moriarty showreel — 3D environment art, lighting and cinematic camera work">
+            <source data-src="assets/showreel.webm" type="video/webm">
+            <source data-src="assets/showreel.mp4" type="video/mp4">
+            <p>Your browser cannot play this video. <a href="assets/showreel.mp4">Download the showreel</a> instead.</p>
+          </video>
+        </div>
+
+        <p class="showreel-caption">Sixty seconds of selected 3D work — environment art, lighting, and cinematic camera.</p>
+      </div>
+    </section>
+
+    <!-- Section Divider -->
+    <div class="section-divider reveal-on-scroll" aria-hidden="true">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path d="M2 20V4l5 8-5 8zm7 0V4l5 8-5 8zm7 0V4l5 8-5 8z"/>
+        </svg>
+      </span>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════ -->
     <!-- SELECTED WORK -->
     <!-- ═══════════════════════════════════════════════════════ -->
     <section id="work" class="work">
@@ -110,118 +155,20 @@
           <div class="section-rule" aria-hidden="true"></div>
         </div>
 
-        <!-- Featured Project (Balance Brewing) — strongest process story, opens the portfolio -->
-        <article class="project-featured reveal-on-scroll">
-          <a href="work/balance-brewing.html" class="project-image-wrap blur-placeholder" aria-label="View Balance Brewing &amp; Blending project" style="background-image: url('data:image/jpeg;base64,/9j/2wBDABsSFBcUERsXFhceHBsgKEIrKCUlKFE6PTBCYFVlZF9VXVtqeJmBanGQc1tdhbWGkJ6jq62rZ4C8ybqmx5moq6T/2wBDARweHigjKE4rK06kbl1upKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKT/wAARCAAPABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAQFAgP/xAAdEAABBAMBAQAAAAAAAAAAAAABAAIEEQMSISMx/8QAFQEBAQAAAAAAAAAAAAAAAAAAAIL/xAAXEQADAQAAAAAAAAAAAAAAAAAAAREh/9oADAMBAAIRAxEAPwCfGxnJxMvgura1wiOGM9TciT50FCQazCa/ZriL+IWi4E2UJBD/2Q==')">
+        <!-- Featured Project (48 Hour — Midnight Run) — complete 3D/motion pipeline, opens the portfolio -->
+          <article class="project-featured reveal-on-scroll">
+            <a href="work/midnight-run.html" class="project-image-wrap blur-placeholder" aria-label="View 48 Hour — Midnight Run project" style="background-image: url('data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wAARCAAJABQDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwDl7uxFsls8jgCYAkA9BgH+tVfNgV2VEcrnhie30qfUuq/QVR7fjWa2NXozWsdT+yQmMhnycgn0wP8ACiqcnRP9wUVLimWptaH/2Q==')">
               <picture>
                 <source type="image/webp"
-                        srcset="assets/Balance/mockup-400w.webp 400w, assets/Balance/mockup-800w.webp 800w, assets/Balance/mockup-1200w.webp 1200w, assets/Balance/mockup-1600w.webp 1600w"
+                        srcset="assets/Midnight/frame-street-400w.webp 400w, assets/Midnight/frame-street-800w.webp 800w, assets/Midnight/frame-street-1200w.webp 1200w, assets/Midnight/frame-street-1600w.webp 1600w"
                         sizes="(max-width: 600px) 100vw, (max-width: 1200px) 80vw, 1200px">
-                <img src="assets/Balance/mockup.jpg"
-                     srcset="assets/Balance/mockup-400w.jpg 400w, assets/Balance/mockup-800w.jpg 800w, assets/Balance/mockup-1200w.jpg 1200w, assets/Balance/mockup-1600w.jpg 1600w"
+                <img src="assets/Midnight/frame-street-1600w.jpg"
+                     srcset="assets/Midnight/frame-street-400w.jpg 400w, assets/Midnight/frame-street-800w.jpg 800w, assets/Midnight/frame-street-1200w.jpg 1200w, assets/Midnight/frame-street-1600w.jpg 1600w"
                      sizes="(max-width: 600px) 100vw, (max-width: 1200px) 80vw, 1200px"
-                     alt="Hand-carved lino print label designs for Balance Brewing — Headless Horseman, Old Crockern, and Mermaid — photographed across Greater Manchester locations"
+                     alt="Corvette C7 idling beside a taxi on a rain-soaked night street, lit by street lamps and shopfronts — frame from the 48-hour Midnight Run sequence"
                      loading="eager"
                      fetchpriority="high"
-                     width="1600" height="900">
-              </picture>
-          </a>
-          <div class="project-content">
-            <h3 class="project-title"><a href="work/balance-brewing.html">BALANCE BREWING &amp; BLENDING</a></h3>
-            <div class="project-tags">Brand Identity &middot; Lino Print &middot; Campaign Design &middot; Zine</div>
-            <p class="project-context">A self-initiated brief: build a craft brewery brand from the ground up — identity, packaging, photography, and campaign collateral.</p>
-            <p class="project-desc">Three label designs — Headless Horseman, Old Crockern, Mermaid — each rooted in British folklore and regional storytelling, hand-carved from single lino blocks. Supported by environmental photography across Greater Manchester, Instagram content, stories, and a 10-page A5 printed zine. Research to final deliverable, every stage done by hand.</p>
-            <div class="process-flow">
-              <span class="process-step" title="British folklore and regional mythology as visual source material"><span class="process-num">01</span> RESEARCH</span>
-              <span class="process-arrow" aria-hidden="true">&rarr;</span>
-              <span class="process-step" title="Hand-carved lino blocks — each label cut from a single block"><span class="process-num">02</span> CARVING</span>
-              <span class="process-arrow" aria-hidden="true">&rarr;</span>
-              <span class="process-step" title="Environmental shoots across Greater Manchester locations"><span class="process-num">03</span> PHOTOGRAPHY</span>
-              <span class="process-arrow" aria-hidden="true">&rarr;</span>
-              <span class="process-step" title="Instagram content, stories, printed zine, physical mockups"><span class="process-num">04</span> CAMPAIGN</span>
-            </div>
-            <a href="work/balance-brewing.html" class="project-cta">VIEW CASE STUDY &rarr;</a>
-          </div>
-        </article>
-
-        <!-- Project Grid — middle projects demonstrating range -->
-        <div class="project-grid">
-
-          <!-- Byōdō-in Phoenix Hall -->
-          <article class="project-card reveal-on-scroll">
-            <a href="work/byodoin-phoenix-hall.html" class="project-image-wrap blur-placeholder" aria-label="View Byōdō-in Phoenix Hall project" style="background-image: url('data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAALABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAMGAQX/xAAiEAACAQMDBQEAAAAAAAAAAAABAgMAESEEBRITIjJBccH/xAAWAQEBAQAAAAAAAAAAAAAAAAABAAL/xAAZEQEAAgMAAAAAAAAAAAAAAAAAAREhMUH/2gAMAwEAAhEDEQA/AFRbvMpZV08Qit2hpPE/fdau76sBuoNPMTlbMBxP7UzG7SDg7EqMgU2JF5XzcZGTVka4oE3YBQJNGpb3wYAUVxmUObsM/aKalm3/2Q==')">
-              <picture>
-                <source type="image/webp"
-                        srcset="assets/Byodo-in/final-render-400w.webp 400w, assets/Byodo-in/final-render-800w.webp 800w, assets/Byodo-in/final-render-1200w.webp 1200w"
-                        sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 600px">
-                <img src="assets/Byodo-in/final-render.jpg"
-                     srcset="assets/Byodo-in/final-render-400w.jpg 400w, assets/Byodo-in/final-render-800w.jpg 800w, assets/Byodo-in/final-render-1200w.jpg 1200w"
-                     sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 600px"
-                     alt="Byōdō-in Phoenix Hall final render — faithful 3D reconstruction of the Heian-period temple modelled in Blender and rendered in Unreal Engine 5"
-                     loading="lazy"
-                     width="1339" height="722">
-              </picture>
-            </a>
-            <div class="project-content">
-              <h3 class="project-title"><a href="work/byodoin-phoenix-hall.html">BYŌDŌ-IN PHOENIX HALL</a></h3>
-              <div class="project-tags">Environment Art &middot; Blender &middot; Unreal Engine 5 &middot; VR 360&deg;</div>
-              <p class="project-context">University project exploring how historical spaces can function as interactive museum exhibits.</p>
-              <p class="project-desc">A faithful reconstruction of the Byōdō-in Phoenix Hall as a static VR environment, part of the 'Echoes of the Past' project. Modelled in Blender from Machiya architectural reference and Heian-period design language, textured in Substance Painter, and rendered as 8K 360&deg; panoramas in Unreal Engine 5. Accuracy to the historical record was non-negotiable.</p>
-              <div class="process-flow">
-                <span class="process-step" title="Machiya architectural plans and Heian-period design language"><span class="process-num">01</span> REFERENCE</span>
-                <span class="process-arrow" aria-hidden="true">&rarr;</span>
-                <span class="process-step" title="Modular temple construction in Blender from historical measurements"><span class="process-num">02</span> BLOCKOUT</span>
-                <span class="process-arrow" aria-hidden="true">&rarr;</span>
-                <span class="process-step" title="PBR materials in Substance Painter matched to aged wood and lacquer"><span class="process-num">03</span> TEXTURING</span>
-                <span class="process-arrow" aria-hidden="true">&rarr;</span>
-                <span class="process-step" title="8K 360° panoramas rendered in Unreal Engine 5"><span class="process-num">04</span> VR RENDER</span>
-              </div>
-              <a href="work/byodoin-phoenix-hall.html" class="project-cta">VIEW CASE STUDY &rarr;</a>
-            </div>
-          </article>
-
-          <!-- Partnership Brief — Costa Coffee Rebrand -->
-          <article class="project-card reveal-on-scroll">
-            <a href="work/costa-rebrand.html" class="project-image-wrap blur-placeholder" aria-label="View Partnership Brief — Costa Coffee Rebrand project" style="background-image: url('data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAALABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAMEAf/EACAQAAICAgICAwAAAAAAAAAAAAECAAMEERIhBTEiQZH/xAAVAQEBAAAAAAAAAAAAAAAAAAABAv/EABYRAQEBAAAAAAAAAAAAAAAAAAAREv/aAAwDAQACEQMRAD8ARgrjCuvdCszJsljI/JpQvA0pwLAkje5mBk3VvwV/iB0CAQP2T23WXsTaxYqNDf1Ii6iYdwjj7PqETp//2Q==')">
-              <picture>
-                <source type="image/webp"
-                        srcset="assets/Costa/hero-400w.webp 400w, assets/Costa/hero-800w.webp 800w, assets/Costa/hero-1200w.webp 1200w, assets/Costa/hero-1600w.webp 1600w"
-                        sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 600px">
-                <img src="assets/Costa/hero.jpg"
-                     srcset="assets/Costa/hero-400w.jpg 400w, assets/Costa/hero-800w.jpg 800w, assets/Costa/hero-1200w.jpg 1200w, assets/Costa/hero-1600w.jpg 1600w"
-                     sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 600px"
-                     alt="Costa Coffee rebrand — three branded cups on coffee beans, photorealistic 3D render in Blender Cycles"
-                     loading="lazy"
-                     width="1600" height="900">
-              </picture>
-            </a>
-            <div class="project-content">
-              <h3 class="project-title"><a href="work/costa-rebrand.html">PARTNERSHIP BRIEF — COSTA COFFEE REBRAND</a></h3>
-              <div class="project-tags">Brand Identity &middot; 3D Visualisation &middot; Packaging Design &middot; Research</div>
-              <p class="project-context">A rebrand of Costa Coffee that strips the chain back to its artisanal roots.</p>
-              <p class="project-desc">Research-driven identity redesign exploring how a high-street brand can reconnect with craft coffee positioning through revised mark, packaging, and product visualisation.</p>
-              <div class="process-flow">
-                <span class="process-step" title="Competitive analysis and Costa brand history research"><span class="process-num">01</span> RESEARCH</span>
-                <span class="process-arrow" aria-hidden="true">&rarr;</span>
-                <span class="process-step" title="Revised mark and colour system signalling craft and warmth"><span class="process-num">02</span> IDENTITY</span>
-                <span class="process-arrow" aria-hidden="true">&rarr;</span>
-                <span class="process-step" title="Photorealistic packaging renders in Blender Cycles"><span class="process-num">03</span> 3D MOCKUPS</span>
-                <span class="process-arrow" aria-hidden="true">&rarr;</span>
-                <span class="process-step" title="Full brand system, packaging, and environmental mockups"><span class="process-num">04</span> CAMPAIGN</span>
-              </div>
-              <a href="work/costa-rebrand.html" class="project-cta">VIEW CASE STUDY &rarr;</a>
-            </div>
-          </article>
-
-          <!-- 48 Hour — Midnight Run -->
-          <article class="project-card reveal-on-scroll">
-            <a href="work/midnight-run.html" class="project-image-wrap blur-placeholder" aria-label="View 48 Hour — Midnight Run project" style="background-image: url('data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAALABQDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAQBAgMG/8QAIhAAAQMDAwUAAAAAAAAAAAAAAQACAxESIQQTMSJBUWGx/8QAFQEBAQAAAAAAAAAAAAAAAAAAAgH/xAAVEQEBAAAAAAAAAAAAAAAAAAAAEf/aAAwDAQACEQMRAD8A5qDT7s1l4aBgk8BVbstBuk6q9gcKDh8lPf1Y0GEDOwyxBprQZ8FCUbwhSHX/2Q==')">
-              <picture>
-                <source type="image/webp" srcset="assets/car-render.webp">
-                <img src="assets/car-render.jpg"
-                     alt="Cinematic night render of a rain-slicked city street with volumetric lighting and wet-surface reflections — 48-hour production challenge"
-                     loading="lazy"
-                     width="1600" height="900">
+                     width="1600" height="677" decoding="async">
               </picture>
             </a>
             <div class="project-content">
@@ -242,6 +189,110 @@
             </div>
           </article>
 
+        <!-- Project Grid — middle projects demonstrating range -->
+        <div class="project-grid">
+
+          <!-- Byōdō-in Phoenix Hall -->
+          <article class="project-card reveal-on-scroll">
+            <a href="work/byodoin-phoenix-hall.html" class="project-image-wrap blur-placeholder" aria-label="View Byōdō-in Phoenix Hall project" style="background-image: url('data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAALABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAMGAQX/xAAiEAACAQMDBQEAAAAAAAAAAAABAgMAESEEBRITIjJBccH/xAAWAQEBAQAAAAAAAAAAAAAAAAABAAL/xAAZEQEAAgMAAAAAAAAAAAAAAAAAAREhMUH/2gAMAwEAAhEDEQA/AFRbvMpZV08Qit2hpPE/fdau76sBuoNPMTlbMBxP7UzG7SDg7EqMgU2JF5XzcZGTVka4oE3YBQJNGpb3wYAUVxmUObsM/aKalm3/2Q==')">
+              <picture>
+                <source type="image/webp"
+                        srcset="assets/Byodo-in/final-render-400w.webp 400w, assets/Byodo-in/final-render-800w.webp 800w, assets/Byodo-in/final-render-1200w.webp 1200w"
+                        sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 600px">
+                <img src="assets/Byodo-in/final-render.jpg"
+                     srcset="assets/Byodo-in/final-render-400w.jpg 400w, assets/Byodo-in/final-render-800w.jpg 800w, assets/Byodo-in/final-render-1200w.jpg 1200w"
+                     sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 600px"
+                     alt="Byōdō-in Phoenix Hall final render — faithful 3D reconstruction of the Heian-period temple modelled in Blender and rendered in Unreal Engine 5"
+                     loading="lazy"
+                     width="1339" height="722" decoding="async">
+              </picture>
+            </a>
+            <div class="project-content">
+              <h3 class="project-title"><a href="work/byodoin-phoenix-hall.html">BYŌDŌ-IN PHOENIX HALL</a></h3>
+              <div class="project-tags">Environment Art &middot; Blender &middot; Unreal Engine 5 &middot; VR 360&deg;</div>
+              <p class="project-context">University project exploring how historical spaces can function as interactive museum exhibits.</p>
+              <p class="project-desc">A faithful reconstruction of the Byōdō-in Phoenix Hall as a static VR environment, part of the 'Echoes of the Past' project. Modelled in Blender from Machiya architectural reference and Heian-period design language, textured in Substance Painter, and rendered as 8K 360&deg; panoramas in Unreal Engine 5. Accuracy to the historical record was non-negotiable.</p>
+              <div class="process-flow">
+                <span class="process-step" title="Machiya architectural plans and Heian-period design language"><span class="process-num">01</span> REFERENCE</span>
+                <span class="process-arrow" aria-hidden="true">&rarr;</span>
+                <span class="process-step" title="Modular temple construction in Blender from historical measurements"><span class="process-num">02</span> BLOCKOUT</span>
+                <span class="process-arrow" aria-hidden="true">&rarr;</span>
+                <span class="process-step" title="PBR materials in Substance Painter matched to aged wood and lacquer"><span class="process-num">03</span> TEXTURING</span>
+                <span class="process-arrow" aria-hidden="true">&rarr;</span>
+                <span class="process-step" title="8K 360° panoramas rendered in Unreal Engine 5"><span class="process-num">04</span> VR RENDER</span>
+              </div>
+              <a href="work/byodoin-phoenix-hall.html" class="project-cta">VIEW CASE STUDY &rarr;</a>
+            </div>
+          </article>
+
+          <!-- Costa Coffee Rebrand -->
+          <article class="project-card reveal-on-scroll">
+            <a href="work/costa-rebrand.html" class="project-image-wrap blur-placeholder" aria-label="View Costa Coffee Rebrand project" style="background-image: url('data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAALABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAMEAf/EACAQAAICAgICAwAAAAAAAAAAAAECAAMEERIhBTEiQZH/xAAVAQEBAAAAAAAAAAAAAAAAAAABAv/EABYRAQEBAAAAAAAAAAAAAAAAAAAREv/aAAwDAQACEQMRAD8ARgrjCuvdCszJsljI/JpQvA0pwLAkje5mBk3VvwV/iB0CAQP2T23WXsTaxYqNDf1Ii6iYdwjj7PqETp//2Q==')">
+              <picture>
+                <source type="image/webp"
+                        srcset="assets/Costa/hero-400w.webp 400w, assets/Costa/hero-800w.webp 800w, assets/Costa/hero-1200w.webp 1200w, assets/Costa/hero-1600w.webp 1600w"
+                        sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 600px">
+                <img src="assets/Costa/hero.jpg"
+                     srcset="assets/Costa/hero-400w.jpg 400w, assets/Costa/hero-800w.jpg 800w, assets/Costa/hero-1200w.jpg 1200w, assets/Costa/hero-1600w.jpg 1600w"
+                     sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 600px"
+                     alt="Costa Coffee rebrand — three branded cups on coffee beans, photorealistic 3D render in Blender Cycles"
+                     loading="lazy"
+                     width="1600" height="900" decoding="async">
+              </picture>
+            </a>
+            <div class="project-content">
+              <h3 class="project-title"><a href="work/costa-rebrand.html">COSTA COFFEE REBRAND</a></h3>
+              <div class="project-tags">Brand Identity &middot; 3D Visualisation &middot; Packaging Design &middot; Research</div>
+              <p class="project-context">University partnership brief: a speculative rebrand that strips the chain back to its artisanal roots.</p>
+              <p class="project-desc">Research-driven identity redesign exploring how a high-street brand can reconnect with craft coffee positioning through revised mark, packaging, and product visualisation.</p>
+              <div class="process-flow">
+                <span class="process-step" title="Competitive analysis and Costa brand history research"><span class="process-num">01</span> RESEARCH</span>
+                <span class="process-arrow" aria-hidden="true">&rarr;</span>
+                <span class="process-step" title="Revised mark and colour system signalling craft and warmth"><span class="process-num">02</span> IDENTITY</span>
+                <span class="process-arrow" aria-hidden="true">&rarr;</span>
+                <span class="process-step" title="Photorealistic packaging renders in Blender Cycles"><span class="process-num">03</span> 3D MOCKUPS</span>
+                <span class="process-arrow" aria-hidden="true">&rarr;</span>
+                <span class="process-step" title="Full brand system, packaging, and environmental mockups"><span class="process-num">04</span> CAMPAIGN</span>
+              </div>
+              <a href="work/costa-rebrand.html" class="project-cta">VIEW CASE STUDY &rarr;</a>
+            </div>
+          </article>
+
+          
+
+          <!-- Balance Brewing & Blending -->
+          <article class="project-card reveal-on-scroll">
+            <a href="work/balance-brewing.html" class="project-image-wrap blur-placeholder" aria-label="View Balance Brewing &amp; Blending project" style="background-image: url('data:image/jpeg;base64,/9j/2wBDABsSFBcUERsXFhceHBsgKEIrKCUlKFE6PTBCYFVlZF9VXVtqeJmBanGQc1tdhbWGkJ6jq62rZ4C8ybqmx5moq6T/2wBDARweHigjKE4rK06kbl1upKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKT/wAARCAAPABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAQFAgP/xAAdEAABBAMBAQAAAAAAAAAAAAABAAIEEQMSISMx/8QAFQEBAQAAAAAAAAAAAAAAAAAAAIL/xAAXEQADAQAAAAAAAAAAAAAAAAAAAREh/9oADAMBAAIRAxEAPwCfGxnJxMvgura1wiOGM9TciT50FCQazCa/ZriL+IWi4E2UJBD/2Q==')">
+                <picture>
+                  <source type="image/webp"
+                          srcset="assets/Balance/mockup-400w.webp 400w, assets/Balance/mockup-800w.webp 800w, assets/Balance/mockup-1200w.webp 1200w, assets/Balance/mockup-1600w.webp 1600w"
+                          sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 600px">
+                  <img src="assets/Balance/mockup.jpg"
+                       srcset="assets/Balance/mockup-400w.jpg 400w, assets/Balance/mockup-800w.jpg 800w, assets/Balance/mockup-1200w.jpg 1200w, assets/Balance/mockup-1600w.jpg 1600w"
+                       sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 600px"
+                       alt="Hand-carved lino print label designs for Balance Brewing — Headless Horseman, Old Crockern, and Mermaid — photographed across Greater Manchester locations"
+                       loading="lazy"
+                       width="1600" height="900" decoding="async">
+                </picture>
+            </a>
+            <div class="project-content">
+              <h3 class="project-title"><a href="work/balance-brewing.html">BALANCE BREWING &amp; BLENDING</a></h3>
+              <div class="project-tags">Brand Identity &middot; Lino Print &middot; Campaign Design &middot; Zine</div>
+              <p class="project-context">A live brief set through the University of Salford: build a craft brewery brand from the ground up — identity, packaging, photography, and campaign collateral.</p>
+              <p class="project-desc">Three label designs — Headless Horseman, Old Crockern, Mermaid — each rooted in British folklore and regional storytelling, hand-carved from single lino blocks. Supported by environmental photography across Greater Manchester, Instagram content, stories, and a 10-page A5 printed zine. Research to final deliverable, every stage done by hand.</p>
+              <div class="process-flow">
+                <span class="process-step" title="British folklore and regional mythology as visual source material"><span class="process-num">01</span> RESEARCH</span>
+                <span class="process-arrow" aria-hidden="true">&rarr;</span>
+                <span class="process-step" title="Hand-carved lino blocks — each label cut from a single block"><span class="process-num">02</span> CARVING</span>
+                <span class="process-arrow" aria-hidden="true">&rarr;</span>
+                <span class="process-step" title="Environmental shoots across Greater Manchester locations"><span class="process-num">03</span> PHOTOGRAPHY</span>
+                <span class="process-arrow" aria-hidden="true">&rarr;</span>
+                <span class="process-step" title="Instagram content, stories, printed zine, physical mockups"><span class="process-num">04</span> CAMPAIGN</span>
+              </div>
+              <a href="work/balance-brewing.html" class="project-cta">VIEW CASE STUDY &rarr;</a>
+            </div>
+          </article>
+
           <!-- Medieval 3D Case Study — Gothic Plate Armour -->
           <article class="project-card reveal-on-scroll">
             <a href="work/medieval-armour.html" class="project-image-wrap blur-placeholder" aria-label="View Medieval 3D Case Study — Gothic Plate Armour project" style="background-image: url('data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAALABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAEDBf/EABgQAQEBAQEAAAAAAAAAAAAAAAEAAgMx/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/ANBaONaemxEAPasoCJRB/9k=')">
@@ -254,7 +305,7 @@
                      sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 600px"
                      alt="Gothic plate armour sallet and bevor front clay render — 15th-century hard-surface modelling study"
                      loading="lazy"
-                     width="1600" height="900">
+                     width="1600" height="900" decoding="async">
               </picture>
             </a>
             <div class="project-content">
@@ -286,7 +337,7 @@
               <img src="assets/nora.png"
                    alt="N.O.R.A. portable AI assistant device built on Raspberry Pi Zero W — gothic minimalist interface displaying emergency database and real-time query response"
                    loading="lazy"
-                   width="1600" height="900">
+                   width="1600" height="900" decoding="async">
             </picture>
           </a>
           <div class="project-content">
@@ -381,10 +432,38 @@
 
         <a href="mailto:hello@themoriartyexperience.com" class="contact-email">hello@themoriartyexperience.com</a>
 
-        <p class="contact-context">Open to studio placements, commissions, and collaborations.</p>
+        <p class="contact-context">Open to junior 3D / motion roles, studio placements and collaborations — Manchester or remote.</p>
+
+        <form class="contact-form" name="contact" method="POST"
+              action="/thanks.html"
+              data-netlify="true" netlify-honeypot="bot-field">
+          <p class="contact-form-hp" aria-hidden="true">
+            <label>Leave this field empty <input name="bot-field" tabindex="-1" autocomplete="off"></label>
+          </p>
+
+          <div class="contact-form-field">
+            <label class="contact-form-label" for="contact-name">NAME</label>
+            <input class="contact-form-input" id="contact-name" name="name" type="text"
+                   required autocomplete="name">
+          </div>
+
+          <div class="contact-form-field">
+            <label class="contact-form-label" for="contact-email">EMAIL</label>
+            <input class="contact-form-input" id="contact-email" name="email" type="email"
+                   required autocomplete="email">
+          </div>
+
+          <div class="contact-form-field">
+            <label class="contact-form-label" for="contact-message">MESSAGE</label>
+            <textarea class="contact-form-input" id="contact-message" name="message"
+                      rows="5" required></textarea>
+          </div>
+
+          <button class="contact-form-submit" type="submit">SEND MESSAGE</button>
+        </form>
 
         <div class="contact-social">
-          <a href="https://www.instagram.com/themoriartyexperience" class="contact-social-link" target="_blank" rel="noopener">INSTAGRAM</a>
+          <a href="https://www.instagram.com/cainmoriarty" class="contact-social-link" target="_blank" rel="noopener">INSTAGRAM</a>
           <a href="https://www.linkedin.com/in/cain-moriarty-922359291" class="contact-social-link" target="_blank" rel="noopener">LINKEDIN</a>
         </div>
       </div>
@@ -430,9 +509,26 @@
     "email": "hello@themoriartyexperience.com",
     "knowsAbout": ["3D Art", "Environment Art", "Blender", "Unreal Engine 5", "Lino Print", "Cinematic Rendering", "Brand Design"],
     "sameAs": [
-      "https://www.instagram.com/themoriartyexperience",
+      "https://www.instagram.com/cainmoriarty",
       "https://www.linkedin.com/in/cain-moriarty-922359291"
     ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    "name": "Cain Moriarty - Showreel",
+    "description": "Sixty seconds of selected 3D work - environment art, lighting, and cinematic camera.",
+    "thumbnailUrl": "https://themoriartyexperience.com/assets/showreel-poster.jpg",
+    "contentUrl": "https://themoriartyexperience.com/assets/showreel.mp4",
+    "embedUrl": "https://themoriartyexperience.com/#showreel",
+    "duration": "PT1M",
+    "author": {
+      "@type": "Person",
+      "name": "Cain Moriarty",
+      "url": "https://themoriartyexperience.com"
+    }
   }
   </script>
 </body>

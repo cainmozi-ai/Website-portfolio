@@ -10,12 +10,27 @@
   <!-- Open Graph -->
   <meta property="og:title" content="N.O.R.A. — Neural Offline Response Assistant — Cain Moriarty">
   <meta property="og:description" content="Portable AI assistant on Raspberry Pi Zero W — offline emergency database, gothic minimalist interface, 30x performance improvement.">
-  <meta property="og:image" content="https://themoriartyexperience.com/assets/nora.png">
+  <meta property="og:image" content="https://themoriartyexperience.com/assets/share/nora.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="N.O.R.A. — Neural Offline Response Assistant — Cain Moriarty">
+  <meta property="og:url" content="https://themoriartyexperience.com/work/nora.html">
+  <meta property="og:site_name" content="The Moriarty Experience">
   <meta property="og:type" content="article">
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="N.O.R.A. — Neural Offline Response Assistant — Cain Moriarty">
+  <meta name="twitter:description" content="Portable AI assistant on Raspberry Pi Zero W — offline emergency database, gothic minimalist interface, 30x performance improvement.">
+  <meta name="twitter:image" content="https://themoriartyexperience.com/assets/share/nora.jpg">
+  <meta name="twitter:image:alt" content="N.O.R.A. — Neural Offline Response Assistant — Cain Moriarty">
 
   <link rel="icon" type="image/svg+xml" href="../favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+  <link rel="manifest" href="../site.webmanifest">
+  <meta name="theme-color" content="#880808">
+  <link rel="canonical" href="https://themoriartyexperience.com/work/nora.html">
   
   
   <link rel="preload" href="../assets/fonts/montserrat-900-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -30,9 +45,10 @@
   <header class="nav" role="banner">
     <nav class="nav-inner" aria-label="Main navigation">
       <a href="../index.html" class="nav-brand" aria-label="The Moriarty Experience — return to portfolio">
-        <img class="nav-brandmark" src="../assets/logo.jpg" alt="The Moriarty Experience">
+        <img class="nav-brandmark" src="../assets/logo.jpg" alt="The Moriarty Experience" width="1600" height="1600" decoding="async">
       </a>
       <div class="nav-links">
+        <a href="../index.html#showreel" class="nav-link">SHOWREEL</a>
         <a href="../index.html#work" class="nav-link">WORK</a>
         <a href="../index.html#about" class="nav-link">ABOUT</a>
         <a href="../index.html#contact" class="nav-link">CONTACT</a>
@@ -48,6 +64,7 @@
   <div class="mobile-menu" aria-hidden="true">
     <button class="mobile-menu-close" aria-label="Close menu">&times;</button>
     <nav class="mobile-menu-nav" aria-label="Mobile navigation">
+      <a href="../index.html#showreel" class="mobile-menu-link">SHOWREEL</a>
       <a href="../index.html#work" class="mobile-menu-link">WORK</a>
       <a href="../index.html#about" class="mobile-menu-link">ABOUT</a>
       <a href="../index.html#contact" class="mobile-menu-link">CONTACT</a>
@@ -60,10 +77,15 @@
     <section class="cs-hero-section">
       <div class="cs-hero-image blur-placeholder" style="background-image: url('data:image/jpeg;base64,/9j/2wBDABsSFBcUERsXFhceHBsgKEIrKCUlKFE6PTBCYFVlZF9VXVtqeJmBanGQc1tdhbWGkJ6jq62rZ4C8ybqmx5moq6T/2wBDARweHigjKE4rK06kbl1upKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKT/wAARCAAXABQDASIAAhEBAxEB/8QAGAABAQEBAQAAAAAAAAAAAAAAAAQFAQP/xAAcEAACAwEBAQEAAAAAAAAAAAAAAQIDEQQTElH/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8AyaavW1RRX2cCqrUkTcrlXbuFvX0SnVgGaniAyX4APayz5lqRz2cmkwALaqouCeAAD//Z')">
         <picture>
-          <source type="image/webp" srcset="../assets/nora.webp">
-          <img src="../assets/nora.png"
+          <source type="image/webp"
+                  srcset="../assets/N.O.R.A/20260129_163504_011-400w.webp 400w, ../assets/N.O.R.A/20260129_163504_011-800w.webp 800w, ../assets/N.O.R.A/20260129_163504_011-1200w.webp 1200w, ../assets/N.O.R.A/20260129_163504_011-1600w.webp 1600w"
+                  sizes="100vw">
+          <img src="../assets/N.O.R.A/20260129_163504_011-1600w.jpg"
+               srcset="../assets/N.O.R.A/20260129_163504_011-400w.jpg 400w, ../assets/N.O.R.A/20260129_163504_011-800w.jpg 800w, ../assets/N.O.R.A/20260129_163504_011-1200w.jpg 1200w, ../assets/N.O.R.A/20260129_163504_011-1600w.jpg 1600w"
+               sizes="100vw"
                alt="N.O.R.A. portable AI assistant device built on Raspberry Pi Zero W — gothic minimalist interface displaying emergency database and real-time query response"
-               fetchpriority="high">
+               width="1600" height="1200"
+               fetchpriority="high" decoding="async">
         </picture>
       </div>
     </section>
@@ -111,9 +133,16 @@
       <div class="cs-process-stages">
         <div class="cs-process-stage reveal-on-scroll">
           <div class="cs-process-image">
-            <img src="../assets/nora-process-hardware.jpg"
-                 alt="Raspberry Pi Zero W hardware build — component layout, battery management board, and physical assembly on a clean dark surface"
-                 loading="lazy">
+            <picture>
+            <source type="image/webp"
+                    srcset="../assets/N.O.R.A/render-variants-400w.webp 400w, ../assets/N.O.R.A/render-variants-800w.webp 800w, ../assets/N.O.R.A/render-variants-1200w.webp 1200w"
+                    sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 700px">
+            <img src="../assets/N.O.R.A/render-variants-1200w.jpg"
+                 srcset="../assets/N.O.R.A/render-variants-400w.jpg 400w, ../assets/N.O.R.A/render-variants-800w.jpg 800w, ../assets/N.O.R.A/render-variants-1200w.jpg 1200w"
+                 sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 700px"
+                 alt="3D render of the N.O.R.A. enclosure, front face with the display showing the assistant character" width="1300" height="975"
+                 loading="lazy" decoding="async">
+          </picture>
           </div>
           <div class="cs-process-text">
             <p class="cs-process-num">01</p>
@@ -122,12 +151,7 @@
           </div>
         </div>
 
-        <div class="cs-process-stage reveal-on-scroll">
-          <div class="cs-process-image">
-            <img src="../assets/nora-process-interface.jpg"
-                 alt="N.O.R.A. terminal interface in various states — gothic minimalist typography, high-contrast design, real-time query feedback"
-                 loading="lazy">
-          </div>
+        <div class="cs-process-stage cs-process-stage--text reveal-on-scroll">
           <div class="cs-process-text">
             <p class="cs-process-num">02</p>
             <h3 class="cs-process-stage-title">INTERFACE</h3>
@@ -135,12 +159,7 @@
           </div>
         </div>
 
-        <div class="cs-process-stage reveal-on-scroll">
-          <div class="cs-process-image">
-            <img src="../assets/nora-process-database.jpg"
-                 alt="Database architecture diagram — semantic search indexing structure for 87 offline emergency articles"
-                 loading="lazy">
-          </div>
+        <div class="cs-process-stage cs-process-stage--text reveal-on-scroll">
           <div class="cs-process-text">
             <p class="cs-process-num">03</p>
             <h3 class="cs-process-stage-title">DATABASE</h3>
@@ -148,12 +167,7 @@
           </div>
         </div>
 
-        <div class="cs-process-stage reveal-on-scroll">
-          <div class="cs-process-image">
-            <img src="../assets/nora-process-testing.jpg"
-                 alt="Performance benchmarking results — graphs showing the 30x query response time improvement through iterative optimisation"
-                 loading="lazy">
-          </div>
+        <div class="cs-process-stage cs-process-stage--text reveal-on-scroll">
           <div class="cs-process-text">
             <p class="cs-process-num">04</p>
             <h3 class="cs-process-stage-title">TESTING</h3>
@@ -168,29 +182,28 @@
       <h2 class="cs-gallery-heading reveal-on-scroll">OUTCOME</h2>
       <div class="cs-gallery-grid">
         <div class="cs-gallery-item reveal-on-scroll">
-          <img src="../assets/nora-gallery-device.jpg"
-               alt="N.O.R.A. device — product shot of the Raspberry Pi build on a clean dark surface with the terminal interface visible"
-               loading="lazy">
+          <picture>
+            <source type="image/webp"
+                    srcset="../assets/N.O.R.A/render-grid-400w.webp 400w, ../assets/N.O.R.A/render-grid-800w.webp 800w, ../assets/N.O.R.A/render-grid-1200w.webp 1200w, ../assets/N.O.R.A/render-grid-1600w.webp 1600w"
+                    sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 800px">
+            <img src="../assets/N.O.R.A/render-grid-1600w.jpg"
+                 srcset="../assets/N.O.R.A/render-grid-400w.jpg 400w, ../assets/N.O.R.A/render-grid-800w.jpg 800w, ../assets/N.O.R.A/render-grid-1200w.jpg 1200w, ../assets/N.O.R.A/render-grid-1600w.jpg 1600w"
+                 sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 800px"
+                 alt="Array of N.O.R.A. enclosures rendered in Blender, each display showing the assistant character" width="1600" height="900"
+                 loading="lazy" decoding="async">
+          </picture>
         </div>
         <div class="cs-gallery-item reveal-on-scroll">
-          <img src="../assets/nora-gallery-interface.jpg"
-               alt="Terminal interface screenshot — gothic minimalist UI showing active query response with real-time feedback"
-               loading="lazy">
-        </div>
-        <div class="cs-gallery-item reveal-on-scroll">
-          <img src="../assets/nora-gallery-architecture.jpg"
-               alt="System architecture diagram — cloud AI integration, offline database fallback, and query routing logic"
-               loading="lazy">
-        </div>
-        <div class="cs-gallery-item reveal-on-scroll">
-          <img src="../assets/nora-gallery-performance.jpg"
-               alt="Performance metrics — before and after optimisation, showing 30x improvement in query response times"
-               loading="lazy">
-        </div>
-        <div class="cs-gallery-item reveal-on-scroll">
-          <img src="../assets/N.O.R.A/20260129_163504_011.jpg"
-               alt="N.O.R.A. hardware — real device photo showing PiSugar board and pixel character on screen"
-               loading="lazy">
+          <picture>
+            <source type="image/webp"
+                    srcset="../assets/N.O.R.A/20260129_163504_011-400w.webp 400w, ../assets/N.O.R.A/20260129_163504_011-800w.webp 800w, ../assets/N.O.R.A/20260129_163504_011-1200w.webp 1200w, ../assets/N.O.R.A/20260129_163504_011-1600w.webp 1600w"
+                    sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 800px">
+            <img src="../assets/N.O.R.A/20260129_163504_011-1600w.jpg"
+                 srcset="../assets/N.O.R.A/20260129_163504_011-400w.jpg 400w, ../assets/N.O.R.A/20260129_163504_011-800w.jpg 800w, ../assets/N.O.R.A/20260129_163504_011-1200w.jpg 1200w, ../assets/N.O.R.A/20260129_163504_011-1600w.jpg 1600w"
+                 sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 800px"
+                 alt="N.O.R.A. hardware — real device photo showing PiSugar board and pixel character on screen" width="1600" height="1200"
+                 loading="lazy" decoding="async">
+          </picture>
         </div>
       </div>
     </section>
@@ -200,31 +213,131 @@
       <h2 class="cs-process-heading">CHARACTER EXPRESSIONS</h2>
       <p class="cs-expressions-desc">26 emotional states designed for the N.O.R.A. interface — each pixel-art sprite conveys a distinct mood, giving the device personality and feedback beyond text.</p>
       <div class="cs-expressions-grid">
-        <div class="cs-expression-item"><img src="../assets/N.O.R.A/idle.png" alt="Idle" loading="lazy"><span>Idle</span></div>
-        <div class="cs-expression-item"><img src="../assets/N.O.R.A/happy.png" alt="Happy" loading="lazy"><span>Happy</span></div>
-        <div class="cs-expression-item"><img src="../assets/N.O.R.A/sad.png" alt="Sad" loading="lazy"><span>Sad</span></div>
-        <div class="cs-expression-item"><img src="../assets/N.O.R.A/thinking.png" alt="Thinking" loading="lazy"><span>Thinking</span></div>
-        <div class="cs-expression-item"><img src="../assets/N.O.R.A/excited.png" alt="Excited" loading="lazy"><span>Excited</span></div>
-        <div class="cs-expression-item"><img src="../assets/N.O.R.A/confused.png" alt="Confused" loading="lazy"><span>Confused</span></div>
-        <div class="cs-expression-item"><img src="../assets/N.O.R.A/embarrassed.png" alt="Embarrassed" loading="lazy"><span>Embarrassed</span></div>
-        <div class="cs-expression-item"><img src="../assets/N.O.R.A/laughing.png" alt="Laughing" loading="lazy"><span>Laughing</span></div>
-        <div class="cs-expression-item"><img src="../assets/N.O.R.A/love.png" alt="Love" loading="lazy"><span>Love</span></div>
-        <div class="cs-expression-item"><img src="../assets/N.O.R.A/suprised.png" alt="Surprised" loading="lazy"><span>Surprised</span></div>
-        <div class="cs-expression-item"><img src="../assets/N.O.R.A/angel.png" alt="Angel" loading="lazy"><span>Angel</span></div>
-        <div class="cs-expression-item"><img src="../assets/N.O.R.A/angry.png" alt="Angry" loading="lazy"><span>Angry</span></div>
-        <div class="cs-expression-item"><img src="../assets/N.O.R.A/celebration.png" alt="Celebration" loading="lazy"><span>Celebration</span></div>
-        <div class="cs-expression-item"><img src="../assets/N.O.R.A/clown.png" alt="Clown" loading="lazy"><span>Clown</span></div>
-        <div class="cs-expression-item"><img src="../assets/N.O.R.A/cool.png" alt="Cool" loading="lazy"><span>Cool</span></div>
-        <div class="cs-expression-item"><img src="../assets/N.O.R.A/curious.png" alt="Curious" loading="lazy"><span>Curious</span></div>
-        <div class="cs-expression-item"><img src="../assets/N.O.R.A/devil.png" alt="Devil" loading="lazy"><span>Devil</span></div>
-        <div class="cs-expression-item"><img src="../assets/N.O.R.A/idea.png" alt="Idea" loading="lazy"><span>Idea</span></div>
-        <div class="cs-expression-item"><img src="../assets/N.O.R.A/kiss.png" alt="Kiss" loading="lazy"><span>Kiss</span></div>
-        <div class="cs-expression-item"><img src="../assets/N.O.R.A/nerd.png" alt="Nerd" loading="lazy"><span>Nerd</span></div>
-        <div class="cs-expression-item"><img src="../assets/N.O.R.A/relieved.png" alt="Relieved" loading="lazy"><span>Relieved</span></div>
-        <div class="cs-expression-item"><img src="../assets/N.O.R.A/smirking.png" alt="Smirking" loading="lazy"><span>Smirking</span></div>
-        <div class="cs-expression-item"><img src="../assets/N.O.R.A/winking.png" alt="Winking" loading="lazy"><span>Winking</span></div>
-        <div class="cs-expression-item"><img src="../assets/N.O.R.A/worried.png" alt="Worried" loading="lazy"><span>Worried</span></div>
-        <div class="cs-expression-item"><img src="../assets/N.O.R.A/listening.png" alt="Listening" loading="lazy"><span>Listening</span></div>
+        <div class="cs-expression-item"><picture>
+                                          <source type="image/webp" srcset="../assets/N.O.R.A/idle.webp">
+                                          <img src="../assets/N.O.R.A/idle.png" alt="Idle" width="240" height="280"
+                                               loading="lazy" decoding="async">
+                                        </picture><span>Idle</span></div>
+        <div class="cs-expression-item"><picture>
+                                          <source type="image/webp" srcset="../assets/N.O.R.A/happy.webp">
+                                          <img src="../assets/N.O.R.A/happy.png" alt="Happy" width="240" height="280"
+                                               loading="lazy" decoding="async">
+                                        </picture><span>Happy</span></div>
+        <div class="cs-expression-item"><picture>
+                                          <source type="image/webp" srcset="../assets/N.O.R.A/sad.webp">
+                                          <img src="../assets/N.O.R.A/sad.png" alt="Sad" width="240" height="280"
+                                               loading="lazy" decoding="async">
+                                        </picture><span>Sad</span></div>
+        <div class="cs-expression-item"><picture>
+                                          <source type="image/webp" srcset="../assets/N.O.R.A/thinking.webp">
+                                          <img src="../assets/N.O.R.A/thinking.png" alt="Thinking" width="240" height="280"
+                                               loading="lazy" decoding="async">
+                                        </picture><span>Thinking</span></div>
+        <div class="cs-expression-item"><picture>
+                                          <source type="image/webp" srcset="../assets/N.O.R.A/excited.webp">
+                                          <img src="../assets/N.O.R.A/excited.png" alt="Excited" width="240" height="280"
+                                               loading="lazy" decoding="async">
+                                        </picture><span>Excited</span></div>
+        <div class="cs-expression-item"><picture>
+                                          <source type="image/webp" srcset="../assets/N.O.R.A/confused.webp">
+                                          <img src="../assets/N.O.R.A/confused.png" alt="Confused" width="240" height="280"
+                                               loading="lazy" decoding="async">
+                                        </picture><span>Confused</span></div>
+        <div class="cs-expression-item"><picture>
+                                          <source type="image/webp" srcset="../assets/N.O.R.A/embarrassed.webp">
+                                          <img src="../assets/N.O.R.A/embarrassed.png" alt="Embarrassed" width="240" height="280"
+                                               loading="lazy" decoding="async">
+                                        </picture><span>Embarrassed</span></div>
+        <div class="cs-expression-item"><picture>
+                                          <source type="image/webp" srcset="../assets/N.O.R.A/laughing.webp">
+                                          <img src="../assets/N.O.R.A/laughing.png" alt="Laughing" width="240" height="280"
+                                               loading="lazy" decoding="async">
+                                        </picture><span>Laughing</span></div>
+        <div class="cs-expression-item"><picture>
+                                          <source type="image/webp" srcset="../assets/N.O.R.A/love.webp">
+                                          <img src="../assets/N.O.R.A/love.png" alt="Love" width="240" height="280"
+                                               loading="lazy" decoding="async">
+                                        </picture><span>Love</span></div>
+        <div class="cs-expression-item"><picture>
+                                          <source type="image/webp" srcset="../assets/N.O.R.A/suprised.webp">
+                                          <img src="../assets/N.O.R.A/suprised.png" alt="Surprised" width="240" height="280"
+                                               loading="lazy" decoding="async">
+                                        </picture><span>Surprised</span></div>
+        <div class="cs-expression-item"><picture>
+                                          <source type="image/webp" srcset="../assets/N.O.R.A/angel.webp">
+                                          <img src="../assets/N.O.R.A/angel.png" alt="Angel" width="240" height="280"
+                                               loading="lazy" decoding="async">
+                                        </picture><span>Angel</span></div>
+        <div class="cs-expression-item"><picture>
+                                          <source type="image/webp" srcset="../assets/N.O.R.A/angry.webp">
+                                          <img src="../assets/N.O.R.A/angry.png" alt="Angry" width="240" height="280"
+                                               loading="lazy" decoding="async">
+                                        </picture><span>Angry</span></div>
+        <div class="cs-expression-item"><picture>
+                                          <source type="image/webp" srcset="../assets/N.O.R.A/celebration.webp">
+                                          <img src="../assets/N.O.R.A/celebration.png" alt="Celebration" width="240" height="280"
+                                               loading="lazy" decoding="async">
+                                        </picture><span>Celebration</span></div>
+        <div class="cs-expression-item"><picture>
+                                          <source type="image/webp" srcset="../assets/N.O.R.A/clown.webp">
+                                          <img src="../assets/N.O.R.A/clown.png" alt="Clown" width="240" height="280"
+                                               loading="lazy" decoding="async">
+                                        </picture><span>Clown</span></div>
+        <div class="cs-expression-item"><picture>
+                                          <source type="image/webp" srcset="../assets/N.O.R.A/cool.webp">
+                                          <img src="../assets/N.O.R.A/cool.png" alt="Cool" width="240" height="280"
+                                               loading="lazy" decoding="async">
+                                        </picture><span>Cool</span></div>
+        <div class="cs-expression-item"><picture>
+                                          <source type="image/webp" srcset="../assets/N.O.R.A/curious.webp">
+                                          <img src="../assets/N.O.R.A/curious.png" alt="Curious" width="240" height="280"
+                                               loading="lazy" decoding="async">
+                                        </picture><span>Curious</span></div>
+        <div class="cs-expression-item"><picture>
+                                          <source type="image/webp" srcset="../assets/N.O.R.A/devil.webp">
+                                          <img src="../assets/N.O.R.A/devil.png" alt="Devil" width="240" height="280"
+                                               loading="lazy" decoding="async">
+                                        </picture><span>Devil</span></div>
+        <div class="cs-expression-item"><picture>
+                                          <source type="image/webp" srcset="../assets/N.O.R.A/idea.webp">
+                                          <img src="../assets/N.O.R.A/idea.png" alt="Idea" width="240" height="280"
+                                               loading="lazy" decoding="async">
+                                        </picture><span>Idea</span></div>
+        <div class="cs-expression-item"><picture>
+                                          <source type="image/webp" srcset="../assets/N.O.R.A/kiss.webp">
+                                          <img src="../assets/N.O.R.A/kiss.png" alt="Kiss" width="240" height="280"
+                                               loading="lazy" decoding="async">
+                                        </picture><span>Kiss</span></div>
+        <div class="cs-expression-item"><picture>
+                                          <source type="image/webp" srcset="../assets/N.O.R.A/nerd.webp">
+                                          <img src="../assets/N.O.R.A/nerd.png" alt="Nerd" width="240" height="280"
+                                               loading="lazy" decoding="async">
+                                        </picture><span>Nerd</span></div>
+        <div class="cs-expression-item"><picture>
+                                          <source type="image/webp" srcset="../assets/N.O.R.A/relieved.webp">
+                                          <img src="../assets/N.O.R.A/relieved.png" alt="Relieved" width="240" height="280"
+                                               loading="lazy" decoding="async">
+                                        </picture><span>Relieved</span></div>
+        <div class="cs-expression-item"><picture>
+                                          <source type="image/webp" srcset="../assets/N.O.R.A/smirking.webp">
+                                          <img src="../assets/N.O.R.A/smirking.png" alt="Smirking" width="240" height="280"
+                                               loading="lazy" decoding="async">
+                                        </picture><span>Smirking</span></div>
+        <div class="cs-expression-item"><picture>
+                                          <source type="image/webp" srcset="../assets/N.O.R.A/winking.webp">
+                                          <img src="../assets/N.O.R.A/winking.png" alt="Winking" width="240" height="280"
+                                               loading="lazy" decoding="async">
+                                        </picture><span>Winking</span></div>
+        <div class="cs-expression-item"><picture>
+                                          <source type="image/webp" srcset="../assets/N.O.R.A/worried.webp">
+                                          <img src="../assets/N.O.R.A/worried.png" alt="Worried" width="240" height="280"
+                                               loading="lazy" decoding="async">
+                                        </picture><span>Worried</span></div>
+        <div class="cs-expression-item"><picture>
+                                          <source type="image/webp" srcset="../assets/N.O.R.A/listening.webp">
+                                          <img src="../assets/N.O.R.A/listening.png" alt="Listening" width="240" height="280"
+                                               loading="lazy" decoding="async">
+                                        </picture><span>Listening</span></div>
       </div>
     </section>
 
@@ -271,5 +384,39 @@
   <script src="../shared.js"></script>
   <script src="project.js"></script>
   <script src="../enhancements.js" defer></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    "name": "N.O.R.A. - Neural Offline Response Assistant",
+    "url": "https://themoriartyexperience.com/work/nora.html",
+    "description": "A portable, battery-powered AI assistant built on Raspberry Pi Zero W — offline emergency database, gothic minimalist interface, 7,000+ lines of Python and TypeScript. Case study by Cain Moriarty.",
+    "image": "https://themoriartyexperience.com/assets/share/nora.jpg",
+    "genre": "Product Design",
+    "keywords": [
+      "Product Design",
+      "Raspberry Pi",
+      "AI Engineering",
+      "Python",
+      "TypeScript"
+    ],
+    "author": {
+      "@type": "Person",
+      "name": "Cain Moriarty",
+      "url": "https://themoriartyexperience.com"
+    },
+    "creator": {
+      "@type": "Person",
+      "name": "Cain Moriarty",
+      "url": "https://themoriartyexperience.com"
+    },
+    "isPartOf": {
+      "@type": "CollectionPage",
+      "name": "Selected Work",
+      "url": "https://themoriartyexperience.com/#work"
+    },
+    "inLanguage": "en-GB"
+  }
+  </script>
 </body>
 </html>

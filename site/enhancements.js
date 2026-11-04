@@ -297,4 +297,42 @@
     indicator.appendChild(svg);
   })();
 
+  // ─── Lazy Video ───
+  // Each <source> carries data-src until the clip scrolls into view, so a case
+  // study costs nothing in video bytes until the reader actually reaches it.
+  (function initLazyVideo() {
+    var pending = [];
+    document.querySelectorAll('video').forEach(function (video) {
+      if (video.querySelector('source[data-src]')) pending.push(video);
+    });
+    if (!pending.length) return;
+
+    function load(video) {
+      var sources = video.querySelectorAll('source[data-src]');
+      if (!sources.length) return;
+      // An autoplaying loop is exactly the motion reduced-motion users opt out of.
+      if (prefersReducedMotion) video.removeAttribute('autoplay');
+      sources.forEach(function (source) {
+        source.src = source.getAttribute('data-src');
+        source.removeAttribute('data-src');
+      });
+      video.load();
+    }
+
+    if (!('IntersectionObserver' in window)) {
+      pending.forEach(load);
+      return;
+    }
+
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        load(entry.target);
+        observer.unobserve(entry.target);
+      });
+    }, { rootMargin: '200px' });
+
+    pending.forEach(function (video) { observer.observe(video); });
+  })();
+
 })();
