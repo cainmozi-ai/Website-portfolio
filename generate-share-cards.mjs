@@ -15,7 +15,7 @@ const OUT = 'site/assets/share';
 const A = 'site/assets';
 
 const CARDS = [
-  ['home',                 `${A}/Balance/mockup.jpg`],
+  ['home',                 `${A}/Midnight/frame-street.png`],
   ['balance-brewing',      `${A}/Balance/mockup.jpg`],
   ['byodoin-phoenix-hall', `${A}/Byodo-in/final-render.png`],
   ['costa-rebrand',        `${A}/Costa/part 50194.png`],

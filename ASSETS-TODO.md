@@ -16,6 +16,10 @@ Updated 4 November 2026, after the live-site audit. Everything below needs you, 
 - **Labels.** Balance is a live brief through Salford (matches the CV). Costa drops the
   "Partnership Brief" title prefix and says "University partnership brief: a
   speculative rebrand", matching the disclaimer on its page.
+- **About and title.** About no longer says third-year student; it states the First,
+  the MA and availability. ZBrush removed from Capabilities. Hero, page title and
+  structured data now read "3D / Motion Artist". Showreel poster and homepage share
+  card are now a Midnight Run frame instead of a text card and the Balance mockup.
 - **Instagram link** pointed at @themoriartyexperience, which does not exist. It now
   points at @cainmoriarty (also in the homepage JSON-LD).
 - **Mobile sideways scroll.** Hidden process-step tooltips widened every page to 425px
@@ -37,6 +41,13 @@ Updated 4 November 2026, after the live-site audit. Everything below needs you, 
   the site. Export an updated one-page PDF (First Class BA, now on the MA, 3D / Motion)
   to `site/assets/cain-moriarty-cv.pdf` and it can be linked from the contact section.
   Decide first whether your phone number belongs on a public copy.
+- **Showreel recut.** The reel is the March cut: it opens on ~5s of text cards, the
+  Balance shot still carries "COMING SOON AUTUMN 2026", and the grey N.O.R.A. renders
+  take a lot of the runtime. Recut to open on Midnight Run, then Byodo-in, Costa,
+  Balance (overlay removed), N.O.R.A. for a few seconds. The poster is now a Midnight
+  Run frame; if the recut opens on that shot, poster and first frame will match. Do
+  this before pushing if you can: video committed to git can't be removed from history
+  later without rewriting it.
 - **ArtStation.** Held back, per your own rule in `profile-copy.md`: add it once it is
   live with 4+ pieces.
 - **Showreel hosting.** `showreel.mp4` (29 MB) and `.webm` (26 MB) are committed to
