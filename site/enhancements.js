@@ -173,13 +173,26 @@
         var text = heading.textContent;
         heading.innerHTML = '';
         heading.setAttribute('aria-label', text);
+        // Each word is one unbreakable unit and the spaces between words stay real
+        // spaces, so long headings can still wrap on narrow screens.
+        var wordEl = null;
         for (var i = 0; i < text.length; i++) {
+          if (text[i] === ' ') {
+            wordEl = null;
+            heading.appendChild(document.createTextNode(' '));
+            continue;
+          }
+          if (!wordEl) {
+            wordEl = document.createElement('span');
+            wordEl.className = 'char-word';
+            wordEl.setAttribute('aria-hidden', 'true');
+            heading.appendChild(wordEl);
+          }
           var span = document.createElement('span');
           span.className = 'char-reveal';
           span.style.setProperty('--char-index', i);
-          span.textContent = text[i] === ' ' ? '\u00A0' : text[i];
-          span.setAttribute('aria-hidden', 'true');
-          heading.appendChild(span);
+          span.textContent = text[i];
+          wordEl.appendChild(span);
         }
       });
 
