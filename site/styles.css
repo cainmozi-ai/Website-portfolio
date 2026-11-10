@@ -2992,14 +2992,14 @@ html.a11y-contrast-1 canvas {
 
 /* Light Contrast / Dark Contrast: flat black-on-white and white-on-black */
 html.a11y-contrast-2 body,
-html.a11y-contrast-2 body *:not(.a11y-panel):not(.a11y-panel *):not(.a11y-toggle) {
+html.a11y-contrast-2 body *:not(.a11y-panel):not(.a11y-panel *):not(.a11y-toggle):not(.a11y-toggle *):not(.cursor-ring):not(.cursor-dot) {
   background-color: #fff !important;
   color: #000 !important;
   border-color: #000 !important;
   text-shadow: none !important;
 }
 html.a11y-contrast-3 body,
-html.a11y-contrast-3 body *:not(.a11y-panel):not(.a11y-panel *):not(.a11y-toggle) {
+html.a11y-contrast-3 body *:not(.a11y-panel):not(.a11y-panel *):not(.a11y-toggle):not(.a11y-toggle *):not(.cursor-ring):not(.cursor-dot) {
   background-color: #000 !important;
   color: #fff !important;
   border-color: #fff !important;
@@ -3068,3 +3068,6 @@ html.a11y-dyslexia body *:not(.a11y-panel):not(.a11y-panel *) {
 .a11y-move { background: transparent; color: #111; text-decoration: underline; }
 .a11y-reset:focus-visible,
 .a11y-move:focus-visible { outline: 3px solid #111; outline-offset: 2px; }
+
+/* A hidden menu button stays reachable while the Codex lock screen covers the page */
+html body:has(.codex-lock:not(.unlocked)) .a11y-toggle { display: inline-flex; }

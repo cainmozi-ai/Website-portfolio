@@ -191,3 +191,57 @@ test('no console or script errors on any page with the menu open', async () => {
     await context.close();
   }
 });
+
+// ── Final-review fixes ──
+
+test('light and dark contrast do not turn the custom cursor into a solid disc', async () => {
+  const page = await newPage(browser, base, '/index.html', { viewport: { width: 1280, height: 800 } });
+  await page.mouse.move(400, 400);
+  assert.equal(await page.locator('.cursor-ring').count(), 1, 'cursor exists on this setup');
+  for (const step of [2, 3]) {
+    await page.evaluate((s) => window.TMEA11y.set('contrast', s), step);
+    for (const sel of ['.cursor-ring', '.cursor-dot']) {
+      const bg = await page.evaluate((s) => getComputedStyle(document.querySelector(s)).backgroundColor, sel);
+      assert.ok(bg === 'rgba(0, 0, 0, 0)' || bg === 'transparent' || !/^rgb\((0, 0, 0|255, 255, 255)\)$/.test(bg) || sel === '.cursor-dot', `${sel} bg ${bg} at contrast ${step}`);
+    }
+    const ring = await page.evaluate(() => getComputedStyle(document.querySelector('.cursor-ring')).backgroundColor);
+    assert.ok(ring === 'rgba(0, 0, 0, 0)' || ring === 'transparent', 'ring is filled: ' + ring);
+  }
+});
+
+test('reset restores the OS reduced-motion default instead of switching Pause off', async () => {
+  const page = await newPage(browser, base, '/work/nora.html', { reducedMotion: 'reduce' });
+  await page.click('#a11y-toggle');
+  await page.click('#a11y-reset');
+  assert.equal(await page.evaluate(() => window.TMEA11y.get().pause), 1);
+  await page.reload();
+  assert.equal(await page.evaluate(() => window.TMEA11y.get().pause), 1);
+});
+
+test('changing another setting does not save Pause as a choice', async () => {
+  const page = await newPage(browser, base, '/work/nora.html', { reducedMotion: 'reduce' });
+  await page.evaluate(() => window.TMEA11y.set('links', 1));
+  const saved = await page.evaluate(() => JSON.parse(localStorage.getItem('tme-a11y')));
+  assert.equal('pause' in saved, false, JSON.stringify(saved));
+});
+
+test('the menu button stays reachable on the locked Codex page even when hidden', async () => {
+  const context = await browser.newContext();
+  await context.addInitScript(() => { localStorage.setItem('tme-a11y', JSON.stringify({ pos: 2 })); });
+  const page = await context.newPage();
+  await page.goto(base + '/codex.html');
+  assert.equal(await page.locator('.codex-lock:not(.unlocked)').count(), 1, 'lock screen is showing');
+  assert.equal(await visible(page, '#a11y-toggle'), true);
+});
+
+test('the menu is not announced as modal, and closes on outside click and on Esc from anywhere', async () => {
+  const page = await newPage(browser, base, '/work/nora.html');
+  assert.equal(await page.getAttribute('#a11y-panel', 'aria-modal'), null);
+  await page.click('#a11y-toggle');
+  await page.mouse.click(1000, 400);
+  assert.equal(await visible(page, '#a11y-panel'), false, 'outside click closes');
+  await page.click('#a11y-toggle');
+  await page.evaluate(() => { document.activeElement && document.activeElement.blur(); });
+  await page.keyboard.press('Escape');
+  assert.equal(await visible(page, '#a11y-panel'), false, 'Esc closes with focus outside the panel');
+});

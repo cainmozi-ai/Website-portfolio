@@ -44,6 +44,13 @@
       value % 1 === 0 && value >= 0 && value <= MAX[key];
   }
 
+  function osPause() {
+    return window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 1 : 0;
+  }
+
+  // True once the visitor has set Pause themselves; until then it follows the OS and is not saved.
+  var pauseChosen = false;
+
   function load() {
     var s = defaults();
     var savedPause = false;
@@ -56,14 +63,15 @@
       }
     } catch (e) { /* storage blocked or corrupt: use defaults */ }
     // No saved choice: follow the OS "reduce motion" preference.
-    if (!savedPause && window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      s.pause = 1;
-    }
+    pauseChosen = savedPause;
+    if (!savedPause) s.pause = osPause();
     return s;
   }
 
   function save() {
-    try { window.localStorage.setItem(STORE_KEY, JSON.stringify(state)); } catch (e) { /* ignore */ }
+    var out = copy();
+    if (!pauseChosen) delete out.pause;
+    try { window.localStorage.setItem(STORE_KEY, JSON.stringify(out)); } catch (e) { /* ignore */ }
   }
 
   var state = load();
@@ -115,17 +123,21 @@
     get: copy,
     set: function (key, value) {
       if (!valid(key, value)) return;
+      if (key === 'pause') pauseChosen = true;
       state[key] = value;
       changed();
     },
     cycle: function (key) {
       if (!MAX.hasOwnProperty(key)) return;
+      if (key === 'pause') pauseChosen = true;
       state[key] = (state[key] + 1) % (MAX[key] + 1);
       changed();
     },
     reset: function () {
       var keepPos = state.pos;
       state = defaults();
+      pauseChosen = false;
+      state.pause = osPause();
       state.pos = keepPos === 2 ? 0 : keepPos;
       changed();
     },
@@ -154,7 +166,7 @@
 
     panel = el('div', {
       id: 'a11y-panel', 'class': 'a11y-panel', role: 'dialog',
-      'aria-label': 'Accessibility Menu', 'aria-modal': 'true', hidden: ''
+      'aria-label': 'Accessibility Menu', hidden: ''
     });
 
     var head = el('div', { 'class': 'a11y-head' });
@@ -219,7 +231,6 @@
   }
 
   function trapFocus(e) {
-    if (e.key === 'Escape') { e.preventDefault(); closePanel(); return; }
     if (e.key !== 'Tab') return;
     var list = focusables();
     if (!list.length) return;
@@ -236,14 +247,26 @@
     closeBtn.focus();
   }
 
-  function closePanel() {
+  function closePanel(refocus) {
     if (!panel || panel.hidden) return;
     panel.hidden = true;
     toggle.setAttribute('aria-expanded', 'false');
+    if (refocus === false) { lastFocus = null; return; }
     var back = lastFocus && document.contains(lastFocus) && lastFocus.offsetParent !== null ? lastFocus : toggle;
     if (back && back.focus) back.focus();
     lastFocus = null;
   }
+
+  // Esc closes the menu wherever focus is; a click outside it closes it too.
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && panel && !panel.hidden) { e.preventDefault(); closePanel(); }
+  });
+  document.addEventListener('mousedown', function (e) {
+    if (!panel || panel.hidden) return;
+    var t = e.target;
+    if (panel.contains(t) || toggle.contains(t) || (t.closest && t.closest('.a11y-footer-link'))) return;
+    closePanel(false);
+  });
 
   // Footer link ("Accessibility settings") always reopens the menu, even when
   // the floating button is hidden. Delegated so it works before the DOM is ready.
