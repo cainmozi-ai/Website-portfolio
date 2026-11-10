@@ -10,17 +10,33 @@
   <!-- Open Graph -->
   <meta property="og:title" content="48 Hour — Midnight Run — Cain Moriarty">
   <meta property="og:description" content="48-hour cinematic night drive — Blender Cycles, Shakify addon, DaVinci Resolve colour grading.">
-  <meta property="og:image" content="https://themoriartyexperience.com/assets/car-render.jpg">
+  <meta property="og:image" content="https://themoriartyexperience.com/assets/share/midnight-run.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="48 Hour — Midnight Run — Cain Moriarty">
+  <meta property="og:url" content="https://themoriartyexperience.com/work/midnight-run.html">
+  <meta property="og:site_name" content="The Moriarty Experience">
   <meta property="og:type" content="article">
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="48 Hour — Midnight Run — Cain Moriarty">
+  <meta name="twitter:description" content="48-hour cinematic night drive — Blender Cycles, Shakify addon, DaVinci Resolve colour grading.">
+  <meta name="twitter:image" content="https://themoriartyexperience.com/assets/share/midnight-run.jpg">
+  <meta name="twitter:image:alt" content="48 Hour — Midnight Run — Cain Moriarty">
 
   <link rel="icon" type="image/svg+xml" href="../favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+  <link rel="manifest" href="../site.webmanifest">
+  <meta name="theme-color" content="#880808">
+  <link rel="canonical" href="https://themoriartyexperience.com/work/midnight-run.html">
 
 
   <link rel="preload" href="../assets/fonts/montserrat-900-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="../assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="../styles.css">
+  <script src="../a11y.js"></script>
 </head>
 <body>
   <a href="#main-content" class="skip-link">Skip to content</a>
@@ -30,9 +46,10 @@
   <header class="nav" role="banner">
     <nav class="nav-inner" aria-label="Main navigation">
       <a href="../index.html" class="nav-brand" aria-label="The Moriarty Experience — return to portfolio">
-        <img class="nav-brandmark" src="../assets/logo.jpg" alt="The Moriarty Experience">
+        <img class="nav-brandmark" src="../assets/logo.jpg" alt="The Moriarty Experience" width="1600" height="1600" decoding="async">
       </a>
       <div class="nav-links">
+        <a href="../index.html#showreel" class="nav-link">SHOWREEL</a>
         <a href="../index.html#work" class="nav-link">WORK</a>
         <a href="../index.html#about" class="nav-link">ABOUT</a>
         <a href="../index.html#contact" class="nav-link">CONTACT</a>
@@ -48,6 +65,7 @@
   <div class="mobile-menu" aria-hidden="true">
     <button class="mobile-menu-close" aria-label="Close menu">&times;</button>
     <nav class="mobile-menu-nav" aria-label="Mobile navigation">
+      <a href="../index.html#showreel" class="mobile-menu-link">SHOWREEL</a>
       <a href="../index.html#work" class="mobile-menu-link">WORK</a>
       <a href="../index.html#about" class="mobile-menu-link">ABOUT</a>
       <a href="../index.html#contact" class="mobile-menu-link">CONTACT</a>
@@ -62,8 +80,8 @@
         <picture>
           <source type="image/webp" srcset="../assets/car-render.webp">
           <img src="../assets/car-render.jpg"
-               alt="Cinematic night render of a rain-slicked city street with volumetric lighting and wet-surface reflections — 48-hour production challenge"
-               fetchpriority="high">
+               alt="Cinematic night render of a rain-slicked city street with volumetric lighting and wet-surface reflections — 48-hour production challenge" width="1451" height="757"
+               fetchpriority="high" decoding="async">
         </picture>
       </div>
     </section>
@@ -111,9 +129,16 @@
       <div class="cs-process-stages">
         <div class="cs-process-stage reveal-on-scroll">
           <div class="cs-process-image">
-            <img src="../assets/midnight-process-blockout.jpg"
-                 alt="Blender viewport showing the kitbashed city environment — modular street assets and vehicle placement in blockout stage"
-                 loading="lazy">
+            <picture>
+            <source type="image/webp"
+                    srcset="../assets/Midnight/wire%20car-400w.webp 400w, ../assets/Midnight/wire%20car-800w.webp 800w, ../assets/Midnight/wire%20car-1200w.webp 1200w, ../assets/Midnight/wire%20car-1600w.webp 1600w"
+                    sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 700px">
+            <img src="../assets/Midnight/wire%20car-1600w.jpg"
+                 srcset="../assets/Midnight/wire%20car-400w.jpg 400w, ../assets/Midnight/wire%20car-800w.jpg 800w, ../assets/Midnight/wire%20car-1200w.jpg 1200w, ../assets/Midnight/wire%20car-1600w.jpg 1600w"
+                 sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 700px"
+                 alt="Wireframe view of the kitbashed vehicle geometry — blockout stage of the 48-hour build" width="1600" height="681"
+                 loading="lazy" decoding="async">
+          </picture>
           </div>
           <div class="cs-process-text">
             <p class="cs-process-num">01</p>
@@ -124,9 +149,16 @@
 
         <div class="cs-process-stage reveal-on-scroll">
           <div class="cs-process-image">
-            <img src="../assets/midnight-process-lighting.jpg"
-                 alt="Night scene lighting — street lamps, headlights, and wet-surface reflections creating naturalistic urban atmosphere"
-                 loading="lazy">
+            <picture>
+            <source type="image/webp"
+                    srcset="../assets/Midnight/clay%20car-400w.webp 400w, ../assets/Midnight/clay%20car-800w.webp 800w, ../assets/Midnight/clay%20car-1200w.webp 1200w, ../assets/Midnight/clay%20car-1600w.webp 1600w"
+                    sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 700px">
+            <img src="../assets/Midnight/clay%20car-1600w.jpg"
+                 srcset="../assets/Midnight/clay%20car-400w.jpg 400w, ../assets/Midnight/clay%20car-800w.jpg 800w, ../assets/Midnight/clay%20car-1200w.jpg 1200w, ../assets/Midnight/clay%20car-1600w.jpg 1600w"
+                 sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 700px"
+                 alt="Untextured clay render used to judge lighting and form before materials were applied" width="1600" height="682"
+                 loading="lazy" decoding="async">
+          </picture>
           </div>
           <div class="cs-process-text">
             <p class="cs-process-num">02</p>
@@ -137,9 +169,16 @@
 
         <div class="cs-process-stage reveal-on-scroll">
           <div class="cs-process-image">
-            <img src="../assets/midnight-process-compositing.jpg"
-                 alt="Blender Cycles render output with Shakify camera animation — full animation sequence in progress"
-                 loading="lazy">
+            <picture>
+            <source type="image/webp"
+                    srcset="../assets/Midnight/render%20car-400w.webp 400w, ../assets/Midnight/render%20car-800w.webp 800w, ../assets/Midnight/render%20car-1200w.webp 1200w, ../assets/Midnight/render%20car-1600w.webp 1600w"
+                    sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 700px">
+            <img src="../assets/Midnight/render%20car-1600w.jpg"
+                 srcset="../assets/Midnight/render%20car-400w.jpg 400w, ../assets/Midnight/render%20car-800w.jpg 800w, ../assets/Midnight/render%20car-1200w.jpg 1200w, ../assets/Midnight/render%20car-1600w.jpg 1600w"
+                 sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 700px"
+                 alt="Final textured and lit render of the vehicle in Blender Cycles" width="1600" height="681"
+                 loading="lazy" decoding="async">
+          </picture>
           </div>
           <div class="cs-process-text">
             <p class="cs-process-num">03</p>
@@ -150,9 +189,16 @@
 
         <div class="cs-process-stage reveal-on-scroll">
           <div class="cs-process-image">
-            <img src="../assets/midnight-process-grading.jpg"
-                 alt="DaVinci Resolve colour grading — contrast curves, colour temperature adjustments, and selective saturation"
-                 loading="lazy">
+            <picture>
+            <source type="image/webp"
+                    srcset="../assets/Midnight/grade-before-after-400w.webp 400w, ../assets/Midnight/grade-before-after-800w.webp 800w, ../assets/Midnight/grade-before-after-1200w.webp 1200w, ../assets/Midnight/grade-before-after-1600w.webp 1600w"
+                    sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 700px">
+            <img src="../assets/Midnight/grade-before-after-1600w.jpg"
+                 srcset="../assets/Midnight/grade-before-after-400w.jpg 400w, ../assets/Midnight/grade-before-after-800w.jpg 800w, ../assets/Midnight/grade-before-after-1200w.jpg 1200w, ../assets/Midnight/grade-before-after-1600w.jpg 1600w"
+                 sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 700px"
+                 alt="Split frame of the same shot: the cooler ungraded Cycles render on the left, the final warm sodium-lit grade on the right" width="1600" height="677"
+                 loading="lazy" decoding="async">
+          </picture>
           </div>
           <div class="cs-process-text">
             <p class="cs-process-num">04</p>
@@ -166,9 +212,13 @@
     <!-- Section 5: Video -->
     <div class="video-viewer-container">
       <video class="project-video"
-             autoplay muted loop playsinline
-             poster="../assets/midnight-run-poster.jpg">
-        <source src="../assets/Midnight/Color%20render%20with%20edt.mp4" type="video/mp4">
+             autoplay muted loop playsinline controls
+             preload="none"
+             width="1920" height="812"
+             poster="../assets/Midnight/midnight-run-poster.jpg"
+             aria-label="48 Hour Midnight Run — final graded render loop">
+        <source data-src="../assets/Midnight/midnight-run.webm" type="video/webm">
+        <source data-src="../assets/Midnight/midnight-run.mp4" type="video/mp4">
       </video>
     </div>
 
@@ -176,19 +226,40 @@
     <section class="cs-gallery cs-gallery--stacked">
       <h2 class="cs-gallery-heading reveal-on-scroll">OUTCOME</h2>
       <div class="cs-gallery-item reveal-on-scroll">
-        <img src="../assets/midnight-gallery-hero.jpg"
-             alt="Cinematic frame — rain-slicked street with volumetric headlights and wet-surface reflections"
-             loading="lazy">
+        <picture>
+            <source type="image/webp"
+                    srcset="../assets/Midnight/frame-street-400w.webp 400w, ../assets/Midnight/frame-street-800w.webp 800w, ../assets/Midnight/frame-street-1200w.webp 1200w, ../assets/Midnight/frame-street-1600w.webp 1600w"
+                    sizes="(max-width: 1200px) 100vw, 1200px">
+            <img src="../assets/Midnight/frame-street-1600w.jpg"
+                 srcset="../assets/Midnight/frame-street-400w.jpg 400w, ../assets/Midnight/frame-street-800w.jpg 800w, ../assets/Midnight/frame-street-1200w.jpg 1200w, ../assets/Midnight/frame-street-1600w.jpg 1600w"
+                 sizes="(max-width: 1200px) 100vw, 1200px"
+                 alt="Corvette C7 idling beside a taxi on a rain-soaked street, lit by street lamps and shopfronts" width="1600" height="677"
+                 loading="lazy" decoding="async">
+          </picture>
       </div>
       <div class="cs-gallery-item reveal-on-scroll">
-        <img src="../assets/midnight-gallery-reflection.jpg"
-             alt="Surface reflection detail — city lights pooling across rain-slicked tarmac with sodium streetlamp glow"
-             loading="lazy">
+        <picture>
+            <source type="image/webp"
+                    srcset="../assets/Midnight/frame-reflection-400w.webp 400w, ../assets/Midnight/frame-reflection-800w.webp 800w, ../assets/Midnight/frame-reflection-1200w.webp 1200w, ../assets/Midnight/frame-reflection-1600w.webp 1600w"
+                    sizes="(max-width: 1200px) 100vw, 1200px">
+            <img src="../assets/Midnight/frame-reflection-1600w.jpg"
+                 srcset="../assets/Midnight/frame-reflection-400w.jpg 400w, ../assets/Midnight/frame-reflection-800w.jpg 800w, ../assets/Midnight/frame-reflection-1200w.jpg 1200w, ../assets/Midnight/frame-reflection-1600w.jpg 1600w"
+                 sizes="(max-width: 1200px) 100vw, 1200px"
+                 alt="Low camera across wet tarmac, street lamps reflected in standing water as the Corvette pulls away" width="1600" height="677"
+                 loading="lazy" decoding="async">
+          </picture>
       </div>
       <div class="cs-gallery-item reveal-on-scroll">
-        <img src="../assets/midnight-gallery-motion.jpg"
-             alt="Motion frame — vehicle in motion with selective blur and neon signage reflections streaking across wet road"
-             loading="lazy">
+        <picture>
+            <source type="image/webp"
+                    srcset="../assets/Midnight/frame-motion-400w.webp 400w, ../assets/Midnight/frame-motion-800w.webp 800w, ../assets/Midnight/frame-motion-1200w.webp 1200w, ../assets/Midnight/frame-motion-1600w.webp 1600w"
+                    sizes="(max-width: 1200px) 100vw, 1200px">
+            <img src="../assets/Midnight/frame-motion-1600w.jpg"
+                 srcset="../assets/Midnight/frame-motion-400w.jpg 400w, ../assets/Midnight/frame-motion-800w.jpg 800w, ../assets/Midnight/frame-motion-1200w.jpg 1200w, ../assets/Midnight/frame-motion-1600w.jpg 1600w"
+                 sizes="(max-width: 1200px) 100vw, 1200px"
+                 alt="Corvette passing a parked lorry, tail lights and lamp glow streaking across the wet road" width="1600" height="677"
+                 loading="lazy" decoding="async">
+          </picture>
       </div>
     </section>
 
@@ -217,9 +288,14 @@
 
   <footer class="footer">
     <div class="footer-inner">
-      <img class="footer-brandmark" src="../assets/logo-full.jpg" alt="The Moriarty Experience">
+      <div class="footer-brandmark" role="img" aria-label="The Moriarty Experience">
+        <span class="footer-brandmark-the">THE</span>
+        <span class="footer-brandmark-name">MORIARTY</span>
+        <span class="footer-brandmark-experience">EXPERIENCE</span>
+      </div>
       <p class="footer-copy">&copy; 2025–2026 CAIN MORIARTY</p>
       <p class="footer-motto">Ex Labore Venustas — From Work, Beauty</p>
+      <a href="#" class="a11y-footer-link">Accessibility settings</a>
       <a href="../codex.html" class="footer-codex-glyph" aria-hidden="true" tabindex="-1">
         <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
           <path d="M2 20V4l5 8-5 8zm7 0V4l5 8-5 8zm7 0V4l5 8-5 8z"/>
@@ -231,5 +307,38 @@
   <script src="../shared.js"></script>
   <script src="project.js"></script>
   <script src="../enhancements.js" defer></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    "name": "48 Hour - Midnight Run",
+    "url": "https://themoriartyexperience.com/work/midnight-run.html",
+    "description": "A self-imposed 48-hour production challenge — cinematic night drive sequence built, lit, animated, rendered, and graded from scratch. Blender Cycles, Shakify addon, DaVinci Resolve. Case study by Cain Moriarty.",
+    "image": "https://themoriartyexperience.com/assets/share/midnight-run.jpg",
+    "genre": "3D Animation",
+    "keywords": [
+      "3D Animation",
+      "Blender Cycles",
+      "DaVinci Resolve",
+      "Cinematic Lighting"
+    ],
+    "author": {
+      "@type": "Person",
+      "name": "Cain Moriarty",
+      "url": "https://themoriartyexperience.com"
+    },
+    "creator": {
+      "@type": "Person",
+      "name": "Cain Moriarty",
+      "url": "https://themoriartyexperience.com"
+    },
+    "isPartOf": {
+      "@type": "CollectionPage",
+      "name": "Selected Work",
+      "url": "https://themoriartyexperience.com/#work"
+    },
+    "inLanguage": "en-GB"
+  }
+  </script>
 </body>
 </html>

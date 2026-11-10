@@ -25,6 +25,31 @@
 }
 
 /* ─── Self-hosted Fonts ─── */
+/* Brand fonts: Gotham Black (titles), Helvetica Neue (body). Montserrat and Inter below are fallbacks. */
+@font-face {
+  font-family: 'Gotham Black';
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url('assets/fonts/gotham-black.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Helvetica Neue';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url('assets/fonts/helveticaneue-light.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Helvetica Neue';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('assets/fonts/helveticaneue-roman.woff2') format('woff2');
+}
+
 @font-face {
   font-family: 'Inter';
   font-style: normal;
@@ -74,8 +99,8 @@
   --color-red-glow: rgba(136, 8, 8, 0.12);
 
   /* Typography */
-  --font-title: 'Montserrat', 'Gotham Black', sans-serif;
-  --font-body: 'Inter', 'Helvetica Neue', sans-serif;
+  --font-title: 'Gotham Black', 'Montserrat', sans-serif;
+  --font-body: 'Helvetica Neue', 'Inter', sans-serif;
   --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
 
   /* Spacing scale (8px base grid) */
@@ -480,6 +505,44 @@ button:focus-visible {
 
 
 /* ─── Selected Work Section ─── */
+
+/* ─── Showreel ─── */
+.showreel {
+  padding: var(--space-3xl) 0 var(--space-2xl);
+}
+
+.showreel-frame {
+  position: relative;
+  margin-top: var(--space-xl);
+  border-radius: 2px;
+  overflow: hidden;
+  background: var(--color-viewer-bg);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.14);
+}
+
+.showreel-video {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  background: var(--color-viewer-bg);
+}
+
+.showreel-caption {
+  margin-top: var(--space-md);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .showreel {
+    padding: var(--space-2xl) 0 var(--space-xl);
+  }
+}
+
 .work {
   padding: var(--space-3xl) 0;
   background: var(--color-white);
@@ -643,6 +706,14 @@ button:focus-visible {
   .process-step[title]:hover::before {
     opacity: 1;
     visibility: visible;
+  }
+}
+
+/* Tooltips never show below 769px, but the hidden 260px box still widened the
+   page and caused sideways scroll on phones. Take it out of layout there. */
+@media (max-width: 768px) {
+  .process-step[title]::before {
+    display: none;
   }
 }
 
@@ -898,6 +969,93 @@ button:focus-visible {
   margin-bottom: var(--space-lg);
 }
 
+
+/* ─── Contact Form ─── */
+.contact-form {
+  max-width: 30rem;
+  margin: var(--space-xl) auto 0;
+  text-align: left;
+}
+
+/* Honeypot: hidden from people, still reachable by the bots that fill it in. */
+.contact-form-hp {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.contact-form-field {
+  margin-bottom: var(--space-md);
+}
+
+.contact-form-label {
+  display: block;
+  font-family: var(--font-title);
+  font-weight: 900;
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  color: var(--color-muted);
+  margin-bottom: 0.4rem;
+}
+
+.contact-form-input {
+  width: 100%;
+  padding: 0.7rem 0.85rem;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--color-primary);
+  background: var(--color-surface);
+  border: 1px solid var(--color-divider);
+  border-radius: 2px;
+  transition: border-color var(--duration-fast) var(--ease-default);
+}
+
+.contact-form-input:hover {
+  border-color: var(--color-secondary);
+}
+
+.contact-form-input:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+  border-color: var(--color-accent);
+}
+
+textarea.contact-form-input {
+  resize: vertical;
+  min-height: 7rem;
+}
+
+.contact-form-submit {
+  width: 100%;
+  margin-top: var(--space-xs);
+  padding: 0.85rem 1.5rem;
+  font-family: var(--font-title);
+  font-weight: 900;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  color: var(--color-bg);
+  background: var(--color-primary);
+  border: 1px solid var(--color-primary);
+  border-radius: 2px;
+  cursor: pointer;
+  transition: background var(--duration-fast) var(--ease-default),
+              border-color var(--duration-fast) var(--ease-default);
+}
+
+.contact-form-submit:hover {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+.contact-form-submit:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
 .contact-social {
   display: flex;
   justify-content: center;
@@ -959,10 +1117,35 @@ button:focus-visible {
 }
 
 .footer-brandmark {
-  width: 200px;
-  height: auto;
-  object-fit: contain;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.15em;
   margin-bottom: var(--space-xs);
+  font-family: var(--font-title);
+  font-weight: 900;
+  color: var(--color-black);
+  line-height: 1;
+  text-decoration: none;
+}
+
+.footer-brandmark-the {
+  font-size: 0.6rem;
+  letter-spacing: 0.32em;
+  padding-left: 0.32em; /* optical balance for trailing letter-spacing */
+  color: var(--color-muted);
+}
+
+.footer-brandmark-name {
+  font-size: 1.4rem;
+  letter-spacing: 0.14em;
+}
+
+.footer-brandmark-experience {
+  font-size: 0.6rem;
+  letter-spacing: 0.32em;
+  padding-left: 0.32em;
+  color: var(--color-muted);
 }
 
 .footer-copy {
@@ -1441,6 +1624,15 @@ button:focus-visible {
   line-height: 1.6;
 }
 
+.cs-disclaimer {
+  font-size: 0.72rem;
+  color: var(--color-muted);
+  line-height: 1.5;
+  margin-top: 0.75rem;
+  max-width: 60ch;
+  opacity: 0.7;
+}
+
 /* WIP label — case study page */
 .cs-wip-label {
   display: inline-block;
@@ -1566,6 +1758,12 @@ button:focus-visible {
   order: 1;
 }
 
+/* Text-only stage: no image exists for this step, so the copy spans the row */
+.cs-process-stages > .cs-process-stage.cs-process-stage--text {
+  grid-template-columns: minmax(0, 1fr);
+  max-width: var(--content-narrow);
+}
+
 .cs-process-image {
   aspect-ratio: 16 / 10;
   overflow: hidden;
@@ -1577,6 +1775,43 @@ button:focus-visible {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.cs-process-image--pending {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  text-align: center;
+  padding: 1.5rem;
+  background:
+    repeating-linear-gradient(
+      45deg,
+      var(--color-surface-alt),
+      var(--color-surface-alt) 12px,
+      rgba(0, 0, 0, 0.03) 12px,
+      rgba(0, 0, 0, 0.03) 24px
+    );
+  border: 1px dashed rgba(0, 0, 0, 0.15);
+}
+
+.cs-process-pending-label {
+  font-family: var(--font-title);
+  font-weight: 900;
+  font-size: clamp(0.95rem, 1.4vw, 1.15rem);
+  letter-spacing: 0.14em;
+  color: var(--color-muted);
+}
+
+.cs-process-pending-sub {
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  opacity: 0.7;
+  max-width: 32ch;
+  line-height: 1.5;
 }
 
 .cs-process-num {
@@ -1657,6 +1892,42 @@ button:focus-visible {
   object-fit: cover;
   border-radius: 2px;
   background: var(--color-surface-alt);
+}
+
+/* Pending gallery slots — same language as .cs-process-image--pending */
+.cs-gallery-item--pending {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  text-align: center;
+  padding: 1.5rem;
+  border-radius: 2px;
+  background:
+    repeating-linear-gradient(
+      45deg,
+      var(--color-surface-alt),
+      var(--color-surface-alt) 12px,
+      rgba(0, 0, 0, 0.03) 12px,
+      rgba(0, 0, 0, 0.03) 24px
+    );
+  border: 1px dashed rgba(0, 0, 0, 0.15);
+}
+
+.cs-gallery--stacked .cs-gallery-item--pending { aspect-ratio: 16 / 9; }
+.cs-gallery--grid .cs-gallery-item--pending { aspect-ratio: 4 / 3; }
+
+/* <picture> is inline by default, which leaves a baseline gap under the image. */
+.cs-hero-image picture,
+.cs-process-image picture,
+.cs-gallery-item picture,
+.cs-expression-item picture,
+.project-image-wrap picture,
+.hero-brandmark picture,
+.footer-logo picture {
+  display: block;
+  height: 100%;
 }
 
 /* Gallery Option B: Two-column grid */
@@ -2212,7 +2483,7 @@ body:has(.cursor-dot) .project-image-wrap {
 
   /* Print header info */
   .footer-brandmark {
-    filter: grayscale(1);
+    color: #000;
   }
 }
 
@@ -2269,6 +2540,11 @@ body:has(.cursor-dot) .project-image-wrap {
 .video-viewer-container video {
   width: 100%;
   display: block;
+  /* Without a cap, the portrait Costa clip renders ~2250px tall on desktop.
+     Letterbox it against the dark viewer ground instead. */
+  max-height: 80vh;
+  object-fit: contain;
+  margin: 0 auto;
 }
 
 
@@ -2371,7 +2647,7 @@ body:has(.cursor-dot) .project-image-wrap {
   content: '';
   position: fixed;
   inset: 0;
-  background-image: url('assets/lino-texture.png');
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='lino'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.55' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23lino)'/%3E%3C/svg%3E");
   background-size: 800px;
   background-repeat: repeat;
   opacity: 0.03;
@@ -2509,3 +2785,282 @@ body:has(.cursor-dot) .project-image-wrap {
   color: var(--color-secondary);
   text-align: center;
 }
+
+/* ─── Touch targets: 44px minimum on coarse pointers ─── */
+@media (pointer: coarse) {
+  .project-cta,
+  .skip-link {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+  .nav-hamburger,
+  .mobile-menu-close {
+    min-width: 44px;
+    min-height: 44px;
+  }
+  .nav-hamburger {
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+/* ─── Accessibility menu ─── */
+/* Widget: button, panel, tiles. Setting effects (html.a11y-*) follow below. */
+.a11y-toggle {
+  position: fixed;
+  bottom: 16px;
+  left: 16px;
+  z-index: 1001;
+  width: 48px;
+  height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--color-bg);
+  border-radius: 50%;
+  background: var(--color-accent);
+  color: #fff;
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
+}
+.a11y-toggle:focus-visible,
+.a11y-close:focus-visible,
+.a11y-tile:focus-visible,
+.a11y-footer-link:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 3px;
+}
+html[data-a11y-pos="1"] .a11y-toggle { left: auto; right: 16px; }
+html[data-a11y-pos="2"] .a11y-toggle { display: none; }
+
+.a11y-panel {
+  position: fixed;
+  left: 16px;
+  bottom: 76px;
+  z-index: 1002;
+  width: min(420px, calc(100vw - 32px));
+  max-height: calc(100vh - 100px);
+  overflow-y: auto;
+  background: #eef0f4;
+  color: #111;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+  font-family: var(--font-body);
+}
+.a11y-panel[hidden] { display: none; }
+html[data-a11y-pos="1"] .a11y-panel { left: auto; right: 16px; }
+
+.a11y-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  background: var(--color-accent);
+  color: #fff;
+  border-radius: 16px 16px 0 0;
+}
+.a11y-title {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+.a11y-close {
+  min-width: 44px;
+  min-height: 44px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.3);
+  color: #fff;
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.a11y-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  padding: 14px 16px;
+}
+.a11y-tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: 96px;
+  padding: 10px 6px;
+  border: 2px solid transparent;
+  border-radius: 12px;
+  background: #fff;
+  color: #111;
+  font: inherit;
+  font-size: 0.9rem;
+  text-align: center;
+  cursor: pointer;
+}
+.a11y-tile.is-active {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+.a11y-icon { font-size: 1.6rem; line-height: 1; }
+.a11y-bars { display: flex; gap: 4px; min-height: 4px; }
+.a11y-bars i {
+  display: block;
+  width: 22px;
+  height: 4px;
+  border-radius: 2px;
+  background: #cfd3dc;
+}
+.a11y-bars i.is-on { background: var(--color-accent); }
+
+.a11y-footer-link {
+  display: inline-block;
+  margin-top: 0.75rem;
+  color: inherit;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+  .a11y-panel {
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    max-height: 85vh;
+    border-radius: 16px 16px 0 0;
+  }
+  html[data-a11y-pos="1"] .a11y-panel { left: 0; right: 0; }
+}
+
+/* Setting effects. Scoped to html.a11y-*; the menu itself is excluded so it stays readable. */
+
+/* Bigger text: scale the root so rem-based sizes follow */
+html.a11y-text-1 { font-size: 110%; }
+html.a11y-text-2 { font-size: 125%; }
+html.a11y-text-3 { font-size: 150%; }
+
+/* Highlight links */
+html.a11y-links a:not(.a11y-tile) {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 2px;
+  outline: 2px dashed var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* Text spacing (letter / word). Body text only, and always wider than the site default (WCAG 1.4.12 uses 0.12em). */
+html.a11y-spacing-1 :is(p, li, dd, dt, blockquote, figcaption, td, th, label):not(.a11y-panel *) { letter-spacing: 0.12em !important; word-spacing: 0.16em !important; }
+html.a11y-spacing-2 :is(p, li, dd, dt, blockquote, figcaption, td, th, label):not(.a11y-panel *) { letter-spacing: 0.16em !important; word-spacing: 0.24em !important; }
+html.a11y-spacing-3 :is(p, li, dd, dt, blockquote, figcaption, td, th, label):not(.a11y-panel *) { letter-spacing: 0.2em !important; word-spacing: 0.32em !important; }
+
+/* Line height */
+html.a11y-lineheight-1 body *:not(.a11y-panel):not(.a11y-panel *) { line-height: 1.5 !important; }
+html.a11y-lineheight-2 body *:not(.a11y-panel):not(.a11y-panel *) { line-height: 1.75 !important; }
+html.a11y-lineheight-3 body *:not(.a11y-panel):not(.a11y-panel *) { line-height: 2 !important; }
+
+/* Text align */
+html.a11y-align-1 body *:not(.a11y-panel):not(.a11y-panel *) { text-align: left !important; }
+html.a11y-align-2 body *:not(.a11y-panel):not(.a11y-panel *) { text-align: center !important; }
+html.a11y-align-3 body *:not(.a11y-panel):not(.a11y-panel *) { text-align: right !important; }
+
+/* Contrast and saturation share one filter on <html>, built from custom properties.
+   (A filter on the root keeps position:fixed elements, like the menu button, in the viewport.) */
+html.a11y-contrast-1 { --a11y-inv: invert(1) hue-rotate(180deg); }
+html.a11y-saturation-1 { --a11y-sat: saturate(0.5); }
+html.a11y-saturation-2 { --a11y-sat: saturate(2); }
+html.a11y-saturation-3 { --a11y-sat: grayscale(1); }
+html.a11y-contrast-1,
+html.a11y-saturation-1,
+html.a11y-saturation-2,
+html.a11y-saturation-3 {
+  filter: var(--a11y-inv, invert(0)) var(--a11y-sat, saturate(1));
+}
+/* Invert Colors: flip photos and video back so they are not negatives */
+html.a11y-contrast-1 img,
+html.a11y-contrast-1 video,
+html.a11y-contrast-1 canvas {
+  filter: invert(1) hue-rotate(180deg);
+}
+
+/* Light Contrast / Dark Contrast: flat black-on-white and white-on-black */
+html.a11y-contrast-2 body,
+html.a11y-contrast-2 body *:not(.a11y-panel):not(.a11y-panel *):not(.a11y-toggle):not(.a11y-toggle *):not(.cursor-ring):not(.cursor-dot) {
+  background-color: #fff !important;
+  color: #000 !important;
+  border-color: #000 !important;
+  text-shadow: none !important;
+}
+html.a11y-contrast-3 body,
+html.a11y-contrast-3 body *:not(.a11y-panel):not(.a11y-panel *):not(.a11y-toggle):not(.a11y-toggle *):not(.cursor-ring):not(.cursor-dot) {
+  background-color: #000 !important;
+  color: #fff !important;
+  border-color: #fff !important;
+  text-shadow: none !important;
+}
+html.a11y-contrast-3 a:not(.a11y-tile) { color: #ff0 !important; }
+
+/* Larger text: let fixed-column grids reflow and long words break so nothing forces sideways scroll */
+html[class*="a11y-text-"] .cs-expressions-grid { grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr)); }
+html[class*="a11y-text-"] body *:not(.a11y-panel):not(.a11y-panel *) { overflow-wrap: anywhere; }
+
+/* Pause Animations: same collapse as prefers-reduced-motion, switched on by the menu */
+html.a11y-pause *,
+html.a11y-pause *::before,
+html.a11y-pause *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+  scroll-behavior: auto !important;
+}
+html.a11y-pause .hero-reveal,
+html.a11y-pause .reveal-on-scroll {
+  opacity: 1;
+  transform: none;
+}
+html.a11y-pause .cs-gallery-item img,
+html.a11y-pause .cs-gallery-hero img,
+html.a11y-pause .cs-gallery-details img {
+  transition: none;
+}
+
+/* Hide Images: pictures, video and canvas; text and layout stay */
+html.a11y-images-off img,
+html.a11y-images-off picture,
+html.a11y-images-off video,
+html.a11y-images-off canvas {
+  visibility: hidden !important;
+}
+html.a11y-images-off * { background-image: none !important; }
+
+/* Dyslexia Friendly: Comic Sans (a system font on Windows, macOS and iOS; not bundled) */
+html.a11y-dyslexia body,
+html.a11y-dyslexia body *:not(.a11y-panel):not(.a11y-panel *) {
+  font-family: 'Comic Sans MS', 'Comic Sans', 'Chalkboard SE', 'Comic Neue', sans-serif !important;
+}
+
+/* Menu footer: reset and move/hide */
+.a11y-foot { display: flex; flex-direction: column; gap: 10px; padding: 0 16px 16px; }
+.a11y-reset,
+.a11y-move {
+  min-height: 44px;
+  border: 0;
+  border-radius: 10px;
+  font: inherit;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+.a11y-reset { background: var(--color-accent); color: #fff; }
+.a11y-move { background: transparent; color: #111; text-decoration: underline; }
+.a11y-reset:focus-visible,
+.a11y-move:focus-visible { outline: 3px solid #111; outline-offset: 2px; }
+
+/* A hidden menu button stays reachable while the Codex lock screen covers the page */
+html body:has(.codex-lock:not(.unlocked)) .a11y-toggle { display: inline-flex; }

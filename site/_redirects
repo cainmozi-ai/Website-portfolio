@@ -1,0 +1,9 @@
+# Superseded by the 48 Hour — Midnight Run case study
+/work/corvette-midnight-run    /work/midnight-run.html    301
+/work/corvette-midnight-run.html    /work/midnight-run.html    301
+
+# Removed projects — redirect to work section
+/work/battle-of-britain    /#work    301
+/work/battle-of-britain.html    /#work    301
+/work/medieval-wagon    /#work    301
+/work/medieval-wagon.html    /#work    301
