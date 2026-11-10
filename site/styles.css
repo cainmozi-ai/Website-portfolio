@@ -2258,6 +2258,12 @@ body.balance-project .cs-hero-image img {
   transition-delay: calc(var(--char-index) * 0.03s);
 }
 
+/* One word = one unbreakable unit; lines break between words */
+.char-word {
+  display: inline-block;
+  white-space: nowrap;
+}
+
 .chars-visible .char-reveal {
   opacity: 1;
   transform: translateY(0);

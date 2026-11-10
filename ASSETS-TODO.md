@@ -68,9 +68,6 @@ Updated 4 November 2026, after the live-site audit. Everything below needs you, 
   Buy webfont licences for both (Hoefler&Co for Gotham, Monotype for Helvetica Neue) and
   re-run the converter on the licensed files before promoting the site widely. Montserrat and
   Inter remain as fallbacks.
-- **Mobile sideways scroll on the home page.** Section headings split into letters use
-  non-breaking spaces, so long headings cannot wrap and the page layout width grows on phones
-  (same with the old fonts). Fix: wrap per word in `initTextReveal` in `enhancements.js`.
 
 ## Raw masters
 
