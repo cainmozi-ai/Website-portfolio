@@ -2760,3 +2760,22 @@ body:has(.cursor-dot) .project-image-wrap {
   color: var(--color-secondary);
   text-align: center;
 }
+
+/* ─── Touch targets: 44px minimum on coarse pointers ─── */
+@media (pointer: coarse) {
+  .project-cta,
+  .skip-link {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+  .nav-hamburger,
+  .mobile-menu-close {
+    min-width: 44px;
+    min-height: 44px;
+  }
+  .nav-hamburger {
+    align-items: center;
+    justify-content: center;
+  }
+}

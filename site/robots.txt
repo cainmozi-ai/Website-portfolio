@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /codex
 Disallow: /codex.html
 Disallow: /*.bak$
 
