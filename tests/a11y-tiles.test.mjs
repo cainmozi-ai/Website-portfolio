@@ -105,3 +105,19 @@ test('stacked text settings leave no horizontal scroll at 375px', async () => {
     assert.ok(over <= 0, `${path} overflows by ${over}px`);
   }
 });
+
+test('dyslexia setting switches body and titles to OpenDyslexic', async () => {
+  const page = await newPage(browser, base, '/work/nora.html');
+  await set(page, 'dyslexia', 1);
+  const state = await page.evaluate(async () => {
+    await Promise.allSettled([...document.fonts].map((f) => f.load()));
+    return {
+      loaded: [...document.fonts].some((f) => f.family.replace(/"/g, '') === 'OpenDyslexic' && f.status === 'loaded'),
+      body: getComputedStyle(document.querySelector('main p')).fontFamily,
+      title: getComputedStyle(document.querySelector('h1')).fontFamily,
+    };
+  });
+  assert.equal(state.loaded, true);
+  assert.match(state.body, /^"?OpenDyslexic/);
+  assert.match(state.title, /^"?OpenDyslexic/);
+});

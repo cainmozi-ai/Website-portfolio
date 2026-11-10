@@ -46,14 +46,19 @@
 
   function load() {
     var s = defaults();
+    var savedPause = false;
     try {
       var raw = window.localStorage.getItem(STORE_KEY);
-      if (!raw) return s;
-      var saved = JSON.parse(raw);
+      var saved = raw ? JSON.parse(raw) : null;
       if (saved && typeof saved === 'object') {
         KEYS.forEach(function (k) { if (valid(k, saved[k])) s[k] = saved[k]; });
+        savedPause = valid('pause', saved.pause);
       }
     } catch (e) { /* storage blocked or corrupt: use defaults */ }
+    // No saved choice: follow the OS "reduce motion" preference.
+    if (!savedPause && window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      s.pause = 1;
+    }
     return s;
   }
 
@@ -82,8 +87,18 @@
 
   applyClasses();
 
+  // Pause Animations: stop any video that is playing and stop new ones autoplaying.
+  function applyMotion() {
+    if (!state.pause) return;
+    Array.prototype.forEach.call(document.querySelectorAll('video'), function (v) {
+      v.removeAttribute('autoplay');
+      if (!v.paused) v.pause();
+    });
+  }
+
   function changed() {
     applyClasses();
+    applyMotion();
     save();
     render();
     document.dispatchEvent(new CustomEvent('a11y:change', { detail: copy() }));
@@ -228,6 +243,7 @@
     openPanel();
   });
 
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', build);
-  else build();
+  function ready() { build(); applyMotion(); }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', ready);
+  else ready();
 })();

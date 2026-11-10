@@ -9,6 +9,11 @@
   // Respect reduced motion preference
   var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  // The accessibility menu's "Pause Animations" (html.a11y-pause) counts as reduced motion.
+  // Read once for setup, and again at runtime so toggling it takes effect without a reload.
+  function isPaused() { return document.documentElement.classList.contains('a11y-pause'); }
+  if (isPaused()) prefersReducedMotion = true;
+
   // ─── Image Lightbox ───
   // Click any gallery/project image to view fullscreen with zoom
   (function initLightbox() {
@@ -98,7 +103,10 @@
         requestAnimationFrame(function () {
           var scrollY = window.scrollY;
           var heroHeight = hero.offsetHeight;
-          if (scrollY < heroHeight) {
+          if (isPaused()) {
+            heroContent.style.transform = '';
+            heroContent.style.opacity = '';
+          } else if (scrollY < heroHeight) {
             var ratio = scrollY / heroHeight;
             heroContent.style.transform = 'translateY(' + (ratio * 40) + 'px)';
             heroContent.style.opacity = 1 - (ratio * 0.6);
@@ -117,6 +125,7 @@
       var ctas = document.querySelectorAll('.project-cta, .contact-email');
       ctas.forEach(function (el) {
         el.addEventListener('mousemove', function (e) {
+          if (isPaused()) return;
           var rect = el.getBoundingClientRect();
           var x = e.clientX - rect.left - rect.width / 2;
           var y = e.clientY - rect.top - rect.height / 2;
@@ -139,6 +148,7 @@
       var cards = document.querySelectorAll('.project-image-wrap');
       cards.forEach(function (card) {
         card.addEventListener('mousemove', function (e) {
+          if (isPaused()) return;
           var rect = card.getBoundingClientRect();
           var x = (e.clientX - rect.left) / rect.width - 0.5;
           var y = (e.clientY - rect.top) / rect.height - 0.5;
@@ -311,7 +321,7 @@
       var sources = video.querySelectorAll('source[data-src]');
       if (!sources.length) return;
       // An autoplaying loop is exactly the motion reduced-motion users opt out of.
-      if (prefersReducedMotion) video.removeAttribute('autoplay');
+      if (prefersReducedMotion || isPaused()) video.removeAttribute('autoplay');
       sources.forEach(function (source) {
         source.src = source.getAttribute('data-src');
         source.removeAttribute('data-src');

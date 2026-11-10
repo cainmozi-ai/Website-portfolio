@@ -3010,3 +3010,45 @@ html.a11y-contrast-3 a:not(.a11y-tile) { color: #ff0 !important; }
 /* Larger text: let fixed-column grids reflow and long words break so nothing forces sideways scroll */
 html[class*="a11y-text-"] .cs-expressions-grid { grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr)); }
 html[class*="a11y-text-"] body *:not(.a11y-panel):not(.a11y-panel *) { overflow-wrap: anywhere; }
+
+/* Pause Animations: same collapse as prefers-reduced-motion, switched on by the menu */
+html.a11y-pause *,
+html.a11y-pause *::before,
+html.a11y-pause *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+  scroll-behavior: auto !important;
+}
+html.a11y-pause .hero-reveal,
+html.a11y-pause .reveal-on-scroll {
+  opacity: 1;
+  transform: none;
+}
+html.a11y-pause .cs-gallery-item img,
+html.a11y-pause .cs-gallery-hero img,
+html.a11y-pause .cs-gallery-details img {
+  transition: none;
+}
+
+/* Hide Images: pictures, video and canvas; text and layout stay */
+html.a11y-images-off img,
+html.a11y-images-off picture,
+html.a11y-images-off video,
+html.a11y-images-off canvas {
+  visibility: hidden !important;
+}
+html.a11y-images-off * { background-image: none !important; }
+
+/* Dyslexia Friendly: OpenDyslexic (SIL OFL, licence beside the font file) */
+@font-face {
+  font-family: 'OpenDyslexic';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('assets/fonts/opendyslexic-regular.woff2') format('woff2');
+}
+html.a11y-dyslexia body,
+html.a11y-dyslexia body *:not(.a11y-panel):not(.a11y-panel *) {
+  font-family: 'OpenDyslexic', 'Helvetica Neue', sans-serif !important;
+}
