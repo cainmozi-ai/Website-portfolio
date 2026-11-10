@@ -2939,3 +2939,74 @@ html[data-a11y-pos="1"] .a11y-panel { left: auto; right: 16px; }
   }
   html[data-a11y-pos="1"] .a11y-panel { left: 0; right: 0; }
 }
+
+/* Setting effects. Scoped to html.a11y-*; the menu itself is excluded so it stays readable. */
+
+/* Bigger text: scale the root so rem-based sizes follow */
+html.a11y-text-1 { font-size: 110%; }
+html.a11y-text-2 { font-size: 125%; }
+html.a11y-text-3 { font-size: 150%; }
+
+/* Highlight links */
+html.a11y-links a:not(.a11y-tile) {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 2px;
+  outline: 2px dashed var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* Text spacing (letter / word). Body text only, and always wider than the site default (WCAG 1.4.12 uses 0.12em). */
+html.a11y-spacing-1 :is(p, li, dd, dt, blockquote, figcaption, td, th, label):not(.a11y-panel *) { letter-spacing: 0.12em !important; word-spacing: 0.16em !important; }
+html.a11y-spacing-2 :is(p, li, dd, dt, blockquote, figcaption, td, th, label):not(.a11y-panel *) { letter-spacing: 0.16em !important; word-spacing: 0.24em !important; }
+html.a11y-spacing-3 :is(p, li, dd, dt, blockquote, figcaption, td, th, label):not(.a11y-panel *) { letter-spacing: 0.2em !important; word-spacing: 0.32em !important; }
+
+/* Line height */
+html.a11y-lineheight-1 body *:not(.a11y-panel):not(.a11y-panel *) { line-height: 1.5 !important; }
+html.a11y-lineheight-2 body *:not(.a11y-panel):not(.a11y-panel *) { line-height: 1.75 !important; }
+html.a11y-lineheight-3 body *:not(.a11y-panel):not(.a11y-panel *) { line-height: 2 !important; }
+
+/* Text align */
+html.a11y-align-1 body *:not(.a11y-panel):not(.a11y-panel *) { text-align: left !important; }
+html.a11y-align-2 body *:not(.a11y-panel):not(.a11y-panel *) { text-align: center !important; }
+html.a11y-align-3 body *:not(.a11y-panel):not(.a11y-panel *) { text-align: right !important; }
+
+/* Contrast and saturation share one filter on <html>, built from custom properties.
+   (A filter on the root keeps position:fixed elements, like the menu button, in the viewport.) */
+html.a11y-contrast-1 { --a11y-inv: invert(1) hue-rotate(180deg); }
+html.a11y-saturation-1 { --a11y-sat: saturate(0.5); }
+html.a11y-saturation-2 { --a11y-sat: saturate(2); }
+html.a11y-saturation-3 { --a11y-sat: grayscale(1); }
+html.a11y-contrast-1,
+html.a11y-saturation-1,
+html.a11y-saturation-2,
+html.a11y-saturation-3 {
+  filter: var(--a11y-inv, invert(0)) var(--a11y-sat, saturate(1));
+}
+/* Invert Colors: flip photos and video back so they are not negatives */
+html.a11y-contrast-1 img,
+html.a11y-contrast-1 video,
+html.a11y-contrast-1 canvas {
+  filter: invert(1) hue-rotate(180deg);
+}
+
+/* Light Contrast / Dark Contrast: flat black-on-white and white-on-black */
+html.a11y-contrast-2 body,
+html.a11y-contrast-2 body *:not(.a11y-panel):not(.a11y-panel *):not(.a11y-toggle) {
+  background-color: #fff !important;
+  color: #000 !important;
+  border-color: #000 !important;
+  text-shadow: none !important;
+}
+html.a11y-contrast-3 body,
+html.a11y-contrast-3 body *:not(.a11y-panel):not(.a11y-panel *):not(.a11y-toggle) {
+  background-color: #000 !important;
+  color: #fff !important;
+  border-color: #fff !important;
+  text-shadow: none !important;
+}
+html.a11y-contrast-3 a:not(.a11y-tile) { color: #ff0 !important; }
+
+/* Larger text: let fixed-column grids reflow and long words break so nothing forces sideways scroll */
+html[class*="a11y-text-"] .cs-expressions-grid { grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr)); }
+html[class*="a11y-text-"] body *:not(.a11y-panel):not(.a11y-panel *) { overflow-wrap: anywhere; }
