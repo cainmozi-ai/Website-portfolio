@@ -3052,3 +3052,19 @@ html.a11y-dyslexia body,
 html.a11y-dyslexia body *:not(.a11y-panel):not(.a11y-panel *) {
   font-family: 'OpenDyslexic', 'Helvetica Neue', sans-serif !important;
 }
+
+/* Menu footer: reset and move/hide */
+.a11y-foot { display: flex; flex-direction: column; gap: 10px; padding: 0 16px 16px; }
+.a11y-reset,
+.a11y-move {
+  min-height: 44px;
+  border: 0;
+  border-radius: 10px;
+  font: inherit;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+.a11y-reset { background: var(--color-accent); color: #fff; }
+.a11y-move { background: transparent; color: #111; text-decoration: underline; }
+.a11y-reset:focus-visible,
+.a11y-move:focus-visible { outline: 3px solid #111; outline-offset: 2px; }

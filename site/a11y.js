@@ -135,7 +135,8 @@
   window.TMEA11y = api;
 
   // ─── UI ───
-  var toggle, panel, closeBtn, tileEls = {}, lastFocus = null;
+  var toggle, panel, closeBtn, moveBtn, tileEls = {}, lastFocus = null;
+  var POS_LABELS = ['Bottom left', 'Bottom right', 'Hidden'];
 
   function el(tag, attrs, html) {
     var n = document.createElement(tag);
@@ -178,6 +179,15 @@
     });
     panel.appendChild(grid);
 
+    var foot = el('div', { 'class': 'a11y-foot' });
+    var resetBtn = el('button', { id: 'a11y-reset', 'class': 'a11y-reset', type: 'button' }, 'Reset All Accessibility Settings');
+    resetBtn.addEventListener('click', api.reset);
+    moveBtn = el('button', { id: 'a11y-move', 'class': 'a11y-move', type: 'button' });
+    moveBtn.addEventListener('click', function () { api.cycle('pos'); });
+    foot.appendChild(resetBtn);
+    foot.appendChild(moveBtn);
+    panel.appendChild(foot);
+
     document.body.appendChild(toggle);
     document.body.appendChild(panel);
 
@@ -189,6 +199,7 @@
 
   function render() {
     if (!panel) return;
+    moveBtn.textContent = 'Move/Hide Widget: ' + POS_LABELS[state.pos];
     TILES.forEach(function (t) {
       var b = tileEls[t.key];
       var v = state[t.key];

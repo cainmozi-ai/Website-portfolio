@@ -120,3 +120,43 @@ test('panel has no horizontal scroll at 375px', async () => {
   assert.ok(m.over <= 0, 'page overflow ' + m.over);
   assert.ok(m.right <= m.iw + 0.5, 'panel right edge ' + m.right + ' > ' + m.iw);
 });
+
+test('reset clears every setting and removes all a11y classes', async () => {
+  const page = await newPage(browser, base, '/work/nora.html');
+  await page.evaluate(() => { const a = window.TMEA11y; a.set('text', 2); a.set('links', 1); a.set('contrast', 3); a.set('dyslexia', 1); a.set('saturation', 2); });
+  await page.click('#a11y-toggle');
+  await page.click('#a11y-reset');
+  const s = await page.evaluate(() => ({ get: window.TMEA11y.get(), cls: [...document.documentElement.classList].filter((c) => c.startsWith('a11y-')) }));
+  assert.deepEqual(Object.values(s.get).filter((v) => v !== 0), []);
+  assert.deepEqual(s.cls, []);
+});
+
+test('move cycles bottom-left, bottom-right, hidden', async () => {
+  const page = await newPage(browser, base, '/work/nora.html', { viewport: { width: 1280, height: 800 } });
+  await page.click('#a11y-toggle');
+  const box = () => page.evaluate(() => document.getElementById('a11y-toggle').getBoundingClientRect().toJSON());
+  assert.ok((await box()).left < 100, 'starts bottom-left');
+  await page.click('#a11y-move');
+  assert.ok((await box()).left > 1000, 'moves bottom-right');
+  await page.click('#a11y-move');
+  assert.equal(await visible(page, '#a11y-toggle'), false, 'then hidden');
+  await page.click('#a11y-move');
+  assert.ok((await box()).left < 100, 'then back to bottom-left');
+});
+
+test('hidden position survives reload and the footer link still opens the menu', async () => {
+  const page = await newPage(browser, base, '/work/nora.html');
+  await page.evaluate(() => window.TMEA11y.set('pos', 2));
+  await page.reload();
+  assert.equal(await visible(page, '#a11y-toggle'), false);
+  await page.click('.a11y-footer-link');
+  assert.equal(await visible(page, '#a11y-panel'), true);
+});
+
+test('reset keeps the widget reachable', async () => {
+  const page = await newPage(browser, base, '/work/nora.html');
+  await page.evaluate(() => window.TMEA11y.set('pos', 2));
+  await page.click('.a11y-footer-link');
+  await page.click('#a11y-reset');
+  assert.equal(await visible(page, '#a11y-toggle'), true);
+});
