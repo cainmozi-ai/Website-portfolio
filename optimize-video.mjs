@@ -24,7 +24,8 @@ const M = 'masters/video';   // raw render masters, kept out of the publish fold
 // 26 for the decorative muted loops, which are graded dark and grainy and so
 // cost a lot of bitrate for detail nobody is scrubbing through.
 const JOBS = [
-  { src: `${M}/Showreel (1).mp4`,               out: `${A}/showreel`,             poster: 3, crf: 23 },
+  // V4 reel (73s, with soundtrack): MP4 only, audio kept, plays with controls.
+  { src: `${M}/TME_Showreel_V4_Web.mp4`, out: `${A}/showreel`, poster: 2, crf: 25, audio: true, mp4Only: true },
   // maxH caps the encode at roughly what the player actually renders (max-height: 80vh),
   // so these loops stop shipping 1080p detail nobody sees.
   { src: `${M}/Costa Ad0000-0240.mp4`,    out: `${A}/Costa/costa-ad`,       poster: 2, crf: 28, maxH: 1280 },
