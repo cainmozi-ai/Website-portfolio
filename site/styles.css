@@ -3040,17 +3040,10 @@ html.a11y-images-off canvas {
 }
 html.a11y-images-off * { background-image: none !important; }
 
-/* Dyslexia Friendly: OpenDyslexic (SIL OFL, licence beside the font file) */
-@font-face {
-  font-family: 'OpenDyslexic';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url('assets/fonts/opendyslexic-regular.woff2') format('woff2');
-}
+/* Dyslexia Friendly: Comic Sans (a system font on Windows, macOS and iOS; not bundled) */
 html.a11y-dyslexia body,
 html.a11y-dyslexia body *:not(.a11y-panel):not(.a11y-panel *) {
-  font-family: 'OpenDyslexic', 'Helvetica Neue', sans-serif !important;
+  font-family: 'Comic Sans MS', 'Comic Sans', 'Chalkboard SE', 'Comic Neue', sans-serif !important;
 }
 
 /* Menu footer: reset and move/hide */

@@ -106,18 +106,13 @@ test('stacked text settings leave no horizontal scroll at 375px', async () => {
   }
 });
 
-test('dyslexia setting switches body and titles to OpenDyslexic', async () => {
+test('dyslexia setting switches body and titles to Comic Sans', async () => {
   const page = await newPage(browser, base, '/work/nora.html');
   await set(page, 'dyslexia', 1);
-  const state = await page.evaluate(async () => {
-    await Promise.allSettled([...document.fonts].map((f) => f.load()));
-    return {
-      loaded: [...document.fonts].some((f) => f.family.replace(/"/g, '') === 'OpenDyslexic' && f.status === 'loaded'),
-      body: getComputedStyle(document.querySelector('main p')).fontFamily,
-      title: getComputedStyle(document.querySelector('h1')).fontFamily,
-    };
-  });
-  assert.equal(state.loaded, true);
-  assert.match(state.body, /^"?OpenDyslexic/);
-  assert.match(state.title, /^"?OpenDyslexic/);
+  const state = await page.evaluate(() => ({
+    body: getComputedStyle(document.querySelector('main p')).fontFamily,
+    title: getComputedStyle(document.querySelector('h1')).fontFamily,
+  }));
+  assert.match(state.body, /^"?Comic Sans MS/);
+  assert.match(state.title, /^"?Comic Sans MS/);
 });

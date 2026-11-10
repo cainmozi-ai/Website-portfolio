@@ -6,7 +6,7 @@ Updated 4 November 2026, after the live-site audit. Everything below needs you, 
 
 - **Accessibility menu** on every page (button bottom-left, "Accessibility settings" in the
   footer). Contrast, highlight links, bigger text, text spacing, pause animations, hide
-  images, dyslexia friendly (OpenDyslexic, SIL OFL), line height, text align, saturation,
+  images, dyslexia friendly (Comic Sans, a system font), line height, text align, saturation,
   reset, move/hide. Settings are remembered per device. Tests: `npm test`.
 - **CV and cover letter are intentionally not on the site.**
 
