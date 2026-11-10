@@ -30,6 +30,8 @@ const JOBS = [
   { src: `${M}/Costa Ad0000-0240.mp4`,    out: `${A}/Costa/costa-ad`,       poster: 2, crf: 28, maxH: 1280 },
   { src: `${M}/Partnership teaser 2.mp4`, out: `${A}/Costa/partnership-teaser`, poster: 4, crf: 28, maxH: 720 },
   { src: `${M}/Color render with edt.mp4`, out: `${A}/Midnight/midnight-run`, poster: 5, crf: 28, maxH: 720 },
+  // Has a soundtrack, so it keeps audio and plays with controls (no autoplay).
+  { src: `${M}/Byodoin-VR.mp4`, out: `${A}/Byodo-in/byodoin-vr`, poster: 2, crf: 24, maxH: 1080, audio: true },
   // VP9 with alpha; H.264 has none, so flatten onto the lock screen's white.
   { src: `${A}/ascii-video.webm`, out: `${A}/ascii-video`, poster: 1, crf: 26, mp4Only: true, flatten: '#FFFFFF' },
 ];
@@ -43,7 +45,9 @@ for (const job of JOBS) {
   const mp4 = `${job.out}.mp4`;
   const webm = `${job.out}.webm`;
   const poster = `${job.out}-poster.jpg`;
-  const a = ['-an'];                       // every clip here plays muted
+  const a = ['-an'];                       // most clips here play muted
+  const aMp4 = job.audio ? ['-c:a', 'aac', '-b:a', '96k'] : a;
+  const aWebm = job.audio ? ['-c:a', 'libopus', '-b:a', '64k'] : a;
   const crf = String(job.crf ?? 23);
   // libx264 and libvpx both require even dimensions.
   const cap = job.maxH
@@ -58,7 +62,7 @@ for (const job of JOBS) {
     await run('ffmpeg', ['-y', '-i', job.src,
       ...vf,
       '-c:v', 'libx264', '-crf', crf, '-preset', 'slow',
-      '-pix_fmt', 'yuv420p', '-movflags', '+faststart', ...a, mp4]);
+      '-pix_fmt', 'yuv420p', '-movflags', '+faststart', ...aMp4, mp4]);
     console.log(`  ${mp4}  ${await mb(job.src)} -> ${await mb(mp4)}`);
   }
 
@@ -66,7 +70,7 @@ for (const job of JOBS) {
     await run('ffmpeg', ['-y', '-i', job.src,
       '-vf', cap,
       '-c:v', 'libvpx-vp9', '-crf', String(Number(crf) + 11), '-b:v', '0',
-      '-row-mt', '1', '-deadline', 'good', '-cpu-used', '2', ...a, webm]);
+      '-row-mt', '1', '-deadline', 'good', '-cpu-used', '2', ...aWebm, webm]);
     console.log(`  ${webm}  -> ${await mb(webm)}`);
   }
 
