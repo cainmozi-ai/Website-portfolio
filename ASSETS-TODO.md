@@ -4,6 +4,10 @@ Updated 4 November 2026, after the live-site audit. Everything below needs you, 
 
 ## Added 10 November
 
+- **Showreel V4** (73s, with soundtrack) replaces the March cut. MP4 only, 23MB, encoded with
+  `node optimize-video.mjs` from `masters/video/TME_Showreel_V4_Web.mp4`. If you move it to
+  Vimeo, add `frame-src` to the CSP in `site/_headers` or the embed is blocked silently.
+
 - **Accessibility menu** on every page (button bottom-left, "Accessibility settings" in the
   footer). Contrast, highlight links, bigger text, text spacing, pause animations, hide
   images, dyslexia friendly (Comic Sans, a system font), line height, text align, saturation,
@@ -44,18 +48,8 @@ Updated 4 November 2026, after the live-site audit. Everything below needs you, 
 
 ## Still needs you
 
-- **Showreel recut.** The reel is the March cut: it opens on ~5s of text cards, the
-  Balance shot still carries "COMING SOON AUTUMN 2026", and the grey N.O.R.A. renders
-  take a lot of the runtime. Recut to open on Midnight Run, then Byodo-in, Costa,
-  Balance (overlay removed), N.O.R.A. for a few seconds. The poster is now a Midnight
-  Run frame; if the recut opens on that shot, poster and first frame will match. Do
-  this before pushing if you can: video committed to git can't be removed from history
-  later without rewriting it.
 - **ArtStation.** Held back, per your own rule in `profile-copy.md`: add it once it is
   live with 4+ pieces.
-- **Showreel hosting.** `showreel.mp4` (29 MB) and `.webm` (26 MB) are committed to
-  git. If you move the reel to Vimeo, the embed also needs `frame-src` added to the CSP
-  in `site/_headers` or it will be blocked silently.
 - **N.O.R.A. interface screenshots.** Interface, Database and Testing would be stronger
   with a terminal capture each. Drop them in `site/assets/N.O.R.A/` and they can go back
   in as images.
