@@ -2,6 +2,14 @@
 
 Updated 4 November 2026, after the live-site audit. Everything below needs you, not code.
 
+## Added 10 November
+
+- **Accessibility menu** on every page (button bottom-left, "Accessibility settings" in the
+  footer). Contrast, highlight links, bigger text, text spacing, pause animations, hide
+  images, dyslexia friendly (OpenDyslexic, SIL OFL), line height, text align, saturation,
+  reset, move/hide. Settings are remembered per device. Tests: `npm test`.
+- **CV and cover letter are intentionally not on the site.**
+
 ## Done in this pass
 
 - **No more IN PROGRESS boxes.** All 22 placeholder slots are gone.
@@ -36,11 +44,6 @@ Updated 4 November 2026, after the live-site audit. Everything below needs you, 
 
 ## Still needs you
 
-- **CV.** The only CV is from April: it says "third-year Graphic Design student" and
-  page 2 is a cover-letter template with [Studio Name] placeholders. It was not put on
-  the site. Export an updated one-page PDF (First Class BA, now on the MA, 3D / Motion)
-  to `site/assets/cain-moriarty-cv.pdf` and it can be linked from the contact section.
-  Decide first whether your phone number belongs on a public copy.
 - **Showreel recut.** The reel is the March cut: it opens on ~5s of text cards, the
   Balance shot still carries "COMING SOON AUTUMN 2026", and the grey N.O.R.A. renders
   take a lot of the runtime. Recut to open on Midnight Run, then Byodo-in, Costa,
@@ -59,9 +62,15 @@ Updated 4 November 2026, after the live-site audit. Everything below needs you, 
 - **Armour.** The full-suit renders from 28 October are not on the site, because your
   post log has them on hold (found background, BlenderKit materials). Once the "Still
   Forging" version exists, it can replace the sallet hero and remove the WIP badge.
-- **Open brand decisions** (from `profile-copy.md`): final red, display font. The site
-  currently uses Montserrat and Inter where the brand spec says Gotham Black and
-  Helvetica Neue.
+- **Font licence.** The site now serves Gotham Black and Helvetica Neue (per the brand spec,
+  red `#880808`) from desktop font files, converted to woff2 with `convert-fonts.mjs`. Desktop
+  or aggregator copies normally do not cover web embedding, and the repo is public on GitHub.
+  Buy webfont licences for both (Hoefler&Co for Gotham, Monotype for Helvetica Neue) and
+  re-run the converter on the licensed files before promoting the site widely. Montserrat and
+  Inter remain as fallbacks.
+- **Mobile sideways scroll on the home page.** Section headings split into letters use
+  non-breaking spaces, so long headings cannot wrap and the page layout width grows on phones
+  (same with the old fonts). Fix: wrap per word in `initTextReveal` in `enhancements.js`.
 
 ## Raw masters
 

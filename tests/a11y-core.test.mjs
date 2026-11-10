@@ -160,3 +160,34 @@ test('reset keeps the widget reachable', async () => {
   await page.click('#a11y-reset');
   assert.equal(await visible(page, '#a11y-toggle'), true);
 });
+
+test('keyboard only: Enter opens, Space toggles a tile, Esc closes', async () => {
+  const page = await newPage(browser, base, '/work/nora.html');
+  await page.focus('#a11y-toggle');
+  await page.keyboard.press('Enter');
+  assert.equal(await visible(page, '#a11y-panel'), true);
+  await page.keyboard.press('Tab'); // close button -> first tile
+  assert.equal(await page.evaluate(() => document.activeElement.dataset.key), 'contrast');
+  await page.keyboard.press('Tab'); // Highlight Links
+  await page.keyboard.press('Space');
+  assert.equal(await page.evaluate(() => document.documentElement.classList.contains('a11y-links')), true);
+  assert.equal(await page.evaluate(() => document.activeElement.getAttribute('aria-pressed')), 'true');
+  await page.keyboard.press('Escape');
+  assert.equal(await visible(page, '#a11y-panel'), false);
+});
+
+test('no console or script errors on any page with the menu open', async () => {
+  for (const path of PAGES) {
+    const context = await browser.newContext();
+    const page = await context.newPage();
+    const errors = [];
+    page.on('pageerror', (e) => errors.push(e.message));
+    page.on('console', (m) => { if (m.type() === 'error') errors.push(m.text()); });
+    await page.goto(base + path, { waitUntil: 'load' });
+    await page.click('#a11y-toggle');
+    await page.evaluate(() => { const a = window.TMEA11y; a.set('text', 1); a.set('pause', 1); a.set('images', 1); a.set('dyslexia', 1); });
+    await page.waitForTimeout(250);
+    assert.deepEqual(errors, [], path);
+    await context.close();
+  }
+});
