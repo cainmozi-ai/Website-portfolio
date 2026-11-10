@@ -25,6 +25,31 @@
 }
 
 /* ─── Self-hosted Fonts ─── */
+/* Brand fonts: Gotham Black (titles), Helvetica Neue (body). Montserrat and Inter below are fallbacks. */
+@font-face {
+  font-family: 'Gotham Black';
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url('assets/fonts/gotham-black.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Helvetica Neue';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url('assets/fonts/helveticaneue-light.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Helvetica Neue';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('assets/fonts/helveticaneue-roman.woff2') format('woff2');
+}
+
 @font-face {
   font-family: 'Inter';
   font-style: normal;
@@ -74,8 +99,8 @@
   --color-red-glow: rgba(136, 8, 8, 0.12);
 
   /* Typography */
-  --font-title: 'Montserrat', 'Gotham Black', sans-serif;
-  --font-body: 'Inter', 'Helvetica Neue', sans-serif;
+  --font-title: 'Gotham Black', 'Montserrat', sans-serif;
+  --font-body: 'Helvetica Neue', 'Inter', sans-serif;
   --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
 
   /* Spacing scale (8px base grid) */
